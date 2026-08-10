@@ -224,6 +224,13 @@ export const SidebarPanel = (props: Props) => {
 					)
 				}
 				{
+					(!useRows && props.hero.picture) ?
+						<div className='overview-tile clickable portrait-tile' onClick={onShowVitals}>
+							<img className='hero-portrait' src={props.hero.picture} alt={props.hero.name || 'Hero'} />
+						</div>
+						: null
+				}
+				{
 					useRows ?
 						null
 						:
