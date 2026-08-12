@@ -2,6 +2,7 @@ import axios, { AxiosError, AxiosInstance } from 'axios';
 import { Config } from '@/utils/config';
 import { ConnectionSettings } from '@/models/connection-settings';
 import { Hero } from '@/models/hero';
+import { HeroLogic } from '@/logic/hero-logic';
 import { Session } from '@/models/session';
 import { Sourcebook } from '@/models/sourcebook';
 import { StorageService } from '@/services/storage/storage-service';
@@ -202,7 +203,17 @@ export class WarehouseService implements StorageService {
 			if (!hero.id?.length) {
 				hero.id = Utils.guid();
 			}
-			await this.api.put(`data/forgesteel-heroes/${hero.id}`, hero);
+			const heroicResources = HeroLogic.getHeroicResources(hero);
+			// heroicResources[0] is whichever resource resolves first; fine for single-resource heroes,
+			// not guaranteed to be the "primary" one for every multiclass edge case
+			const payload = {
+				...hero,
+				staminaMax: HeroLogic.getStamina(hero),
+				recoveriesMax: HeroLogic.getRecoveries(hero),
+				heroicResourceValue: heroicResources[0]?.value,
+				heroicResourceName: heroicResources[0]?.name
+			};
+			await this.api.put(`data/forgesteel-heroes/${hero.id}`, payload);
 			return hero;
 		} catch (error) {
 			console.error('Error communicating with FS Warehouse', error);
