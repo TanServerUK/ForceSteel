@@ -32,6 +32,7 @@ export const HealthGauge = (props: Props) => {
 						percent={100 * props.staminaTemp.staminaTemp / props.stamina!.staminaMax}
 						showInfo={false}
 						status='active'
+						strokeColor='var(--fs-vital-stamina-temp)'
 					/>
 					: null
 			}
@@ -41,6 +42,7 @@ export const HealthGauge = (props: Props) => {
 				percent={100 * (props.stamina!.staminaMax - props.stamina!.staminaDamage) / props.stamina!.staminaMax}
 				showInfo={false}
 				status={(props.stamina!.state === 'winded') ? 'exception' : 'active'}
+				strokeColor='var(--fs-vital-stamina)'
 			/>
 			{
 				props.recoveries && (props.recoveries.recoveriesMax > 0) ?
