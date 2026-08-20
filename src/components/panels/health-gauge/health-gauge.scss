@@ -13,9 +13,16 @@
 		transform: scale(1.6);
 	}
 
-	.stamina-progress {
+	.stamina-progress-wrap {
 		position: absolute;
 		transform: scale(1.3);
+
+		.stamina-winded-hatch {
+			position: absolute;
+			top: 0;
+			left: 0;
+			pointer-events: none;
+		}
 	}
 
 	.recovery-progress {
