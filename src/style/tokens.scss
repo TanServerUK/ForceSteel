@@ -59,6 +59,7 @@
 
 	/// Vitals: Stamina, its temporary buffer, the Heroic Resource, and Surges.
 	--fs-vital-stamina: #C24240;
+	--fs-vital-stamina-winded: #7A1F1F;
 	--fs-vital-stamina-temp: #647C30;
 	--fs-vital-resource: #4F6FAD;
 	--fs-vital-surges: #A78229;
@@ -94,6 +95,7 @@ html[data-theme='dark'] {
 	--fs-border: rgba(250, 250, 250, 0.6);
 	--fs-control-surface: rgb(80, 80, 80);
 	--fs-vital-stamina: #C24240;
+	--fs-vital-stamina-winded: #7A1F1F;
 	--fs-vital-stamina-temp: #647C30;
 	--fs-vital-resource: #4F6FAD;
 	--fs-vital-surges: #A78229;
