@@ -1,3 +1,4 @@
+import { FSDataSource } from '@/models/connection-settings';
 import { FactoryLogic } from '@/logic/factory-logic';
 import { Hero } from '@/models/hero';
 import { Options } from '@/models/options';
@@ -38,6 +39,18 @@ export class DataService {
 
 	async getHeroes(): Promise<Hero[]> {
 		return this.storageService.getHeroes();
+	};
+
+	// Local storage always returns full heroes; remote sources return partials
+	// (name/folder only), so each one needs an individual full fetch.
+	async getAllHeroes(source: FSDataSource): Promise<Hero[]> {
+		if (source === 'Local') {
+			return this.getHeroes();
+		}
+
+		const heroPartials = await this.getHeroes();
+		const heroes = await Promise.all(heroPartials.map(p => this.getHero(p.id)));
+		return heroes.filter((h): h is Hero => !!h);
 	};
 
 	async getHero(id: string): Promise<Hero | null> {

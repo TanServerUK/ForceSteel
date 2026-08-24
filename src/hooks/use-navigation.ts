@@ -50,6 +50,9 @@ export const useNavigation = () => {
 		},
 		goToClocktower: () => {
 			return navigate('/clocktower');
+		},
+		goToDashboard: () => {
+			return navigate('/dashboard');
 		}
 	};
 };
