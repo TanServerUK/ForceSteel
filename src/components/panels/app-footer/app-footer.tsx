@@ -1,4 +1,4 @@
-import { BookOutlined, DatabaseFilled, InfoCircleOutlined, PlayCircleOutlined, ReadOutlined, SettingOutlined, TeamOutlined, WarningFilled } from '@ant-design/icons';
+import { BookOutlined, DashboardOutlined, DatabaseFilled, InfoCircleOutlined, PlayCircleOutlined, ReadOutlined, SettingOutlined, TeamOutlined, WarningFilled } from '@ant-design/icons';
 import { Button, Divider, Drawer, Flex, Space, Tag } from 'antd';
 import { ButtonConfig, ButtonGroup } from '@/components/controls/button-group/button-group';
 import { useDataManager, useOptions } from '@/contexts/data-context';
@@ -25,7 +25,7 @@ export interface FooterParams {
 }
 
 interface Props {
-	page: 'welcome' | 'heroes' | 'library' | 'session' | 'player-view' | 'clocktower';
+	page: 'welcome' | 'heroes' | 'library' | 'session' | 'dashboard' | 'player-view' | 'clocktower';
 	hero: Hero | null;
 	params: FooterParams;
 }
@@ -83,6 +83,10 @@ export const AppFooter = (props: Props) => {
 							<Divider orientation='vertical' />
 							<Button type='text' className={props.page === 'session' ? 'selected' : ''} icon={<PlayCircleOutlined />} onClick={() => navigation.goToSession()}>
 								{isSmall ? null : 'Session'}
+							</Button>
+							<Divider orientation='vertical' />
+							<Button type='text' className={props.page === 'dashboard' ? 'selected' : ''} icon={<DashboardOutlined />} onClick={() => navigation.goToDashboard()}>
+								{isSmall ? null : 'Dashboard'}
 							</Button>
 						</Flex>
 				}

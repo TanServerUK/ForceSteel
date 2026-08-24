@@ -2,6 +2,7 @@ import { ActionDispatch, PropsWithChildren, createContext, useContext, useMemo, 
 import { Analytics } from '@/utils/analytics';
 import { Collections } from '@/utils/collections';
 import { DataService } from '@/services/data-service';
+import { FSDataSource } from '@/models/connection-settings';
 import { Hero } from '@/models/hero';
 import { Options } from '@/models/options';
 import { Session } from '@/models/session';
@@ -13,7 +14,7 @@ interface DataManagerDispatchers {
 	options: ActionDispatch<[ReducerAction<Options>]>;
 	session: ActionDispatch<[ReducerAction<Session>]>;
 	hiddenSourcebooks: ActionDispatch<[ReducerAction<string[]>]>;
-	hero: ActionDispatch<[ReducerAction<Hero>]>;
+	hero: ActionDispatch<[ReducerAction<Hero> | ReducerAction<Hero[]>]>;
 	sourcebooks: ActionDispatch<[ReducerAction<Sourcebook>]>;
 }
 
@@ -22,7 +23,7 @@ export class DataManager {
 	private readonly optionsDispatch: ActionDispatch<[ReducerAction<Options>]>;
 	private readonly sessionDispatch: ActionDispatch<[ReducerAction<Session>]>;
 	private readonly hiddenSourcebooksDispatch:	ActionDispatch<[ReducerAction<string[]>]>;
-	private readonly heroDispatch: ActionDispatch<[ReducerAction<Hero>]>;
+	private readonly heroDispatch: ActionDispatch<[ReducerAction<Hero> | ReducerAction<Hero[]>]>;
 	private readonly sourcebookDispatch: ActionDispatch<[ReducerAction<Sourcebook>]>;
 
 	constructor(service: DataService, dispatchers: DataManagerDispatchers) {
@@ -84,6 +85,16 @@ export class DataManager {
 			});
 	}
 
+	async refreshHeroes(source: FSDataSource) {
+		return this.dataService.getAllHeroes(source)
+			.then(heroes => {
+				this.heroDispatch({
+					type: ReducerActionKind.REPLACE_ALL,
+					payload: heroes
+				});
+			});
+	}
+
 	async saveSourcebook(sourcebook: Sourcebook) {
 		return this.dataService.saveSourcebook(sourcebook)
 			.then(sourcebook => {
@@ -107,7 +118,8 @@ export class DataManager {
 
 enum ReducerActionKind {
 	UPDATE = 'Update',
-	DELETE = 'Delete'
+	DELETE = 'Delete',
+	REPLACE_ALL = 'ReplaceAll'
 }
 
 interface ReducerAction<T> {
@@ -169,11 +181,14 @@ export function DataManagerProvider(props: PropsWithChildren<DataManagerProps>) 
 		}
 	}
 
-	function HeroesReducer(currentHeroes: Hero[], action: ReducerAction<Hero>) {
+	function HeroesReducer(currentHeroes: Hero[], action: ReducerAction<Hero> | ReducerAction<Hero[]>) {
 		let newHeroes: Hero[];
 		switch (action.type) {
+			case ReducerActionKind.REPLACE_ALL: {
+				return Utils.copy(action.payload as Hero[]);
+			}
 			case ReducerActionKind.UPDATE: {
-				const hero = action.payload;
+				const hero = action.payload as Hero;
 				const copy = Utils.copy(currentHeroes);
 				if (currentHeroes.some(h => h.id === hero.id)) {
 					Analytics.logHeroEdited(hero);
@@ -190,7 +205,7 @@ export function DataManagerProvider(props: PropsWithChildren<DataManagerProps>) 
 				return newHeroes;
 			}
 			case ReducerActionKind.DELETE: {
-				const hero = action.payload;
+				const hero = action.payload as Hero;
 				const newHeroes = Utils.copy(currentHeroes.filter(h => h.id !== hero.id));
 				return newHeroes;
 			}

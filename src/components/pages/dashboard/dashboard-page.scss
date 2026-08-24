@@ -1,0 +1,18 @@
+.dashboard-page {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+
+	.dashboard-page-content {
+		background-color: var(--fs-canvas);
+		flex: 1 1 0;
+		padding: 20px;
+		overflow-y: auto;
+	}
+}
+
+.dashboard-tile-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+	gap: 20px;
+}
