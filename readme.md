@@ -14,6 +14,7 @@
 - [Library](#library)
 - [Homebrew](#homebrew)
 - [Session](#session)
+- [About this fork](#about-this-fork)
 - [Legal](#legal)
 - [Development](#development)
 
@@ -56,6 +57,17 @@ When it's time to play, the Session screen runs what you built in the Library. T
   <img src="./src/assets/screenshots/session-encounter.png" alt="Running an encounter" width="49%" />
   <img src="./src/assets/screenshots/session-negotiation.png" alt="Running a negotiation" width="49%" />
 </p>
+
+## About this fork
+
+This is a self-hosted fork of [andyaiken/forgesteel](https://github.com/andyaiken/forgesteel). `main` is merged from upstream automatically every day; `dev` is where fork-specific work lands before it's merged into `main`. On top of upstream, this fork adds:
+
+- **GM Dashboard** - a read-only page listing every active hero's portrait, health gauge, stamina/recoveries/temporary stamina, heroic resource, surges, and current conditions at a glance. It refreshes itself on an interval and whenever the tab regains focus, so a Director doesn't need to hard-refresh to see changes made elsewhere (e.g. by players connected to the same Warehouse).
+- **Saved Warehouse connection profiles** - save a connected Warehouse host and token as a named "campaign" from Connection Settings, then switch between saved campaigns instead of re-entering credentials.
+- **Recolored vitals** - stamina, temporary stamina, heroic resource, and surges controls each get their own distinct color, and the stamina ring gets a hashed texture while winded.
+- **Hero portrait above the sidebar's Stamina/Recoveries gauge.**
+- **Fix:** a hero's current heroic resource value (and any toggle feature's on/off state) now survives an app reload. Previously, reloading rebuilt a hero's class from the sourcebook template - picking up content updates correctly, but also silently resetting the heroic resource back to its template default every time.
+- A few extra derived fields (max stamina, max recoveries, current heroic resource) are included alongside the full hero record when saving to Warehouse, for other tools that read hero data without wanting to recompute those themselves.
 
 ## Legal
 
