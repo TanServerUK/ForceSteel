@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, test, vi } from 'vitest';
 import { ConnectionSettings } from '@/models/connection-settings';
+import { FactoryLogic } from '@/logic/factory-logic';
 import { Hero } from '@/models/hero';
 import MockAdapter from 'axios-mock-adapter';
 import { Session } from '@/models/session';
@@ -154,7 +155,7 @@ describe('WarehouseService', () => {
 
 	describe('putHero', () => {
 		test('ensures a hero has an id', async () => {
-			const mockHero = { name: 'test-hero' } as Hero;
+			const mockHero: Hero = { ...FactoryLogic.createHero(), id: '', name: 'test-hero' };
 
 			mockAdapter.onPut(new RegExp('/data/forgesteel-heroes/*')).reply(config => {
 				expect(config.headers?.Authorization).toBe('Bearer fake_token');
@@ -178,7 +179,7 @@ describe('WarehouseService', () => {
 		});
 
 		test('calls the correct api endpoint with the correct authorization', async () => {
-			const mockHero = { id: 'test-hero' } as Hero;
+			const mockHero: Hero = { ...FactoryLogic.createHero(), id: 'test-hero' };
 
 			mockAdapter.onPut('data/forgesteel-heroes/test-hero').reply(config => {
 				expect(config.headers?.Authorization).toBe('Bearer fake_token');
@@ -198,7 +199,7 @@ describe('WarehouseService', () => {
 		});
 
 		test('refreshes the token if it has expired', async () => {
-			const mockHero = { id: 'test-hero' } as Hero;
+			const mockHero: Hero = { ...FactoryLogic.createHero(), id: 'test-hero' };
 
 			mockAdapter
 				.onPut('data/forgesteel-heroes/test-hero')
