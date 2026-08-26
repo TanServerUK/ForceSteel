@@ -17,7 +17,7 @@ jobs:
       - name: Set image name and tag
         run: |
           OWNER=$(echo '${{ github.repository_owner }}' | tr '[:upper:]' '[:lower:]')
-          echo "IMAGE_NAME=ghcr.io/$OWNER/forgesteel" >> $GITHUB_ENV
+          echo "IMAGE_NAME=ghcr.io/$OWNER/forcesteel" >> $GITHUB_ENV
           if [ "${{ github.ref_name }}" = "main" ]; then
             echo "IMAGE_TAG=latest" >> $GITHUB_ENV
           else
