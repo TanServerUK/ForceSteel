@@ -21,6 +21,9 @@ jobs:
       - name: Rebase our fork-only commits onto upstream
         id: sync
         run: |
+          # Only used as a fallback identity; every replayed commit has its
+          # committer reset to match its own author via --exec below, so
+          # github-actions[bot] never ends up attributed as a contributor.
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
@@ -34,7 +37,7 @@ jobs:
             exit 0
           fi
 
-          if git rebase upstream/main; then
+          if git rebase upstream/main --exec 'GIT_COMMITTER_NAME="$(git log -1 --format=%an)" GIT_COMMITTER_EMAIL="$(git log -1 --format=%ae)" GIT_COMMITTER_DATE="$(git log -1 --format=%ad)" git commit --amend --no-edit'; then
             git push --force-with-lease origin main
             echo "pushed=true" >> "$GITHUB_OUTPUT"
           else
