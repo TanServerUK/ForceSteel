@@ -680,7 +680,7 @@ export class LeveledWeaponData {
 		name: 'Onerous Bow',
 		description: 'This mechanized bow is set with magical reservoirs that carry the faint tang of toxins.',
 		type: ItemType.LeveledWeapon,
-		keywords: [ KitWeapon.Bow, AbilityKeyword.Magic ],
+		keywords: [ KitWeapon.Blaster, AbilityKeyword.Magic ],
 		crafting: FactoryLogic.createProject({
 			prerequisites: 'A venom sac from a giant spider, one valok gyroscope',
 			source: 'Texts or lore in Caelian and Variac',
@@ -808,7 +808,7 @@ export class LeveledWeaponData {
 		name: 'Third Eye Seeker',
 		description: 'The shifting patterns on this bow’s crystalline grip resemble dozens of blinking eyes.',
 		type: ItemType.LeveledWeapon,
-		keywords: [ KitWeapon.Bow, AbilityKeyword.Psionic ],
+		keywords: [ KitWeapon.Blaster, AbilityKeyword.Psionic ],
 		crafting: FactoryLogic.createProject({
 			prerequisites: 'Heart strings of a tapir, a pound of tiger\'s eye gemstones',
 			source: 'Texts or lore in Variac',

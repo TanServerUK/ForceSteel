@@ -61,7 +61,7 @@ export class AbilityLogic {
 			KitArmor.Light,
 			KitArmor.Medium,
 			KitArmor.Shield,
-			KitWeapon.Bow,
+			KitWeapon.Blaster,
 			KitWeapon.Ensnaring,
 			KitWeapon.Heavy,
 			KitWeapon.Light,

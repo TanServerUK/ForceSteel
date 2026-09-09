@@ -161,7 +161,7 @@ const bloodcaster = FactoryLogic.createItem({
 
 Another body. Blood stains where the wounds should be, but no cuts in the skin. Inspector Calum thinks it’s magic, but the ‘hits’ are too precise. No, this is a pro’s work; that damned assassin is back in town.`,
 	type: ItemType.LeveledWeapon,
-	keywords: [ KitWeapon.Bow, AbilityKeyword.Magic ],
+	keywords: [ KitWeapon.Blaster, AbilityKeyword.Magic ],
 	crafting: FactoryLogic.createProject({
 		prerequisites: 'A crossbow made of ebony wood, an obsidian vial filled with humanoid blood',
 		source: 'Texts or lore in Riojan',

@@ -743,7 +743,7 @@ export const HeroCustomizeModal = (props: Props) => {
 							placeholder='Weapons'
 							mode='tags'
 							allowClear={true}
-							options={[ KitWeapon.Bow, KitWeapon.Ensnaring, KitWeapon.Heavy, KitWeapon.Light, KitWeapon.Medium, KitWeapon.Polearm, KitWeapon.Unarmed, KitWeapon.Whip ].map(option => ({ value: option }))}
+							options={[ KitWeapon.Blaster, KitWeapon.Ensnaring, KitWeapon.Heavy, KitWeapon.Light, KitWeapon.Medium, KitWeapon.Polearm, KitWeapon.Unarmed, KitWeapon.Whip ].map(option => ({ value: option }))}
 							optionRender={option => <div className='ds-text'>{option.data.value}</div>}
 							value={feature.data.weapons}
 							onChange={setProficiencyWeapons}

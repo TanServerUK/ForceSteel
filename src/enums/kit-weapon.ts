@@ -1,5 +1,5 @@
 export enum KitWeapon {
-	Bow = 'Bow',
+	Blaster = 'Blaster',
 	Ensnaring = 'Ensnaring Weapon',
 	Heavy = 'Heavy Weapon',
 	Light = 'Light Weapon',

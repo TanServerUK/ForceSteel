@@ -594,7 +594,7 @@ export const beastheartSourcebook: Sourcebook = {
 			description: '(Beastheart only) This bow is festooned with mirrors and sights pointing in all directions.',
 			type: ItemType.LeveledWeapon,
 			keywords: [
-				KitWeapon.Bow,
+				KitWeapon.Blaster,
 				AbilityKeyword.Magic
 			],
 			crafting: {
