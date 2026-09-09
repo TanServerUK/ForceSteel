@@ -10,7 +10,7 @@ export const sniper: Kit = {
 	description: 'The Sniper kit gives you the tools and techniques to take down enemies from afar. This kit can help you become the archer who lurks behind trees or down tunnels, picking off enemies with a bow or crossbow as they approach.',
 	type: '',
 	armor: [],
-	weapon: [ KitWeapon.Bow ],
+	weapon: [ KitWeapon.Blaster ],
 	stamina: 0,
 	speed: 1,
 	stability: 0,

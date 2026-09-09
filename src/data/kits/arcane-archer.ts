@@ -10,7 +10,7 @@ export const arcaneArcher: Kit = {
 	description: 'The Arcane Archer kit allows you to combine magic and ranged weapon strikes. Your lack of armor keeps you mobile, and your magic makes your arrows explode to devastate your foes.',
 	type: '',
 	armor: [],
-	weapon: [ KitWeapon.Bow ],
+	weapon: [ KitWeapon.Blaster ],
 	stamina: 0,
 	speed: 1,
 	stability: 0,
