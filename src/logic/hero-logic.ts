@@ -10,6 +10,7 @@ import { Ancestry } from '@/models/ancestry';
 import { AncestryData } from '@/data/ancestry-data';
 import { Characteristic } from '@/enums/characteristic';
 import { Collections } from '@/utils/collections';
+import { Complication } from '@/models/complication';
 import { ConditionType } from '@/enums/condition-type';
 import { CreatureLogic } from '@/logic/creature-logic';
 import { CultureData } from '@/data/culture-data';
@@ -276,10 +277,6 @@ export class HeroLogic {
 				feature.name = customization.name || feature.name;
 				feature.description = customization.description || feature.description;
 
-				if (customization.notes) {
-					feature.description += `\n\n${customization.notes}`;
-				}
-
 				return { feature: feature, source: f.source, level: f.level };
 			});
 	};
@@ -432,6 +429,16 @@ export class HeroLogic {
 			.map(f => f.feature)
 			.filter(f => f.type === FeatureType.Kit)
 			.flatMap(f => f.data.selected);
+	};
+
+	static getComplications = (hero: Hero): Complication[] => {
+		return [
+			hero.complication,
+			...HeroLogic.getFeatures(hero)
+				.map(f => f.feature)
+				.filter(f => f.type === FeatureType.Complication)
+				.map(f => f.data.selected)
+		].filter(c => c !== null);
 	};
 
 	static getTitles = (hero: Hero) => {
@@ -1284,9 +1291,12 @@ export class HeroLogic {
 				let gains = [];
 				switch (f.data.type) {
 					case 'heroic': {
-						const gainsFromFeatures = features
-							.filter(g => g.type === FeatureType.HeroicResourceGain)
-							.map(g => g.data);
+						// Resource gain features don't name a resource, so they key off the hero's heroic resource
+						const gainsFromFeatures = f.name === defaultResourceName ?
+							features
+								.filter(g => g.type === FeatureType.HeroicResourceGain)
+								.map(g => g.data)
+							: [];
 
 						const gainsFromDomains = HeroLogic.getDomains(hero)
 							.flatMap(d => d.resourceGains)

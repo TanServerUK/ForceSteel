@@ -39,16 +39,41 @@ export default defineConfig({
 				dir: 'ltr',
 				icons: [
 					{
-						src: '/shield.png',
+						src: '/icon-192.png',
 						sizes: '192x192',
 						type: 'image/png',
-						purpose: 'any maskable'
+						purpose: 'any'
 					},
 					{
 						src: '/shield.png',
 						sizes: '512x512',
 						type: 'image/png',
-						purpose: 'any maskable'
+						purpose: 'any'
+					},
+					{
+						// Padded so the whole shield sits inside the maskable safe
+						// zone (centred circle, 80% of the canvas). The unpadded
+						// icons above lose ~24% of the glyph to Android's mask.
+						src: '/icon-maskable-512.png',
+						sizes: '512x512',
+						type: 'image/png',
+						purpose: 'maskable'
+					}
+				],
+				// Drives Chrome's rich install dialog. `sizes` must match each
+				// file exactly, or the screenshot is silently dropped.
+				screenshots: [
+					{
+						src: '/pwa/wide.png',
+						sizes: '2732x2048',
+						type: 'image/png',
+						form_factor: 'wide'
+					},
+					{
+						src: '/pwa/narrow.png',
+						sizes: '1320x2868',
+						type: 'image/png',
+						form_factor: 'narrow'
 					}
 				]
 			},

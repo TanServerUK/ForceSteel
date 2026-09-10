@@ -55,12 +55,23 @@ export class HeroSheetBuilder {
 			fixtures: [],
 			featuresReferenceOther: [],
 			extraReferenceItems: [],
+			extraComplications: [],
 
 			notes: hero.state.notes
 		};
 
 		const coveredFeatureIds: string[] = [];
-		const allFeatures = HeroLogic.getFeatures(hero);
+		const allFeatures = HeroLogic.getFeatures(hero).map(f => {
+			const notes = hero.abilityCustomizations.find(ac => ac.abilityID === f.feature.id)?.notes;
+			if (!notes) {
+				return f;
+			}
+
+			const feature = Utils.copy(f.feature);
+			feature.description += `\n\n${notes}`;
+
+			return { feature: feature, source: f.source, level: f.level };
+		});
 
 		// Package Contents handled within packages
 		const packageContents = allFeatures.filter(f => f.feature.type == FeatureType.PackageContent);
@@ -328,6 +339,22 @@ export class HeroSheetBuilder {
 			coveredFeatureIds.push(...ClassicSheetLogic.flattenMultiples(hero.complication.features).map(f => f.id));
 		}
 
+		// Complications added through Customize get a card each, alongside the builder's one
+		allFeatures
+			.map(f => f.feature)
+			.filter(f => f.type === FeatureType.Complication)
+			.map(f => f.data.selected)
+			.filter(c => c !== null)
+			.forEach(complication => {
+				sheet.extraComplications.push(this.buildComplicationSheet(complication));
+
+				coveredFeatureIds.push(...ClassicSheetLogic.flattenMultiples(complication.features).map(f => f.id));
+			});
+		// The wrapper feature itself is covered by the card its selection produces
+		coveredFeatureIds.push(...allFeatures
+			.filter(f => f.feature.type === FeatureType.Complication)
+			.map(f => f.feature.id));
+
 		const skillsMap = new Map<string, string[]>();
 		const allSkills = SourcebookLogic.getSkills(sourcebooks).reduce((map, skill) => {
 			const skillList = map.get(skill.list.toString()) || [];
@@ -481,7 +508,7 @@ export class HeroSheetBuilder {
 			case FeatureType.Bonus: {
 				value = ModifierLogic.calculateModifierValue(feature.data, hero);
 				const field = feature.data.field.toString();
-				HeroSheetBuilder.modifierFieldMapping[field](sheet, value);
+				HeroSheetBuilder.modifierFieldMapping[field]?.(sheet, value);
 				break;
 			}
 			case FeatureType.AbilityDistance:

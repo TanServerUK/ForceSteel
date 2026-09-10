@@ -11,6 +11,14 @@ import { registerSW } from 'virtual:pwa-register';
 
 import './style/index.scss';
 
+if (window.navigator.storage && window.navigator.storage.persist) {
+	window.navigator.storage
+		.persist()
+		.catch(() => {
+			// Nothing to do here
+		});
+}
+
 initializeTheme();
 
 // Register Service Worker for PWA functionality

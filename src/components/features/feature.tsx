@@ -3,6 +3,7 @@ import { ConfigAncestryFeatureChoice, EditAncestryFeatureChoice, InfoAncestryFea
 import { ConfigChoice, EditChoice, InfoChoice } from '@/components/features/feature-data/choice';
 import { ConfigClassAbility, EditClassAbility, InfoClassAbility } from '@/components/features/feature-data/class-ability';
 import { ConfigCompanion, InfoCompanion } from '@/components/features/feature-data/companion';
+import { ConfigComplication, InfoComplication } from '@/components/features/feature-data/complication';
 import { ConfigDomain, EditDomain, InfoDomain } from '@/components/features/feature-data/domain';
 import { ConfigDomainFeature, EditDomainFeature, InfoDomainFeature } from '@/components/features/feature-data/domain-feature';
 import { ConfigItemChoice, EditItemChoice, InfoItemChoice } from '@/components/features/feature-data/item-choice';
@@ -49,6 +50,7 @@ import { EditTaggedFeature, InfoTaggedFeature } from '@/components/features/feat
 import { Feature, FeatureData } from '@/models/feature';
 import { EditAbilityData } from '@/components/features/feature-data/ability';
 import { EditAddOn } from '@/components/features/feature-data/addon';
+import { EditFollower } from '@/components/features/feature-data/follower';
 import { EditMaliceAbility } from '@/components/features/feature-data/malice-ability';
 import { EditPackageContent } from '@/components/features/feature-data/package-content';
 import { FeatureType } from '@/enums/feature-type';
@@ -85,6 +87,8 @@ export const InfoFeature = (props: InfoProps) => {
 			return <InfoClassAbility data={props.feature.data} feature={props.feature} hero={props.hero} sourcebooks={props.sourcebooks} />;
 		case FeatureType.Companion:
 			return <InfoCompanion data={props.feature.data} feature={props.feature} hero={props.hero} sourcebooks={props.sourcebooks} />;
+		case FeatureType.Complication:
+			return <InfoComplication data={props.feature.data} feature={props.feature} hero={props.hero} sourcebooks={props.sourcebooks} />;
 		case FeatureType.ConditionImmunity:
 			return <InfoConditionImmunity data={props.feature.data} feature={props.feature} hero={props.hero} sourcebooks={props.sourcebooks} />;
 		case FeatureType.DamageModifier:
@@ -204,6 +208,8 @@ export const EditFeature = (props: EditProps) => {
 			return <EditDomainFeature data={props.feature.data} sourcebooks={props.sourcebooks} setData={props.setData} />;
 		case FeatureType.Fixture:
 			return <EditFixture data={props.feature.data} sourcebooks={props.sourcebooks} setData={props.setData} />;
+		case FeatureType.Follower:
+			return <EditFollower data={props.feature.data} sourcebooks={props.sourcebooks} setData={props.setData} />;
 		case FeatureType.ForController:
 			return <EditForController data={props.feature.data} sourcebooks={props.sourcebooks} setData={props.setData} />;
 		case FeatureType.HeroicResource:
@@ -294,6 +300,8 @@ export const ConfigFeature = (props: ConfigProps) => {
 			return <ConfigClassAbility data={props.feature.data} hero={props.hero} feature={props.feature} sourcebooks={props.sourcebooks} setData={props.setData} />;
 		case FeatureType.Companion:
 			return <ConfigCompanion data={props.feature.data} hero={props.hero} feature={props.feature} sourcebooks={props.sourcebooks} setData={props.setData} />;
+		case FeatureType.Complication:
+			return <ConfigComplication data={props.feature.data} hero={props.hero} feature={props.feature} sourcebooks={props.sourcebooks} setData={props.setData} />;
 		case FeatureType.Domain:
 			return <ConfigDomain data={props.feature.data} hero={props.hero} feature={props.feature} sourcebooks={props.sourcebooks} setData={props.setData} />;
 		case FeatureType.DomainFeature:
