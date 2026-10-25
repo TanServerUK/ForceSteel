@@ -10,7 +10,6 @@ import { FactoryLogic } from '@/logic/factory-logic';
 import { HeaderText } from '@/components/controls/header-text/header-text';
 import { Hero } from '@/models/hero';
 import { Monster } from '@/models/monster';
-import { MonsterEditPanel } from '@/components/panels/edit/monster-edit/monster-edit-panel';
 import { MonsterInfo } from '@/components/panels/token/token';
 import { MonsterLogic } from '@/logic/monster-logic';
 import { MonsterModal } from '@/components/modals/monster/monster-modal';
@@ -23,9 +22,9 @@ import { SelectablePanel } from '@/components/controls/selectable-panel/selectab
 import { SelectionBox } from '@/components/panels/feature-config-panel/feature-config-panel';
 import { Sourcebook } from '@/models/sourcebook';
 import { Summon } from '@/models/summon';
+import { SummonEditPanel } from '@/components/panels/edit/summon-edit/summon-edit-panel';
 import { SummonLogic } from '@/logic/summon-logic';
 import { SummonSelectModal } from '@/components/modals/select/summon-select/summon-select-modal';
-import { Toggle } from '@/components/controls/toggle/toggle';
 import { Utils } from '@/utils/utils';
 import { useState } from 'react';
 
@@ -111,30 +110,9 @@ export const EditSummonChoice = (props: EditProps) => {
 		props.setData(copy);
 	};
 
-	const setSummonChoiceIsSignature = (data: FeatureSummonChoiceData, index: number, value: boolean) => {
+	const setSummonChoice = (data: FeatureSummonChoiceData, index: number, value: Summon) => {
 		const copy = Utils.copy(data);
-		copy.options[index].info.isSignature = value;
-		setData(copy);
-		props.setData(copy);
-	};
-
-	const setSummonChoiceCost = (data: FeatureSummonChoiceData, index: number, value: number) => {
-		const copy = Utils.copy(data);
-		copy.options[index].info.cost = value;
-		setData(copy);
-		props.setData(copy);
-	};
-
-	const setSummonChoiceCount = (data: FeatureSummonChoiceData, index: number, value: number) => {
-		const copy = Utils.copy(data);
-		copy.options[index].info.count = value;
-		setData(copy);
-		props.setData(copy);
-	};
-
-	const setSummonChoiceMonster = (data: FeatureSummonChoiceData, index: number, value: Monster) => {
-		const copy = Utils.copy(data);
-		copy.options[index].monster = value;
+		copy.options[index] = value;
 		setData(copy);
 		props.setData(copy);
 	};
@@ -166,14 +144,10 @@ export const EditSummonChoice = (props: EditProps) => {
 							<DangerButton key='delete' mode='clear' onConfirm={e => { e.stopPropagation(); deleteSummonChoice(data, n); }} />
 						]}
 					>
-						<HeaderText>Summoning</HeaderText>
-						<Toggle label='Is signature' value={summon.info.isSignature} onChange={value => setSummonChoiceIsSignature(data, n, value)} />
-						<NumberSpin min={1} label='Cost' value={summon.info.cost} onChange={value => setSummonChoiceCost(data, n, value)} />
-						<NumberSpin min={1} label='Count' value={summon.info.count} onChange={value => setSummonChoiceCount(data, n, value)} />
-						<MonsterEditPanel
-							monster={summon.monster}
+						<SummonEditPanel
+							summon={summon}
 							sourcebooks={props.sourcebooks}
-							onChange={m => setSummonChoiceMonster(data, n, m)}
+							onChange={value => setSummonChoice(data, n, value)}
 						/>
 					</Expander>
 				))

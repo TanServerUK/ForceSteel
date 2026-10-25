@@ -1,6 +1,9 @@
+import { Ability, AbilityDistance } from '@/models/ability';
 import { Feature, FeatureBonus, FeatureMovementMode, FeatureRollModifierData, FeatureSize, FeatureSkillCancelChoice, FeatureSkillChoice, FeatureSummonChoice, FeatureSummonChoiceData, FeatureToggle } from '@/models/feature';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { AbilityData } from '@/data/ability-data';
+import { AbilityDistanceType } from '@/enums/ability-distance-type';
+import { AbilityKeyword } from '@/enums/ability-keyword';
 import { Characteristic } from '@/enums/characteristic';
 import { Collections } from '@/utils/collections';
 import { FactoryLogic } from '@/logic/factory-logic';
@@ -9,8 +12,14 @@ import { FeatureLogic } from '@/logic/feature-logic';
 import { FeatureType } from '@/enums/feature-type';
 import { Hero } from '@/models/hero';
 import { HeroLogic } from '@/logic/hero-logic';
+import { ImbuedWeaponData } from '@/data/imbuements/imbued-weapon-data';
+import { Item } from '@/models/item';
+import { ItemType } from '@/enums/item-type';
 import { Kit } from '@/models/kit';
+import { KitData } from '@/data/kit-data';
+import { LeveledWeaponData } from '@/data/items/leveled-weapon-data';
 import { MonsterOrganizationType } from '@/enums/monster-organization-type';
+import { Random } from '@/utils/random';
 import { ResourceGainFrequency } from '@/enums/resource-gain-frequency';
 import { RollModifierType } from '@/enums/roll-modifier-type';
 import { RollType } from '@/enums/roll-type';
@@ -20,12 +29,15 @@ import { Summon } from '@/models/summon';
 import { TutorialMode } from '@/enums/tutorial-mode';
 import { Utils } from '@/utils/utils';
 import { beastheart } from '@/data/classes/beastheart/beastheart';
+import { beastheartSourcebook } from '@/data/sourcebooks/official/beastheart';
 import { berserker } from '@/data/classes/fury/berserker';
 import { boren } from '@/data/kits/stormwight/boren';
 import { conduit } from '@/data/classes/conduit/conduit';
+import { core } from '@/data/sourcebooks/official/core';
 import { corven } from '@/data/kits/stormwight/corven';
 import { fury } from '@/data/classes/fury/fury';
 import { life } from '@/data/domains/life';
+import { orden } from '@/data/sourcebooks/official/orden';
 import { stormwight } from '@/data/classes/fury/stormwight';
 import { vuken } from '@/data/kits/stormwight/vuken';
 import { war } from '@/data/domains/war';
@@ -554,6 +566,19 @@ describe('getFeatures - Rampage', () => {
 	it('grants every rung to a 10th-level beastheart at 24 rampage', () => {
 		expect(rungs(10, 24)).toHaveLength(5);
 	});
+
+	it('starts each encounter with zero Rampage regardless of victories', () => {
+		const hero = buildBeastheart(1, 8);
+		hero.state.victories = 3;
+
+		HeroLogic.startEncounter(hero);
+
+		const rampage = HeroLogic.getFeatures(hero)
+			.map(f => f.feature)
+			.filter(f => f.type === FeatureType.HeroicResource)
+			.find(f => f.name === 'Rampage');
+		expect(rampage?.data.value).toBe(0);
+	});
 });
 
 describe('test modifiers', () => {
@@ -1047,5 +1072,106 @@ describe('resetGains', () => {
 		HeroLogic.resetGains(hero);
 
 		expect(domainGains().map(g => g.used)).toEqual([ false ]);
+	});
+});
+
+describe('getFeatureDamageBonuses - wielded treasures', () => {
+	const createStrike = (keywords: AbilityKeyword[], distance: AbilityDistance[]) => FactoryLogic.createAbility({
+		id: 'test-strike',
+		name: 'Test Strike',
+		type: FactoryLogic.type.createMain(),
+		keywords: keywords,
+		distance: distance,
+		target: 'One creature',
+		sections: []
+	});
+
+	const meleeStrike = createStrike([ AbilityKeyword.Melee, AbilityKeyword.Strike, AbilityKeyword.Weapon ], [ FactoryLogic.distance.createMelee() ]);
+	const rangedStrike = createStrike([ AbilityKeyword.Ranged, AbilityKeyword.Strike, AbilityKeyword.Weapon ], [ FactoryLogic.distance.createRanged(5) ]);
+
+	const createImbuedWeapon = (id: string) => {
+		const item = FactoryLogic.createItem({ id: id, name: id, description: '', type: ItemType.ImbuedWeapon });
+		item.imbuements = [ Utils.copy(ImbuedWeaponData.chillingI) ];
+		return item;
+	};
+
+	const createHeroWithKit = (kit: Kit | null, items: Item[]) => {
+		const hero = FactoryLogic.createHero();
+		if (kit) {
+			const kitFeature = FactoryLogic.feature.createKitChoice({ id: 'test-kit' });
+			kitFeature.data.selected = [ Utils.copy(kit) ];
+			hero.features.push(kitFeature);
+		}
+		hero.state.inventory = items.map(i => Utils.copy(i));
+		return hero;
+	};
+
+	const total = (hero: Hero, ability: Ability, distance?: AbilityDistanceType) => {
+		return Collections.sum(HeroLogic.getFeatureDamageBonuses(hero, ability, distance), b => b.value);
+	};
+
+	it('applies only one weapon\'s damage bonus when several are carried', () => {
+		const hero = createHeroWithKit(KitData.dualWielder, [ LeveledWeaponData.bladeOfTheLuxuriousFop, createImbuedWeapon('imbued-a'), createImbuedWeapon('imbued-b') ]);
+		expect(total(hero, meleeStrike)).toBe(1);
+	});
+
+	it('keeps bonuses from non-wielded items alongside the weapon bonus', () => {
+		const hero = createHeroWithKit(KitData.dualWielder, [ createImbuedWeapon('imbued-a') ]);
+		hero.features.push(FactoryLogic.feature.createAbilityDamage({ id: 'test-feature', keywords: [ AbilityKeyword.Weapon ], value: 2 }));
+		expect(total(hero, meleeStrike)).toBe(3);
+	});
+
+	it('does not add a weapon bonus to ranged abilities without a ranged kit bonus', () => {
+		const hero = createHeroWithKit(KitData.dualWielder, [ createImbuedWeapon('imbued-a') ]);
+		expect(total(hero, rangedStrike)).toBe(0);
+		expect(total(hero, meleeStrike)).toBe(1);
+	});
+
+	it('adds a weapon bonus to ranged abilities with a ranged kit bonus', () => {
+		const hero = createHeroWithKit(KitData.arcaneArcher, [ createImbuedWeapon('imbued-a') ]);
+		expect(total(hero, rangedStrike)).toBe(1);
+	});
+
+	it('respects the chosen distance for abilities that can be melee or ranged', () => {
+		const ability = createStrike([ AbilityKeyword.Melee, AbilityKeyword.Ranged, AbilityKeyword.Strike, AbilityKeyword.Weapon ], [ FactoryLogic.distance.createMelee(), FactoryLogic.distance.createRanged(5) ]);
+		const hero = createHeroWithKit(KitData.dualWielder, [ createImbuedWeapon('imbued-a') ]);
+		expect(total(hero, ability, AbilityDistanceType.Melee)).toBe(1);
+		expect(total(hero, ability, AbilityDistanceType.Ranged)).toBe(0);
+	});
+});
+
+describe('createRandomHero', () => {
+	afterEach(() => {
+		vi.restoreAllMocks();
+	});
+
+	// The hero's elements have to be copies - the generator makes its choices by writing into them
+	it('leaves the sourcebooks it draws from unchanged', () => {
+		vi.spyOn(Math, 'random').mockImplementation(Random.getSeededRNG('random-hero'));
+		const sourcebooks = Utils.copy([ core, orden, beastheartSourcebook ]);
+		const snapshot = Utils.copy(sourcebooks);
+
+		const heroes: Hero[] = [];
+		for (let n = 0; n < 20; ++n) {
+			heroes.push(HeroLogic.createRandomHero(sourcebooks));
+		}
+		expect(sourcebooks).toEqual(snapshot);
+
+		// Editing the heroes afterwards mustn't reach the sourcebooks either - nothing in a hero may be shared with them
+		const rename = (value: unknown) => {
+			if (Array.isArray(value)) {
+				value.forEach(rename);
+			} else if (value && (typeof value === 'object')) {
+				Object.entries(value).forEach(([ key, child ]) => {
+					if ((key === 'name') && (typeof child === 'string')) {
+						(value as Record<string, unknown>)[key] = `${child} (edited)`;
+					} else {
+						rename(child);
+					}
+				});
+			}
+		};
+		heroes.forEach(rename);
+		expect(sourcebooks).toEqual(snapshot);
 	});
 });

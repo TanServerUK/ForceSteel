@@ -1,4 +1,4 @@
-import { Feature, FeatureAbility, FeatureClassAbility, FeatureForController, FeatureHeroicResource, FeatureHeroicResourceThreshold, FeatureLanguageChoice, FeatureSwitchOptions, FeatureSwitchValue } from '@/models/feature';
+import { Feature, FeatureAbility, FeatureAbilityDamage, FeatureClassAbility, FeatureForController, FeatureHeroicResource, FeatureHeroicResourceThreshold, FeatureLanguageChoice, FeatureSwitchOptions, FeatureSwitchValue } from '@/models/feature';
 import { Hero, HeroOverview } from '@/models/hero';
 import { Ability } from '@/models/ability';
 import { AbilityData } from '@/data/ability-data';
@@ -20,6 +20,7 @@ import { FeatureField } from '@/enums/feature-field';
 import { FeatureLogic } from '@/logic/feature-logic';
 import { FeatureType } from '@/enums/feature-type';
 import { Item } from '@/models/item';
+import { ItemLogic } from '@/logic/item-logic';
 import { ItemType } from '@/enums/item-type';
 import { Kit } from '@/models/kit';
 import { Language } from '@/models/language';
@@ -1117,22 +1118,35 @@ export class HeroLogic {
 		const array: { feature: string, value: number, type: DamageType }[] = [];
 
 		const keywords = AbilityLogic.getKeywords(ability, hero);
+		const heroLevel = hero.class?.level || 1;
+
+		const applies = (f: FeatureAbilityDamage) => {
+			if ((distance === AbilityDistanceType.Melee) && f.data.keywords.includes(AbilityKeyword.Ranged)) {
+				return false;
+			}
+
+			if ((distance === AbilityDistanceType.Ranged) && f.data.keywords.includes(AbilityKeyword.Melee)) {
+				return false;
+			}
+
+			return f.data.keywords.every(kw => keywords.includes(kw));
+		};
+
+		// An ability can benefit from only one weapon or implement at a time,
+		// so damage bonuses from those items are handled separately, below
+		const wielded = hero.state.inventory
+			.filter(item => ItemLogic.isWeapon(item) || ItemLogic.isImplement(item))
+			.map(item => ({
+				item: item,
+				features: FeatureLogic.getFeaturesFromItem(item, heroLevel, hero.state.tutorialMode).map(f => f.feature)
+			}));
+		const wieldedFeatureIDs = wielded.flatMap(w => w.features).map(f => f.id);
 
 		HeroLogic.getFeatures(hero)
 			.map(f => f.feature)
+			.filter(f => !wieldedFeatureIDs.includes(f.id))
 			.filter(f => f.type === FeatureType.AbilityDamage)
-			.filter(f => {
-				if (distance === AbilityDistanceType.Melee) {
-					return !f.data.keywords.includes(AbilityKeyword.Ranged);
-				}
-
-				if (distance === AbilityDistanceType.Ranged) {
-					return !f.data.keywords.includes(AbilityKeyword.Melee);
-				}
-
-				return true;
-			})
-			.filter(f => f.data.keywords.every(kw => keywords.includes(kw)))
+			.filter(applies)
 			.forEach(f => {
 				const mod = ModifierLogic.calculateModifierValue(f.data, hero);
 				array.push({
@@ -1141,6 +1155,30 @@ export class HeroLogic {
 					type: f.data.damageType
 				});
 			});
+
+		// A weapon's damage bonus only adds to ranged abilities if your kit has a ranged damage bonus
+		const isRanged = distance ?
+			(distance === AbilityDistanceType.Ranged)
+			: (keywords.includes(AbilityKeyword.Ranged) && !keywords.includes(AbilityKeyword.Melee));
+		const hasRangedKit = HeroLogic.getKits(hero).some(kit => !!kit.rangedDamage);
+
+		const best = Collections.max(
+			wielded
+				.filter(w => !(ItemLogic.isWeapon(w.item) && isRanged && !hasRangedKit))
+				.map(w => w.features
+					.filter(f => f.type === FeatureType.AbilityDamage)
+					.filter(applies)
+					.map(f => ({
+						feature: f.name || w.item.name,
+						value: ModifierLogic.calculateModifierValue(f.data, hero),
+						type: f.data.damageType
+					}))
+				),
+			bonuses => Collections.sum(bonuses, b => b.value)
+		);
+		if (best) {
+			array.push(...best);
+		}
 
 		hero.abilityCustomizations
 			.filter(ac => ac.abilityID === ability.id)
@@ -1546,16 +1584,27 @@ export class HeroLogic {
 			.forEach(f => f.data.value = 0);
 	};
 
+	static startEncounter = (hero: Hero) => {
+		HeroLogic.getFeatures(hero, false)
+			.map(f => f.feature)
+			.filter(f => f.type === FeatureType.HeroicResource)
+			.filter(f => f.data.type === 'heroic')
+			.forEach(f => f.data.value = f.name === 'Rampage' ? 0 : hero.state.victories);
+
+		HeroLogic.resetGains(hero);
+	};
+
 	///////////////////////////////////////////////////////////////////////////
 
 	static createRandomHero = (sourcebooks: Sourcebook[]) => {
 		const hero = FactoryLogic.createHero();
 		hero.name = NameGenerator.generateName();
 		hero.sourcebookIDs = sourcebooks.map(sb => sb.id);
-		hero.ancestry = Collections.draw(SourcebookLogic.getAncestries(sourcebooks));
-		hero.culture = Collections.draw(SourcebookLogic.getCultures(sourcebooks, true));
-		hero.career = Collections.draw(SourcebookLogic.getCareers(sourcebooks));
-		hero.class = Collections.draw(SourcebookLogic.getClasses(sourcebooks));
+		// Everything taken from the sourcebooks is copied, because the choices below are written into it
+		hero.ancestry = Utils.copy(Collections.draw(SourcebookLogic.getAncestries(sourcebooks)));
+		hero.culture = Utils.copy(Collections.draw(SourcebookLogic.getCultures(sourcebooks, true)));
+		hero.career = Utils.copy(Collections.draw(SourcebookLogic.getCareers(sourcebooks)));
+		hero.class = Utils.copy(Collections.draw(SourcebookLogic.getClasses(sourcebooks)));
 
 		hero.class.primaryCharacteristics = Collections.draw(hero.class.primaryCharacteristicsOptions);
 		const array = Collections.draw(HeroLogic.getCharacteristicArrays(hero.class.primaryCharacteristics.length));
@@ -1579,7 +1628,7 @@ export class HeroLogic {
 				switch (feature.type) {
 					case FeatureType.AncestryChoice: {
 						const options = SourcebookLogic.getAncestries(sourcebooks);
-						feature.data.selected = Collections.draw(options);
+						feature.data.selected = Utils.copy(Collections.draw(options));
 						break;
 					}
 					case FeatureType.AncestryFeatureChoice: {
@@ -1658,7 +1707,7 @@ export class HeroLogic {
 							if (options.length === 0) {
 								break;
 							}
-							feature.data.selected.push(Collections.draw(options));
+							feature.data.selected.push(Utils.copy(Collections.draw(options)));
 						}
 						break;
 					}
@@ -1687,7 +1736,7 @@ export class HeroLogic {
 							if (options.length === 0) {
 								break;
 							}
-							feature.data.selected.push(Collections.draw(options));
+							feature.data.selected.push(Utils.copy(Collections.draw(options)));
 						}
 						break;
 					}
@@ -1701,7 +1750,7 @@ export class HeroLogic {
 							if (options.length === 0) {
 								break;
 							}
-							feature.data.selected.push(Collections.draw(options));
+							feature.data.selected.push(Utils.copy(Collections.draw(options)));
 						}
 						break;
 					}
@@ -1728,7 +1777,7 @@ export class HeroLogic {
 							if (options.length === 0) {
 								break;
 							}
-							feature.data.selected.push(Collections.draw(options));
+							feature.data.selected.push(Utils.copy(Collections.draw(options)));
 						}
 						break;
 					}
@@ -1800,7 +1849,7 @@ export class HeroLogic {
 							if (options.length === 0) {
 								break;
 							}
-							feature.data.selected.push(Collections.draw(options));
+							feature.data.selected.push(Utils.copy(Collections.draw(options)));
 						}
 						break;
 					}

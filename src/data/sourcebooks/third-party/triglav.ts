@@ -65,7 +65,7 @@ Your strong, elongated hind legs make you an exceptional jumper. You gain the fo
 		}),
 		FactoryLogic.feature.createChoice({
 			id: 'boggit-4',
-			name: 'Boggit Traits',
+			name: 'Purchased Traits',
 			options: [
 				{
 					feature: FactoryLogic.feature.createMultiple({
@@ -425,7 +425,7 @@ Additionally, when your Stamina reaches the negative of your winded value, you b
 		}),
 		FactoryLogic.feature.createChoice({
 			id: 'vampire-ancestry-5',
-			name: 'Vampire Traits',
+			name: 'Purchased Traits',
 			options: [
 				{
 					feature: FactoryLogic.feature.create({
@@ -1774,6 +1774,7 @@ export const triglav: Sourcebook = {
 	cultures: [],
 	domains: [],
 	encounters: [],
+	extensions: [],
 	imbuements: [],
 	items: [],
 	kits: [

@@ -1,4 +1,4 @@
-import { Button, Drawer, Flex, Segmented, Space, Upload } from 'antd';
+import { Button, Drawer, Flex, Segmented, Space, Upload, notification } from 'antd';
 import { DownloadOutlined, PlusOutlined } from '@ant-design/icons';
 import { useDataManager, useHiddenSourcebookIDs } from '@/contexts/data-context';
 import { Collections } from '@/utils/collections';
@@ -20,10 +20,12 @@ import { useState } from 'react';
 import './sourcebooks-modal.scss';
 
 interface Props {
+	notify: ReturnType<typeof notification.useNotification>[0];
 	officialSourcebooks: Sourcebook[];
 	homebrewSourcebooks: Sourcebook[];
 	onClose: () => void;
 	onHomebrewSourcebookChange: (sourcebook: Sourcebook) => void;
+	onHomebrewSourcebookReplace: (sourcebook: Sourcebook, homebrewSourcebooks: Sourcebook[]) => void;
 	onHomebrewSourcebookDelete: (sourcebook: Sourcebook) => void;
 }
 
@@ -56,6 +58,16 @@ export const SourcebooksModal = (props: Props) => {
 			setHomebrewSourcebooks(copy);
 		}
 		props.onHomebrewSourcebookChange(sourcebook);
+	};
+
+	const replaceSourcebook = (sourcebook: Sourcebook) => {
+		const copy = Utils.copy(homebrewSourcebooks);
+		const index = copy.findIndex(s => s.id === sourcebook.id);
+		if (index !== -1) {
+			copy[index] = sourcebook;
+			setHomebrewSourcebooks(copy);
+		}
+		props.onHomebrewSourcebookReplace(sourcebook, copy);
 	};
 
 	const deleteSourcebook = (sourcebook: Sourcebook) => {
@@ -205,10 +217,17 @@ export const SourcebooksModal = (props: Props) => {
 											file
 												.text()
 												.then(json => {
-													const sourcebook = JSON.parse(json) as Sourcebook;
+													const sourcebook = JSON.parse(json.replace(/^\uFEFF/, '')) as Sourcebook;
 													sourcebook.id = Utils.guid();
 													UpdateLogic.updateSourcebook(sourcebook);
 													importSourcebook(sourcebook);
+												})
+												.catch(e => {
+													props.notify.error({
+														title: 'Unable to import sourcebook',
+														description: e instanceof Error ? e.message : String(e),
+														placement: 'top'
+													});
 												});
 											return false;
 										}}
@@ -233,6 +252,7 @@ export const SourcebooksModal = (props: Props) => {
 											}}
 											showEditButtons={true}
 											onChange={changeSourcebook}
+											onReplace={replaceSourcebook}
 											onDelete={deleteSourcebook}
 										/>
 									</SelectablePanel>

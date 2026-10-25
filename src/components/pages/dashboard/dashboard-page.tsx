@@ -1,10 +1,10 @@
 import { AppFooter, FooterParams } from '@/components/panels/app-footer/app-footer';
+import { useDataManager, useHeroes } from '@/contexts/data-context';
 import { useEffect, useRef } from 'react';
 import { AppHeader } from '@/components/panels/app-header/app-header';
 import { DashboardTile } from '@/components/panels/dashboard-tile/dashboard-tile';
 import { Empty } from '@/components/controls/empty/empty';
 import { ErrorBoundary } from '@/components/controls/error-boundary/error-boundary';
-import { Hero } from '@/models/hero';
 import { useTitle } from '@/hooks/use-title';
 
 import './dashboard-page.scss';
@@ -12,18 +12,19 @@ import './dashboard-page.scss';
 const REFRESH_POLL_MS = 20000;
 
 interface Props {
-	heroes: Hero[];
 	params: FooterParams;
-	refreshHeroes: () => void;
 }
 
 export const DashboardPage = (props: Props) => {
+	const dataManager = useDataManager();
+	const heroes = useHeroes().filter(h => h.isActive);
 	useTitle('Dashboard');
 
 	// Keep a stable indirection to the latest closure so the mount-only effect
-	// below always refreshes with the current heroes/data source.
-	const refreshHeroesRef = useRef(props.refreshHeroes);
-	refreshHeroesRef.current = props.refreshHeroes;
+	// below always refreshes with the current data source.
+	const refreshHeroes = () => dataManager.refreshHeroes(props.params.connectionSettings.dataSource);
+	const refreshHeroesRef = useRef(refreshHeroes);
+	refreshHeroesRef.current = refreshHeroes;
 
 	useEffect(() => {
 		const refresh = () => refreshHeroesRef.current();
@@ -44,10 +45,10 @@ export const DashboardPage = (props: Props) => {
 				<AppHeader subheader='Dashboard' />
 				<div className='dashboard-page-content'>
 					{
-						props.heroes.length > 0 ?
+						heroes.length > 0 ?
 							<div className='dashboard-tile-grid'>
 								{
-									props.heroes.map(hero => (
+									heroes.map(hero => (
 										<DashboardTile key={hero.id} hero={hero} />
 									))
 								}

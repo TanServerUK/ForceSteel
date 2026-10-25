@@ -698,6 +698,7 @@ export class FeatureLogic {
 				const data: FeatureClassAbilityData = {
 					classID: undefined,
 					cost: 1,
+					type: 'Any',
 					count: 1,
 					source: {
 						fromClassAbilities: true,
@@ -708,6 +709,7 @@ export class FeatureLogic {
 						fromUnselectedSubclassLevels: false
 					},
 					minLevel: 1,
+					maxLevel: 10,
 					selectedIDs: []
 				};
 				return data;
@@ -1105,6 +1107,7 @@ export class FeatureLogic {
 
 		switch (feature.type) {
 			case FeatureType.Ability:
+			case FeatureType.MaliceAbility:
 				feature.data.ability.id = feature.id;
 				break;
 			case FeatureType.Choice:

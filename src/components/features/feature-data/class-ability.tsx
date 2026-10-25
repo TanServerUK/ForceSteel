@@ -4,6 +4,7 @@ import { Ability } from '@/models/ability';
 import { AbilityModal } from '@/components/modals/ability/ability-modal';
 import { AbilityPanel } from '@/components/panels/elements/ability-panel/ability-panel';
 import { AbilitySelectModal } from '@/components/modals/select/ability-select/ability-select-modal';
+import { AbilityUsage } from '@/enums/ability-usage';
 import { Collections } from '@/utils/collections';
 import { Empty } from '@/components/controls/empty/empty';
 import { Field } from '@/components/controls/field/field';
@@ -89,6 +90,13 @@ export const EditClassAbility = (props: EditProps) => {
 		props.setData(copy);
 	};
 
+	const setAbilityType = (value: AbilityUsage | 'Any' | undefined) => {
+		const copy = Utils.copy(data);
+		copy.type = value ?? 'Any';
+		setData(copy);
+		props.setData(copy);
+	};
+
 	const setAbilityClassID = (value: string) => {
 		const copy = Utils.copy(data);
 		copy.classID = value === '' ? undefined : value;
@@ -152,6 +160,13 @@ export const EditClassAbility = (props: EditProps) => {
 		props.setData(copy);
 	};
 
+	const setMaxLevel = (value: number) => {
+		const copy = Utils.copy(data);
+		copy.maxLevel = value;
+		setData(copy);
+		props.setData(copy);
+	};
+
 	return (
 		<Space orientation='vertical' style={{ width: '100%' }}>
 			<HeaderText>Ability Options</HeaderText>
@@ -177,6 +192,22 @@ export const EditClassAbility = (props: EditProps) => {
 				value={data.cost}
 				onChange={setAbilityCost}
 			/>
+			<HeaderText>Ability Type</HeaderText>
+			<Select
+				style={{ width: '100%' }}
+				allowClear={true}
+				placeholder='Any Ability Type'
+				options={[
+					{ value: 'Any', label: 'Any Ability Type' },
+					{ value: AbilityUsage.MainAction, label: AbilityUsage.MainAction },
+					{ value: AbilityUsage.Maneuver, label: AbilityUsage.Maneuver },
+					{ value: AbilityUsage.Move, label: AbilityUsage.Move },
+					{ value: AbilityUsage.Trigger, label: AbilityUsage.Trigger }
+				]}
+				optionRender={option => <div className='ds-text'>{option.data.label}</div>}
+				value={data.type}
+				onChange={setAbilityType}
+			/>
 			<Select
 				style={{ width: '100%' }}
 				allowClear={!!data.classID}
@@ -199,7 +230,9 @@ export const EditClassAbility = (props: EditProps) => {
 			<HeaderText>Count</HeaderText>
 			<NumberSpin min={1} value={data.count} onChange={setCount} />
 			<HeaderText>Minimum Level</HeaderText>
-			<NumberSpin min={1} value={data.minLevel} onChange={setMinLevel} />
+			<NumberSpin min={1} max={10} value={data.minLevel} onChange={setMinLevel} />
+			<HeaderText>Maximum Level</HeaderText>
+			<NumberSpin min={1} max={10} value={data.maxLevel} onChange={setMaxLevel} />
 		</Space>
 	);
 };
@@ -229,7 +262,8 @@ export const ConfigClassAbility = (props: ConfigProps) => {
 
 	const abilities = SourcebookLogic.getAbilitiesFromClass(heroClass, props.data.source.fromClassAbilities, props.data.source.fromSelectedSubclassAbilities, props.data.source.fromUnselectedSubclassAbilities, props.data.source.fromClassLevels, props.data.source.fromSelectedSubclassLevels, props.data.source.fromUnselectedSubclassLevels)
 		.filter(a => a.cost === props.data.cost)
-		.filter(a => a.minLevel <= props.data.minLevel);
+		.filter(a => (a.minLevel >= props.data.minLevel) && (a.minLevel <= props.data.maxLevel))
+		.filter(a => props.data.type === 'Any' || a.type.usage === props.data.type);
 	const distinctAbilities = Collections.distinct(abilities.filter(a => !currentAbilityIDs.includes(a.id)), a => a.name);
 	const sortedAbilities = Collections.sort(distinctAbilities, a => a.name);
 

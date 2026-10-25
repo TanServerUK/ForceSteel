@@ -1,6 +1,28 @@
 import { describe, expect, it } from 'vitest';
 import { FactoryLogic } from '@/logic/factory-logic';
+import { Options } from '@/models/options';
 import { UpdateLogic } from '@/logic/update/update-logic';
+
+describe('updateOptions', () => {
+	it('shows tips by default when updating existing options', () => {
+		const options = {} as Options;
+
+		UpdateLogic.updateOptions(options);
+
+		expect(options.showTips).toBe(true);
+	});
+});
+
+describe('updateSourcebook', () => {
+	it('adds extensions when updating a sourcebook created before extensions existed', () => {
+		const sourcebook = FactoryLogic.createSourcebook();
+		Reflect.deleteProperty(sourcebook, 'extensions');
+
+		UpdateLogic.updateSourcebook(sourcebook);
+
+		expect(sourcebook.extensions).toEqual([]);
+	});
+});
 
 describe('updateFeature', () => {
 	const part = (id: string, name: string) => FactoryLogic.feature.create({ id: id, name: name, description: `${name} description` });
@@ -57,5 +79,38 @@ describe('updateFeature', () => {
 		UpdateLogic.updateFeature(feature);
 
 		expect(feature.description).toBe('');
+	});
+
+	it('defaults class ability choices to any ability type', () => {
+		const feature = FactoryLogic.feature.createClassAbilityChoice({
+			id: 'class-ability',
+			cost: 0
+		});
+		Reflect.deleteProperty(feature.data, 'type');
+
+		UpdateLogic.updateFeature(feature);
+
+		expect(feature.data.type).toBe('Any');
+	});
+
+	it('defaults class ability choices to abilities through level 10', () => {
+		const feature = FactoryLogic.feature.createClassAbilityChoice({
+			id: 'class-ability',
+			cost: 0
+		});
+
+		expect(feature.data.maxLevel).toBe(10);
+	});
+
+	it('adds a maximum level to existing class ability choices', () => {
+		const feature = FactoryLogic.feature.createClassAbilityChoice({
+			id: 'class-ability',
+			cost: 0
+		});
+		Reflect.deleteProperty(feature.data, 'maxLevel');
+
+		UpdateLogic.updateFeature(feature);
+
+		expect(feature.data.maxLevel).toBe(10);
 	});
 });
