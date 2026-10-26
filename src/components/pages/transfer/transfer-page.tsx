@@ -329,7 +329,7 @@ export const TransferPage = (props: Props) => {
 				<div className='transfer-page-content'>
 					<HeaderText level={1}>Data Transfer</HeaderText>
 					<p>
-						By default, Forge Steel uses your local browser storage to store your data.
+						By default, Force Steel uses your local browser storage to store your data.
 						This means that you didn't have to register or sign up anywhere, and all of your data stays local to you.
 						But it also means that you can't access your data across browsers, and a browser reset could wipe all your data.
 					</p>

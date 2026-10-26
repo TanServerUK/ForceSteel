@@ -1046,7 +1046,7 @@ export const useLibraryActions = (props: Props) => {
 		} catch {
 			notify.error({
 				title: 'Not Copied',
-				description: `Forge Steel could not create a code for this ${kind}.`,
+				description: `Force Steel could not create a code for this ${kind}.`,
 				placement: 'top'
 			});
 			return;
@@ -1057,7 +1057,7 @@ export const useLibraryActions = (props: Props) => {
 		} catch {
 			notify.error({
 				title: 'Not Copied',
-				description: 'Forge Steel could not use your clipboard; you can use Export as Data instead.',
+				description: 'Force Steel could not use your clipboard; you can use Export as Data instead.',
 				placement: 'top'
 			});
 			return;

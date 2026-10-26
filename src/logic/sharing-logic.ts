@@ -52,7 +52,7 @@ const TOO_MUCH_DATA = 'That code contains far too much data.';
  *
  * The dictionary in sharing-dictionary.ts is what keeps these short - it takes roughly a third
  * off, and more for anything close to a book item. It is also why the format version matters:
- * a code can only be read by a copy of Forge Steel holding the same dictionary.
+ * a code can only be read by a copy of Force Steel holding the same dictionary.
  */
 export class SharingLogic {
 	static encode = async (kind: SharedElementKind, element: Element): Promise<string> => {
@@ -73,7 +73,7 @@ export class SharingLogic {
 		const parts = code.replace(/\s/g, '').split(SEPARATOR);
 
 		if (!parts[0].startsWith('FS')) {
-			throw new Error('That does not look like a Forge Steel code.');
+			throw new Error('That does not look like a Force Steel code.');
 		}
 
 		if (parts.length !== 4) {
@@ -83,11 +83,11 @@ export class SharingLogic {
 		const [ prefix, kind, payload, checksum ] = parts;
 
 		if (prefix !== PREFIX) {
-			throw new Error('That code was made with a newer version of Forge Steel.');
+			throw new Error('That code was made with a newer version of Force Steel.');
 		}
 
 		if ((kind !== 'item') && (kind !== 'title') && (kind !== 'monster')) {
-			throw new Error(`Forge Steel cannot import a ${kind} code here.`);
+			throw new Error(`Force Steel cannot import a ${kind} code here.`);
 		}
 
 		if (checksum !== SharingLogic.getChecksum(payload)) {

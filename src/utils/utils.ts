@@ -211,8 +211,8 @@ export class Utils {
 		});
 		pdf.setDocumentProperties({
 			title: filename.slice(0, -4),
-			subject: 'Forge Steel Hero sheet',
-			creator: 'Forge Steel'
+			subject: 'Force Steel Hero sheet',
+			creator: 'Force Steel'
 		});
 		pdf.save(filename);
 	};

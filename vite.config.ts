@@ -25,8 +25,8 @@ export default defineConfig({
 			injectRegister: null,
 			manifestFilename: 'manifest.json',
 			manifest: {
-				name: 'Forge Steel',
-				short_name: 'Forge Steel',
+				name: 'Force Steel',
+				short_name: 'Force Steel',
 				description: 'Heroes, monsters, encounters ... everything you need for Draw Steel.',
 				start_url: '/',
 				display: 'standalone',

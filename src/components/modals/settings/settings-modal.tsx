@@ -666,7 +666,7 @@ export const SettingsModal = (props: Props) => {
 					{
 						reloadNeeded ?
 							<Alert
-								title='Reload Forge Steel to use new settings'
+								title='Reload Force Steel to use new settings'
 								type='info'
 								showIcon
 								action={

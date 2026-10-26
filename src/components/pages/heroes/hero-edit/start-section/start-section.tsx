@@ -19,7 +19,7 @@ export const StartSection = (props: Props) => {
 				<SelectablePanel>
 					<HeaderText>Creating a Hero</HeaderText>
 					<div className='ds-text'>
-						Creating a hero in <b>FORGE STEEL</b> is simple.
+						Creating a hero in <b>FORCE STEEL</b> is simple.
 					</div>
 					<ul>
 						<li>

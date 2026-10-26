@@ -105,7 +105,7 @@ export const HeroSelectModal = (props: Props) => {
 							title={(
 								<>
 									<div>
-										If you don't have your party in Forge Steel, you can just add their names.
+										If you don't have your party in Force Steel, you can just add their names.
 									</div>
 									<div>
 										You won't be able to track their stamina, but they'll be in the turn order and you'll still be able to track conditions.

@@ -37,7 +37,7 @@ export const AboutModal = (props: Props) => {
 					<SelectablePanel style={{ paddingTop: '20px' }}>
 						<Space orientation='vertical'>
 							<div>
-								<b>FORGE STEEL</b> is free.
+								<b>FORCE STEEL</b> is free.
 							</div>
 							<div>
 								If you really feel the need to show your appreciation, I'd be grateful if you would take whatever you feel the app is worth and donate it to a local mental health charity.
@@ -53,7 +53,7 @@ export const AboutModal = (props: Props) => {
 								<img src={pbds} />
 							</div>
 							<div>
-								<b>FORGE STEEL</b> is an independent product published under the DRAW STEEL Creator License and is not affiliated with MCDM Productions, LLC.
+								<b>FORCE STEEL</b> is an independent product published under the DRAW STEEL Creator License and is not affiliated with MCDM Productions, LLC.
 							</div>
 							<div>
 								<b>DRAW STEEL</b> © 2024 <a href='https://mcdmproductions.com/' target='_blank'>MCDM Productions, LLC.</a>

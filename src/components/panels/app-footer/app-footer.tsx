@@ -120,7 +120,7 @@ export const AppFooter = (props: Props) => {
 						showSidebar ?
 							<Space orientation='vertical' style={{ width: '100%', padding: '20px' }}>
 								<div className='ds-text'>
-									Just so you know, <b>FORGE STEEL</b> uses cookies. We good?
+									Just so you know, <b>FORCE STEEL</b> uses cookies. We good?
 								</div>
 								<Button type='primary' block={true} onClick={onOK}>
 									Yes, obviously that's completely fine

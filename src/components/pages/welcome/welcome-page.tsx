@@ -352,7 +352,7 @@ const Welcome = (props: WelcomeProps) => {
 								When you're creating your own homebrew content, you can create a copy of an existing element and modify it to suit your needs, or you can create it from scratch.
 							</div>
 							<div className='ds-text'>
-								If you're creating a monster, <b>FORGE STEEL</b> provides lots of extra tools so you can build exactly the monster you're imagining, and gauge exactly how much of a challenge it will be.
+								If you're creating a monster, <b>FORCE STEEL</b> provides lots of extra tools so you can build exactly the monster you're imagining, and gauge exactly how much of a challenge it will be.
 							</div>
 							<ul>
 								<li>
@@ -375,7 +375,7 @@ const Welcome = (props: WelcomeProps) => {
 		<ErrorBoundary>
 			<div>
 				<div className='ds-text centered-text'>
-					<b>FORGE STEEL</b> is an app for <b>DRAW STEEL</b> players, directors, and content creators.
+					<b>FORCE STEEL</b> is an app for <b>DRAW STEEL</b> players, directors, and content creators.
 				</div>
 				<Segmented
 					style={{ margin: '15px 0' }}

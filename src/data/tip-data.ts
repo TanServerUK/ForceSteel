@@ -69,7 +69,7 @@ export class TipData {
 			}),
 			FactoryLogic.createTip({
 				image: heroSheetRoll,
-				content: 'Forge Steel can make your ability rolls for you, if you\'re playing online.'
+				content: 'Force Steel can make your ability rolls for you, if you\'re playing online.'
 			}),
 			FactoryLogic.createTip({
 				image: heroSheetState,
@@ -105,7 +105,7 @@ export class TipData {
 			// #region Hero Builder
 			FactoryLogic.createTip({
 				image: heroBuilderEdit,
-				content: 'Forge Steel lets you build heroes, taking you through the process step-by-step.'
+				content: 'Force Steel lets you build heroes, taking you through the process step-by-step.'
 			}),
 			FactoryLogic.createTip({
 				image: heroBuilderSourcebooks,
@@ -136,16 +136,16 @@ export class TipData {
 			}),
 			FactoryLogic.createTip({
 				image: libraryThirdParty,
-				content: 'Forge Steel now includes third-party content from the Blacksmith\'s Guild, Look Out Behind You Studios, Ratcatcher Magazine, Steel Echoes, Triglav Games, Weapons of Legend, and the Draw Steel homebrew community.'
+				content: 'Force Steel now includes third-party content from the Blacksmith\'s Guild, Look Out Behind You Studios, Ratcatcher Magazine, Steel Echoes, Triglav Games, Weapons of Legend, and the Draw Steel homebrew community.'
 			}),
 			FactoryLogic.createTip({
 				image: libraryBeastheart,
-				content: 'Forge Steel now includes the Beastheart class.',
+				content: 'Force Steel now includes the Beastheart class.',
 				isNew: true
 			}),
 			FactoryLogic.createTip({
 				image: librarySummoner,
-				content: 'Forge Steel now includes the Summoner class.',
+				content: 'Force Steel now includes the Summoner class.',
 				isNew: true
 			}),
 			FactoryLogic.createTip({
@@ -162,11 +162,11 @@ export class TipData {
 			}),
 			FactoryLogic.createTip({
 				image: homebrewMonsterBuilder,
-				content: 'When you\'re creating a homebrew monster, Forge Steel shows you similar monsters to help you choose your new monster\'s stat values.'
+				content: 'When you\'re creating a homebrew monster, Force Steel shows you similar monsters to help you choose your new monster\'s stat values.'
 			}),
 			FactoryLogic.createTip({
 				image: homebrewKitTuning,
-				content: 'When you\'re creating a homebrew kit, Forge Steel helps you to make sure your kit isn\'t overpowered.'
+				content: 'When you\'re creating a homebrew kit, Force Steel helps you to make sure your kit isn\'t overpowered.'
 			}),
 			FactoryLogic.createTip({
 				image: homebrewMonsterBuilderGenesplice,
@@ -196,11 +196,11 @@ export class TipData {
 			}),
 			FactoryLogic.createTip({
 				image: libraryEncounterBuilder,
-				content: 'Forge Steel makes it easy to build encounters by adding monsters and terrain elements.'
+				content: 'Force Steel makes it easy to build encounters by adding monsters and terrain elements.'
 			}),
 			FactoryLogic.createTip({
 				image: libraryEncounterRandom,
-				content: 'If you need an encounter in a hurry, Forge Steel can generate one - you just specify the difficulty and, optionally, the sort of monsters you want it to showcase.'
+				content: 'If you need an encounter in a hurry, Force Steel can generate one - you just specify the difficulty and, optionally, the sort of monsters you want it to showcase.'
 			}),
 			// #endregion
 
@@ -215,7 +215,7 @@ export class TipData {
 			}),
 			FactoryLogic.createTip({
 				image: libraryMontageBuilder,
-				content: 'Forge Steel makes it easy to build montages by adding challenges and twists.'
+				content: 'Force Steel makes it easy to build montages by adding challenges and twists.'
 			}),
 			// #endregion
 
@@ -230,7 +230,7 @@ export class TipData {
 			}),
 			FactoryLogic.createTip({
 				image: libraryNegotiationBuilder,
-				content: 'Forge Steel makes it easy to build negotiations by adding motivations and pitfalls.'
+				content: 'Force Steel makes it easy to build negotiations by adding motivations and pitfalls.'
 			}),
 			// #endregion
 
@@ -241,7 +241,7 @@ export class TipData {
 			}),
 			FactoryLogic.createTip({
 				image: libraryMapAutobuild,
-				content: 'If you\'re in a hurry, you can get Forge Steel to generate a random tactical map for your encounters.'
+				content: 'If you\'re in a hurry, you can get Force Steel to generate a random tactical map for your encounters.'
 			}),
 			// #endregion
 
@@ -271,7 +271,7 @@ export class TipData {
 			// #region App
 			FactoryLogic.createTip({
 				image: appNavigation,
-				content: 'Use the navigation bar, at the bottom left of the screen, to switch between Forge Steel\'s sections.'
+				content: 'Use the navigation bar, at the bottom left of the screen, to switch between Force Steel\'s sections.'
 			}),
 			FactoryLogic.createTip({
 				image: appReference,
