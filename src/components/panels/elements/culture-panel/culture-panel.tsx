@@ -23,7 +23,7 @@ export const CulturePanel = (props: Props) => {
 	const tags: string[] = [ props.culture.type ];
 	if (props.sourcebooks.length > 0) {
 		const sourcebookType = SourcebookLogic.getCultureSourcebook(props.sourcebooks, props.culture)?.type || SourcebookType.Official;
-		if (sourcebookType !== SourcebookType.Official) {
+		if ((sourcebookType !== SourcebookType.Official) && (sourcebookType !== SourcebookType.Featured)) {
 			tags.push(sourcebookType);
 		}
 	}

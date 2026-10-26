@@ -10,7 +10,7 @@ import { Monster } from '@/models/monster';
 import { MonsterModal } from '@/components/modals/monster/monster-modal';
 import { ReactNode } from 'react';
 import { SharedElementKind } from '@/logic/sharing-logic';
-import { SourcebookType } from '@/enums/sourcebook-type';
+import { SourcebookLogic } from '@/logic/sourcebook-logic';
 import { Utils } from '@/utils/utils';
 import { notification } from 'antd';
 import { useNavigation } from '@/hooks/use-navigation';
@@ -36,9 +36,7 @@ export const useHeroActions = (props: Props) => {
 		const hero = FactoryLogic.createHero();
 
 		hero.folder = folder;
-		hero.sourcebookIDs = sourcebooks
-			.filter(sb => sb.type === SourcebookType.Official)
-			.map(sb => sb.id);
+		hero.sourcebookIDs = SourcebookLogic.getDefaultHeroSourcebookIDs(sourcebooks);
 
 		setDrawer(null);
 		persistHero(hero).then(() => navigation.goToHeroEdit(hero.id, 'start'));

@@ -121,7 +121,7 @@ export const NegotiationPanel = (props: Props) => {
 	const tags = [];
 	if (props.sourcebooks.length > 0) {
 		const sourcebookType = SourcebookLogic.getNegotiationSourcebook(props.sourcebooks, props.negotiation)?.type || SourcebookType.Official;
-		if (sourcebookType !== SourcebookType.Official) {
+		if ((sourcebookType !== SourcebookType.Official) && (sourcebookType !== SourcebookType.Featured)) {
 			tags.push(sourcebookType);
 		}
 	}

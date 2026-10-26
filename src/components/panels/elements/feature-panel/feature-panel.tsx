@@ -47,7 +47,7 @@ export const FeaturePanel = (props: Props) => {
 		if (list !== undefined) {
 			if (props.sourcebooks && (props.sourcebooks.length > 0)) {
 				const sourcebookType = SourcebookLogic.getPerkSourcebook(props.sourcebooks, props.feature as Perk)?.type || SourcebookType.Official;
-				if (sourcebookType !== SourcebookType.Official) {
+				if ((sourcebookType !== SourcebookType.Official) && (sourcebookType !== SourcebookType.Featured)) {
 					tags.push(sourcebookType);
 				}
 			}

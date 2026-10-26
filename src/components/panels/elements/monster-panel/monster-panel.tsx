@@ -73,7 +73,7 @@ export const MonsterPanel = (props: Props) => {
 	}
 	if (props.sourcebooks.length > 0) {
 		const sourcebookType = SourcebookLogic.getMonsterSourcebook(props.sourcebooks, props.monster)?.type || SourcebookType.Official;
-		if (sourcebookType !== SourcebookType.Official) {
+		if ((sourcebookType !== SourcebookType.Official) && (sourcebookType !== SourcebookType.Featured)) {
 			tags.push(sourcebookType);
 		}
 	}

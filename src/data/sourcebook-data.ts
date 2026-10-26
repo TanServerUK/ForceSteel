@@ -18,6 +18,9 @@ export class SourcebookData {
 		}
 
 		const modules: Promise<Sourcebook>[] = [
+			// Featured
+			import('@/data/sourcebooks/featured/star-wars').then(m => m.starWars),
+
 			// Official
 			import('@/data/sourcebooks/official/core').then(m => m.core),
 			import('@/data/sourcebooks/official/orden').then(m => m.orden),

@@ -5,6 +5,7 @@ export enum DamageType {
 	Corruption = 'Corruption',
 	Fire = 'Fire',
 	Holy = 'Holy',
+	Ion = 'Ion',
 	Lightning = 'Lightning',
 	Poison = 'Poison',
 	Psychic = 'Psychic',

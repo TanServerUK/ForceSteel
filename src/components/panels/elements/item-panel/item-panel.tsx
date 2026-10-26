@@ -304,7 +304,7 @@ export const ItemPanel = (props: Props) => {
 	const tags: string[] = [ item.type, ...item.keywords ];
 	if (props.sourcebooks.length > 0) {
 		const sourcebookType = SourcebookLogic.getItemSourcebook(props.sourcebooks, item)?.type || SourcebookType.Official;
-		if (sourcebookType !== SourcebookType.Official) {
+		if ((sourcebookType !== SourcebookType.Official) && (sourcebookType !== SourcebookType.Featured)) {
 			tags.push(sourcebookType);
 		}
 	}

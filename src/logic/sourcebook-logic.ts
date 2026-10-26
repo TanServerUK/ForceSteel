@@ -29,6 +29,7 @@ import { Project } from '@/models/project';
 import { Random } from '@/utils/random';
 import { Skill } from '@/models/skill';
 import { SkillList } from '@/enums/skill-list';
+import { SourcebookType } from '@/enums/sourcebook-type';
 import { SubClass } from '@/models/subclass';
 import { TacticalMap } from '@/models/tactical-map';
 import { Terrain } from '@/models/terrain';
@@ -46,6 +47,13 @@ export class SourcebookLogic {
 		list.push(...homebrew);
 
 		return list;
+	};
+
+	// The sourcebooks a new hero starts with: the featured sourcebooks if there are any, otherwise the official ones
+	static getDefaultHeroSourcebookIDs = (sourcebooks: Sourcebook[]) => {
+		const featured = sourcebooks.filter(sb => sb.type === SourcebookType.Featured);
+		const defaults = featured.length > 0 ? featured : sourcebooks.filter(sb => sb.type === SourcebookType.Official);
+		return defaults.map(sb => sb.id);
 	};
 
 	static getElements = (sourcebook: Sourcebook): { element: Element, type: SourcebookElementKind }[] => {

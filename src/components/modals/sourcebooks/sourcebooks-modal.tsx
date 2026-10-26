@@ -30,7 +30,7 @@ interface Props {
 }
 
 export const SourcebooksModal = (props: Props) => {
-	const [ page, setPage ] = useState<SourcebookType>(SourcebookType.Official);
+	const [ page, setPage ] = useState<SourcebookType>(SourcebookType.Featured);
 	const [ selectedSourcebook, setSelectedSourcebook ] = useState<Sourcebook | null>(null);
 	const [ homebrewSourcebooks, setHomebrewSourcebooks ] = useState<Sourcebook[]>(Utils.copy(props.homebrewSourcebooks));
 	const [ hiddenSourcebookIDs, setHiddenSourcebookIDs ] = useState<string[]>(Utils.copy(useHiddenSourcebookIDs()));
@@ -79,6 +79,37 @@ export const SourcebooksModal = (props: Props) => {
 
 	const getContent = () => {
 		switch (page) {
+			case SourcebookType.Featured: {
+				const featuredSourcebooks = props.officialSourcebooks.filter(s => s.type === SourcebookType.Featured);
+				return (
+					<>
+						<HeaderText level={1}>
+							Featured Sourcebooks
+						</HeaderText>
+						<Space orientation='vertical' style={{ width: '100%' }}>
+							{
+								featuredSourcebooks.map(s => (
+									<SelectablePanel key={s.id} onSelect={() => setSelectedSourcebook(s)}>
+										<SourcebookPanel
+											sourcebook={s}
+											sourcebooks={[ ...props.officialSourcebooks, ...homebrewSourcebooks ]}
+											visibility={{
+												visible: !hiddenSourcebookIDs.includes(s.id),
+												onSetVisibility: (value: boolean) => setVisibility(s, value)
+											}}
+										/>
+									</SelectablePanel>
+								))
+							}
+							{
+								featuredSourcebooks.length === 0 ?
+									<Empty />
+									: null
+							}
+						</Space>
+					</>
+				);
+			}
 			case SourcebookType.Official: {
 				const officialSourcebooks = props.officialSourcebooks.filter(s => s.type === SourcebookType.Official);
 				return (
@@ -277,6 +308,7 @@ export const SourcebooksModal = (props: Props) => {
 					style={{ width: '100%' }}
 					block={true}
 					options={[
+						{ value: SourcebookType.Featured, label: 'Featured' },
 						{ value: SourcebookType.Official, label: 'Official' },
 						{ value: SourcebookType.ThirdParty, label: 'Third Party' },
 						{ value: SourcebookType.Community, label: 'Community' },

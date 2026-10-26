@@ -112,7 +112,7 @@ export const EditDamageModifier = (props: EditProps) => {
 						<Space orientation='vertical' style={{ width: '100%' }}>
 							<HeaderText>{FormatLogic.getDamageModifier(mod)}</HeaderText>
 							<RadioGroup
-								options={[ DamageType.Damage, DamageType.Acid, DamageType.Cold, DamageType.Corruption, DamageType.Fire, DamageType.Holy, DamageType.Lightning, DamageType.Poison, DamageType.Psychic, DamageType.Sonic ]}
+								options={[ DamageType.Damage, DamageType.Acid, DamageType.Cold, DamageType.Corruption, DamageType.Fire, DamageType.Holy, DamageType.Ion, DamageType.Lightning, DamageType.Poison, DamageType.Psychic, DamageType.Sonic ]}
 								value={mod.damageType}
 								onChange={value => setDamageModifierDamageType(data, n, value)}
 							/>

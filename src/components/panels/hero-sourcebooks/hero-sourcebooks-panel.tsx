@@ -37,7 +37,7 @@ export const HeroSourcebooksPanel = (props: Props) => {
 			</div>
 			<Space orientation='vertical' style={{ width: '100%' }}>
 				{
-					[ SourcebookType.Official, SourcebookType.Homebrew, SourcebookType.ThirdParty, SourcebookType.Community ]
+					[ SourcebookType.Featured, SourcebookType.Official, SourcebookType.Homebrew, SourcebookType.ThirdParty, SourcebookType.Community ]
 						.map(type => ({ type: type, sourcebooks: props.sourcebooks.filter(sb => sb.type === type).filter(sb => SourcebookLogic.getElements(sb).length > 0) }))
 						.filter(item => item.sourcebooks.length > 0)
 						.map(item => (

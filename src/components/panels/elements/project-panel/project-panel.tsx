@@ -300,7 +300,7 @@ export const ProjectPanel = (props: Props) => {
 			sourcebook = props.sourcebooks.find(sb => sb.imbuements.some(i => i.crafting && i.crafting.id === project.id));
 		}
 		const sourcebookType = sourcebook ? sourcebook.type : SourcebookType.Homebrew;
-		if (sourcebookType !== SourcebookType.Official) {
+		if ((sourcebookType !== SourcebookType.Official) && (sourcebookType !== SourcebookType.Featured)) {
 			tags.push(sourcebookType);
 		}
 	}

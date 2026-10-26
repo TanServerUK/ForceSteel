@@ -81,6 +81,8 @@ export default defineConfig({
 				cleanupOutdatedCaches: true,
 				navigateFallback: '/index.html',
 				globPatterns: [ '**/*.{js,css,html}' ],
+				// The featured Star Wars sourcebook ships as one ~2.7 MB chunk; allow it to be precached so it works offline
+				maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
 				runtimeCaching: [
 					{
 						urlPattern: ({ request }) => request.destination === 'image',

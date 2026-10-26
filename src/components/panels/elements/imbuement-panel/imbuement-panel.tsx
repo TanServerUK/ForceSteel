@@ -26,7 +26,7 @@ export const ImbuementPanel = (props: Props) => {
 	const tags = [ `Level ${props.imbuement.level}` ];
 	if (props.sourcebooks.length > 0) {
 		const sourcebookType = SourcebookLogic.getImbuementSourcebook(props.sourcebooks, props.imbuement)?.type || SourcebookType.Official;
-		if (sourcebookType !== SourcebookType.Official) {
+		if ((sourcebookType !== SourcebookType.Official) && (sourcebookType !== SourcebookType.Featured)) {
 			tags.push(sourcebookType);
 		}
 	}
