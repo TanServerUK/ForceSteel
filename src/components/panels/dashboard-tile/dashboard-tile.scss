@@ -8,6 +8,14 @@
 	border-radius: 5px;
 	background-color: var(--fs-surface);
 
+	&.selectable {
+		cursor: pointer;
+
+		&:hover {
+			background-color: var(--fs-accent-wash);
+		}
+	}
+
 	.dashboard-tile-portrait {
 		position: relative;
 		width: 200px;

@@ -8,6 +8,7 @@ import './dashboard-tile.scss';
 
 interface Props {
 	hero: Hero;
+	onSelect?: () => void;
 }
 
 export const DashboardTile = (props: Props) => {
@@ -19,7 +20,7 @@ export const DashboardTile = (props: Props) => {
 	const recoveriesUsed = hero.state.recoveriesUsed;
 
 	return (
-		<div className='dashboard-tile'>
+		<div className={props.onSelect ? 'dashboard-tile selectable' : 'dashboard-tile'} onClick={props.onSelect}>
 			<div className='dashboard-tile-portrait'>
 				<HeroToken hero={hero} size={95} />
 				<HealthGauge
