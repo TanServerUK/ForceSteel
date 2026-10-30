@@ -1,7 +1,7 @@
 {
 	"id": "8cc13b2e-6f37-4bd4-93fe-5bd15aae826c",
-	"name": "Ken's Star Wars Conversion (v0.65)",
-	"description": "A full Star Wars reskin of Draw Steel: smugglers, Jedi and Sith, bounty hunters, and rebels adventuring across a galaxy far, far away. Covers Ancestries, Cultures, Kits (including 7 lightsaber-form Kits), Perks, Titles (including the Jedi/Grey/Sith Force Sensitivity track), Domains, Careers, Skills, Complications, Treasures (including 4 lightsaber Treasures), Imbuements, and a Languages family tree remapped to real Star Wars lore. All 9 core Classes are fully reskinned, plus the Beastheart and the Legion-Master (Summoner).\n\nStill to do: fill in the placeholder mechanical benefits on the Force Sensitivity Titles. A full text audit of the book is mostly complete: its fixes have been applied, and only smaller issues remain outstanding. See the Remaining Work To-Do List for full details.\n\nBuild v0.65 (2026-10-29) — work in progress, for testing only.",
+	"name": "Ken's Star Wars Conversion (v1.0)",
+	"description": "A full Star Wars reskin of Draw Steel: smugglers, Jedi and Sith, bounty hunters, and rebels adventuring across a galaxy far, far away. All nine core Classes are reskinned, along with the Beastheart and the Legion-Master (Summoner). The book also covers Ancestries, Cultures, Careers, Complications, Skills, Perks, Titles (including the Jedi, Grey and Sith Force Sensitivity track), Domains, Kits (including seven lightsaber-form Kits and seven blaster Kits), Treasures (including four lightsaber Treasures), Imbuements, and a Languages family tree remapped to real Star Wars lore.\n\nVersion 1.0 (2026-10-30).",
 	"type": "Homebrew",
 	"adventures": [],
 	"ancestries": [
@@ -76489,11 +76489,55 @@
 							}
 						},
 						{
-							"id": "a3b1db5c-fafb-4b1c-8df3-f2acf911f1ae",
-							"name": "",
-							"description": "While you wield this weapon, you have cover against Ranged abilities.",
+							"id": "cd126577-2cc9-417b-8017-19cb9420aca2",
+							"name": "Cut Through",
+							"description": "When you spend 10 uninterrupted minutes cutting with this weapon, you can slice an opening through any mundane door, wall, or barrier of stone, wood, or metal no more than 1 square thick within 1 square of you. The opening is large enough for you to pass through. You can’t cut through material that is shielded or reinforced, or anything else that resists a lightsaber.",
 							"type": "Text",
 							"data": null
+						},
+						{
+							"id": "3a90b979-07d7-4709-a777-3a8ab5c82c04",
+							"name": "Blaster Deflection",
+							"description": "Your blade snaps up to meet the bolt.",
+							"type": "Ability",
+							"data": {
+								"ability": {
+									"id": "3a90b979-07d7-4709-a777-3a8ab5c82c04",
+									"name": "Blaster Deflection",
+									"description": "Your blade snaps up to meet the bolt.",
+									"type": {
+										"usage": "Triggered Action",
+										"free": true,
+										"trigger": "You are targeted by a ranged strike",
+										"time": "",
+										"qualifiers": [
+											"Once per turn"
+										],
+										"freeStrike": false
+									},
+									"keywords": [],
+									"distance": [
+										{
+											"type": "Self",
+											"value": 0,
+											"value2": 0,
+											"within": 0,
+											"special": "",
+											"qualifier": ""
+										}
+									],
+									"target": "Self",
+									"cost": 0,
+									"repeatable": false,
+									"minLevel": 1,
+									"sections": [
+										{
+											"type": "text",
+											"text": "You reduce the damage you take from the strike by your Agility or Intuition score (your choice). If this reduces the damage to 0, you ignore the strike, and if you do, half the damage you would have taken and any effects of the triggering strike are imposed on the creature making the strike."
+										}
+									]
+								}
+							}
 						}
 					]
 				},
@@ -76518,6 +76562,13 @@
 								"valuePerEchelon": 0,
 								"damageType": "Damage"
 							}
+						},
+						{
+							"id": "b5363684-a331-4a03-a5c6-3c2895a74e36",
+							"name": "Blaster Deflection Upgrade",
+							"description": "The damage reduction is now equal to twice the characteristic score used. Additionally, when you use this ability, you can shift up to 1 square.",
+							"type": "Text",
+							"data": null
 						}
 					]
 				},
@@ -76542,6 +76593,13 @@
 								"valuePerEchelon": 0,
 								"damageType": "Damage"
 							}
+						},
+						{
+							"id": "00d96406-d59c-48c3-97e7-69b3bd72239f",
+							"name": "Blaster Deflection Upgrade",
+							"description": "The damage reduction is now equal to three times the characteristic score used.",
+							"type": "Text",
+							"data": null
 						}
 					]
 				}
@@ -76598,11 +76656,55 @@
 							}
 						},
 						{
-							"id": "43b1320a-a401-4d7c-b252-57d649068fca",
-							"name": "",
-							"description": "While you wield this weapon, you have cover against Ranged abilities.",
+							"id": "a67dbab8-6fe0-4387-9af6-b19f561dc616",
+							"name": "Cut Through",
+							"description": "When you spend 10 uninterrupted minutes cutting with this weapon, you can slice an opening through any mundane door, wall, or barrier of stone, wood, or metal no more than 1 square thick within 1 square of you. The opening is large enough for you to pass through. You can’t cut through material that is shielded or reinforced, or anything else that resists a lightsaber.",
 							"type": "Text",
 							"data": null
+						},
+						{
+							"id": "f2ce5a79-0758-4f05-810a-9236a02d3d18",
+							"name": "Blaster Deflection",
+							"description": "Your blade snaps up to meet the bolt.",
+							"type": "Ability",
+							"data": {
+								"ability": {
+									"id": "f2ce5a79-0758-4f05-810a-9236a02d3d18",
+									"name": "Blaster Deflection",
+									"description": "Your blade snaps up to meet the bolt.",
+									"type": {
+										"usage": "Triggered Action",
+										"free": true,
+										"trigger": "You are targeted by a ranged strike",
+										"time": "",
+										"qualifiers": [
+											"Once per turn"
+										],
+										"freeStrike": false
+									},
+									"keywords": [],
+									"distance": [
+										{
+											"type": "Self",
+											"value": 0,
+											"value2": 0,
+											"within": 0,
+											"special": "",
+											"qualifier": ""
+										}
+									],
+									"target": "Self",
+									"cost": 0,
+									"repeatable": false,
+									"minLevel": 1,
+									"sections": [
+										{
+											"type": "text",
+											"text": "You reduce the damage you take from the strike by your Might, Agility, or Intuition score (your choice). If this reduces the damage to 0, you ignore the strike, and if you do, half the damage you would have taken and any effects of the triggering strike are imposed on the creature making the strike."
+										}
+									]
+								}
+							}
 						}
 					]
 				},
@@ -76627,6 +76729,13 @@
 								"valuePerEchelon": 0,
 								"damageType": "Damage"
 							}
+						},
+						{
+							"id": "4696d116-b23f-4fac-a964-c33277488720",
+							"name": "Blaster Deflection Upgrade",
+							"description": "The damage reduction is now equal to twice the characteristic score used. Additionally, if this ability reduces the damage to 0, you have an edge on the next strike you make before the end of your next turn.",
+							"type": "Text",
+							"data": null
 						}
 					]
 				},
@@ -76651,6 +76760,13 @@
 								"valuePerEchelon": 0,
 								"damageType": "Damage"
 							}
+						},
+						{
+							"id": "ee5b811d-2bb6-43cc-8514-975d88fef928",
+							"name": "Blaster Deflection Upgrade",
+							"description": "The damage reduction is now equal to three times the characteristic score used.",
+							"type": "Text",
+							"data": null
 						}
 					]
 				}
@@ -76707,11 +76823,55 @@
 							}
 						},
 						{
-							"id": "2f0d1804-9d46-4f33-b63d-6eab54f763d8",
-							"name": "",
-							"description": "While you wield this weapon, you have cover against Ranged abilities.",
+							"id": "ccbb764c-592f-47b2-b72c-7ef2858221ea",
+							"name": "Cut Through",
+							"description": "When you spend 10 uninterrupted minutes cutting with this weapon, you can slice an opening through any mundane door, wall, or barrier of stone, wood, or metal no more than 1 square thick within 1 square of you. The opening is large enough for you to pass through. You can’t cut through material that is shielded or reinforced, or anything else that resists a lightsaber.",
 							"type": "Text",
 							"data": null
+						},
+						{
+							"id": "dcb62504-8898-4e50-947e-a0178f338545",
+							"name": "Blaster Deflection",
+							"description": "Your blade snaps up to meet the bolt.",
+							"type": "Ability",
+							"data": {
+								"ability": {
+									"id": "dcb62504-8898-4e50-947e-a0178f338545",
+									"name": "Blaster Deflection",
+									"description": "Your blade snaps up to meet the bolt.",
+									"type": {
+										"usage": "Triggered Action",
+										"free": true,
+										"trigger": "You are targeted by a ranged strike",
+										"time": "",
+										"qualifiers": [
+											"Once per turn"
+										],
+										"freeStrike": false
+									},
+									"keywords": [],
+									"distance": [
+										{
+											"type": "Self",
+											"value": 0,
+											"value2": 0,
+											"within": 0,
+											"special": "",
+											"qualifier": ""
+										}
+									],
+									"target": "Self",
+									"cost": 0,
+									"repeatable": false,
+									"minLevel": 1,
+									"sections": [
+										{
+											"type": "text",
+											"text": "You reduce the damage you take from the strike by your Might, Agility, or Intuition score (your choice). If this reduces the damage to 0, you ignore the strike, and if you do, half the damage you would have taken and any effects of the triggering strike are imposed on the creature making the strike."
+										}
+									]
+								}
+							}
 						}
 					]
 				},
@@ -76736,6 +76896,13 @@
 								"valuePerEchelon": 0,
 								"damageType": "Damage"
 							}
+						},
+						{
+							"id": "795101f1-4289-4b78-aedc-9df07f23f299",
+							"name": "Blaster Deflection Upgrade",
+							"description": "The damage reduction is now equal to twice the characteristic score used. Additionally, you can use this ability when an ally adjacent to you is targeted by a ranged strike. If you do, the damage reduction applies to the damage that ally would take instead of you.",
+							"type": "Text",
+							"data": null
 						}
 					]
 				},
@@ -76760,6 +76927,13 @@
 								"valuePerEchelon": 0,
 								"damageType": "Damage"
 							}
+						},
+						{
+							"id": "1605cbc2-577d-4659-979b-8fd591aaa736",
+							"name": "Blaster Deflection Upgrade",
+							"description": "The damage reduction is now equal to three times the characteristic score used.",
+							"type": "Text",
+							"data": null
 						}
 					]
 				}
@@ -76769,7 +76943,7 @@
 		},
 		{
 			"id": "3c42264d-104b-49e4-9445-207d3d305819",
-			"name": "Heavy Saber",
+			"name": "Heavy Lightsaber",
 			"description": "An unstable, vented blade flanked by twin quillons of contained plasma — as dangerous to control as it is to face.",
 			"type": "Leveled Weapon",
 			"keywords": [
@@ -76778,8 +76952,8 @@
 			],
 			"crafting": {
 				"id": "3c42264d-104b-49e4-9445-207d3d305819-crafting",
-				"name": "Craft Heavy Saber",
-				"description": "Craft a Heavy Saber.",
+				"name": "Craft Heavy Lightsaber",
+				"description": "Craft a Heavy Lightsaber.",
 				"itemPrerequisites": "A tuned kyber crystal, a pair of vented quillon emitters",
 				"source": "Texts or lore in Galactic Basic Standard",
 				"characteristic": [
@@ -76816,11 +76990,55 @@
 							}
 						},
 						{
-							"id": "2151f19c-14f7-418b-ba9d-8bbefd06c492",
-							"name": "",
-							"description": "While you wield this weapon, you have cover against Ranged abilities.",
+							"id": "434f8a43-ec24-4ba4-a134-91fdd63686d3",
+							"name": "Cut Through",
+							"description": "When you spend 1 uninterrupted minute cutting with this weapon, you can slice an opening through any mundane door, wall, or barrier of stone, wood, or metal no more than 1 square thick within 1 square of you. The opening is large enough for you to pass through. You can’t cut through material that is shielded or reinforced, or anything else that resists a lightsaber.",
 							"type": "Text",
 							"data": null
+						},
+						{
+							"id": "7966317a-a191-41ec-85f5-5b4a673e5e69",
+							"name": "Blaster Deflection",
+							"description": "Your blade snaps up to meet the bolt.",
+							"type": "Ability",
+							"data": {
+								"ability": {
+									"id": "7966317a-a191-41ec-85f5-5b4a673e5e69",
+									"name": "Blaster Deflection",
+									"description": "Your blade snaps up to meet the bolt.",
+									"type": {
+										"usage": "Triggered Action",
+										"free": true,
+										"trigger": "You are targeted by a ranged strike",
+										"time": "",
+										"qualifiers": [
+											"Once per turn"
+										],
+										"freeStrike": false
+									},
+									"keywords": [],
+									"distance": [
+										{
+											"type": "Self",
+											"value": 0,
+											"value2": 0,
+											"within": 0,
+											"special": "",
+											"qualifier": ""
+										}
+									],
+									"target": "Self",
+									"cost": 0,
+									"repeatable": false,
+									"minLevel": 1,
+									"sections": [
+										{
+											"type": "text",
+											"text": "You reduce the damage you take from the strike by your Might or Intuition score (your choice). If this reduces the damage to 0, you ignore the strike, and if you do, half the damage you would have taken and any effects of the triggering strike are imposed on the creature making the strike."
+										}
+									]
+								}
+							}
 						}
 					]
 				},
@@ -76845,6 +77063,13 @@
 								"valuePerEchelon": 0,
 								"damageType": "Damage"
 							}
+						},
+						{
+							"id": "0d3b006b-7bf8-4737-82ab-a92ad3ed556b",
+							"name": "Blaster Deflection Upgrade",
+							"description": "The damage reduction is now equal to twice the characteristic score used. Additionally, if this ability reduces the damage to 0, you gain 1 surge.",
+							"type": "Text",
+							"data": null
 						}
 					]
 				},
@@ -76869,6 +77094,13 @@
 								"valuePerEchelon": 0,
 								"damageType": "Damage"
 							}
+						},
+						{
+							"id": "19770efe-1905-40dd-a7be-19ca0252102c",
+							"name": "Blaster Deflection Upgrade",
+							"description": "The damage reduction is now equal to three times the characteristic score used.",
+							"type": "Text",
+							"data": null
 						}
 					]
 				}
@@ -79010,7 +79242,7 @@
 		{
 			"id": "195235b8-8327-414b-a019-5d9dc4deb119",
 			"name": "Form V: Shien",
-			"description": "Lightsaber Form V: Shien, called Perseverance, is built to protect a group under fire. You turn a blaster bolt back on whoever fired it, and when it counts, you hurl the saber itself. Outnumbered and surrounded is where you are at your most dangerous — though the form falters against a single skilled melee opponent.",
+			"description": "Lightsaber Form V: Shien, called Perseverance, is built to break up groups of blaster-armed foes. When the enemy masses at range, you hurl your saber in a sweeping line through their ranks and call it back to your hand. Outnumbered and surrounded is where you are at your most dangerous — though the form falters against a single skilled melee opponent.",
 			"type": "",
 			"armor": [],
 			"weapon": [
@@ -79037,13 +79269,13 @@
 				{
 					"id": "4691c863-6baa-4594-badb-f3148f692b37",
 					"name": "Saber Throw",
-					"description": "You hurl your saber in a sweeping line, turning aside attacks and sending them right back at their sources.",
+					"description": "You hurl your saber in a sweeping line, breaking up a group of blaster-armed foes from a distance.",
 					"type": "Ability",
 					"data": {
 						"ability": {
 							"id": "4691c863-6baa-4594-badb-f3148f692b37",
 							"name": "Saber Throw",
-							"description": "You hurl your saber in a sweeping line, turning aside attacks and sending them right back at their sources.",
+							"description": "You hurl your saber in a sweeping line, breaking up a group of blaster-armed foes from a distance.",
 							"type": {
 								"usage": "Main Action",
 								"free": false,
