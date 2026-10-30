@@ -1,7 +1,7 @@
 {
 	"id": "8cc13b2e-6f37-4bd4-93fe-5bd15aae826c",
-	"name": "Ken's Star Wars Conversion (v0.63)",
-	"description": "A full Star Wars reskin of Draw Steel: smugglers, Jedi and Sith, bounty hunters, and rebels adventuring across a galaxy far, far away. Covers Ancestries, Cultures, Kits (including 7 lightsaber-form Kits), Perks, Titles (including the Jedi/Grey/Sith Force Sensitivity track), Domains, Careers, Skills, Complications, Treasures (including 4 lightsaber Treasures), Imbuements, and a Languages family tree remapped to real Star Wars lore. All 9 core Classes are fully reskinned, plus the Beastheart and the Legion-Master (Summoner).\n\nStill to do: fill in the placeholder mechanical benefits on the Force Sensitivity Titles. A full text audit of the book is mostly complete: its fixes have been applied, and only smaller issues remain outstanding. See the Remaining Work To-Do List for full details.\n\nBuild v0.63 (2026-10-25) — work in progress, for testing only.",
+	"name": "Ken's Star Wars Conversion (v0.65)",
+	"description": "A full Star Wars reskin of Draw Steel: smugglers, Jedi and Sith, bounty hunters, and rebels adventuring across a galaxy far, far away. Covers Ancestries, Cultures, Kits (including 7 lightsaber-form Kits), Perks, Titles (including the Jedi/Grey/Sith Force Sensitivity track), Domains, Careers, Skills, Complications, Treasures (including 4 lightsaber Treasures), Imbuements, and a Languages family tree remapped to real Star Wars lore. All 9 core Classes are fully reskinned, plus the Beastheart and the Legion-Master (Summoner).\n\nStill to do: fill in the placeholder mechanical benefits on the Force Sensitivity Titles. A full text audit of the book is mostly complete: its fixes have been applied, and only smaller issues remain outstanding. See the Remaining Work To-Do List for full details.\n\nBuild v0.65 (2026-10-29) — work in progress, for testing only.",
 	"type": "Homebrew",
 	"adventures": [],
 	"ancestries": [
@@ -3650,7 +3650,7 @@
 						"count": 1,
 						"selectAt": "build",
 						"selected": [
-							"Magic"
+							"Force"
 						]
 					}
 				},
@@ -6990,7 +6990,7 @@
 										"count": 1,
 										"selectAt": "build",
 										"selected": [
-											"Magic"
+											"Force"
 										]
 									}
 								},
@@ -10621,7 +10621,7 @@
 								"count": 1,
 								"selectAt": "build",
 								"selected": [
-									"Magic"
+									"Technology"
 								]
 							}
 						},
@@ -18435,7 +18435,7 @@
 		{
 			"id": "405e0bc1-724f-4c31-8d2f-f70eeefbec32",
 			"name": "Ascetic",
-			"description": "(Previously Null)\n\nThe mind is not separate from the body. Perfection of one requires perfection of the other. You strive for perfect discipline, perfect order, mastery over mind and body becoming an unarmed psionic warrior who dampens and absorbs the Force and psionics. You require no weapons, no tools. You suffice.\n\nAs an ascetic, you resist the supernatural forces of the universe with composure and confidence. As you strive for perfect order, you are an enemy of the ultimate expression of chaos: the supernatural. Those who break the laws of nature using the Force or psionics should fear you.\n\n*\"Any weapon can be turned against the hand that wields it.\"* - Master Ivo Kest",
+			"description": "(Previously Null)\n\nThe mind is not separate from the body. Perfection of one requires perfection of the other. You strive for perfect discipline, perfect order, mastery over mind and body becoming an unarmed psionic warrior who dampens and absorbs the Force and offensive hardware or systems. You require no weapons, no tools. You suffice.\n\nAs an ascetic, you resist the supernatural forces of the universe with composure and confidence. As you strive for perfect order, you are an enemy of the ultimate expression of chaos: the supernatural. Those who break the laws of nature using the Force or advanced technology should fear you.\n\n*\"Any weapon can be turned against the hand that wields it.\"* - Master Ivo Kest",
 			"type": "standard",
 			"subclassName": "Tradition",
 			"subclassCount": 1,
@@ -18533,7 +18533,7 @@
 								"count": 1,
 								"selectAt": "build",
 								"selected": [
-									"Psionics"
+									"Force"
 								]
 							}
 						},
@@ -24930,7 +24930,7 @@
 										"count": 1,
 										"selectAt": "build",
 										"selected": [
-											"Magic"
+											"Technology"
 										]
 									}
 								},
@@ -30154,7 +30154,7 @@
 								"count": 2,
 								"selectAt": "build",
 								"selected": [
-									"Psionics",
+									"Force",
 									"Read Person"
 								]
 							}
@@ -41083,7 +41083,7 @@
 														"count": 1,
 														"selectAt": "build",
 														"selected": [
-															"Magic"
+															"Technology"
 														]
 													}
 												},
@@ -46739,7 +46739,7 @@
 										"count": 1,
 										"selectAt": "build",
 										"selected": [
-											"Magic"
+											"Technology"
 										]
 									}
 								},
@@ -47429,7 +47429,7 @@
 								"count": 2,
 								"selectAt": "build",
 								"selected": [
-									"Magic",
+									"Technology",
 									"Strategy"
 								]
 							}
@@ -76464,7 +76464,7 @@
 				"isCustom": false,
 				"progress": null
 			},
-			"effect": "Using a lightsaber's bonuses and benefits requires the Awakened Force Sensitivity perk. Without that perk, you can still swing this lightsaber as an improvised weapon, but you don't get any of its bonuses or benefits.",
+			"effect": "",
 			"featuresByLevel": [
 				{
 					"level": 1,
@@ -76573,7 +76573,7 @@
 				"isCustom": false,
 				"progress": null
 			},
-			"effect": "Using a lightsaber's bonuses and benefits requires the Awakened Force Sensitivity perk. Without that perk, you can still swing this lightsaber as an improvised weapon, but you don't get any of its bonuses or benefits.",
+			"effect": "",
 			"featuresByLevel": [
 				{
 					"level": 1,
@@ -76682,7 +76682,7 @@
 				"isCustom": false,
 				"progress": null
 			},
-			"effect": "Using a lightsaber's bonuses and benefits requires the Awakened Force Sensitivity perk. Without that perk, you can still swing this lightsaber as an improvised weapon, but you don't get any of its bonuses or benefits.",
+			"effect": "",
 			"featuresByLevel": [
 				{
 					"level": 1,
@@ -76791,7 +76791,7 @@
 				"isCustom": false,
 				"progress": null
 			},
-			"effect": "Using a lightsaber's bonuses and benefits requires the Awakened Force Sensitivity perk. Without that perk, you can still swing this lightsaber as an improvised weapon, but you don't get any of its bonuses or benefits.",
+			"effect": "",
 			"featuresByLevel": [
 				{
 					"level": 1,
@@ -78671,7 +78671,7 @@
 		{
 			"id": "42363444-97f1-40bc-bac0-425437b57368",
 			"name": "Form I: Shii-Cho",
-			"description": "Form I: Shii-Cho, called Determination, is the first form taught to every Jedi initiate. Broad, economical cuts keep you safe against a crowd more than any single foe — it won't win you a duel against a skilled opponent, but it'll keep you alive long enough to learn a lightsaber form that does.",
+			"description": "Lightsaber Form I: Shii-Cho, called Determination, is the first form taught to every Jedi initiate. Broad, economical cuts keep you safe against a crowd more than any single foe — it won't win you a duel against a skilled opponent, but it'll keep you alive long enough to learn a lightsaber form that does.",
 			"type": "",
 			"armor": [],
 			"weapon": [
@@ -78754,18 +78754,19 @@
 		{
 			"id": "77fb36d0-5263-4384-8cdf-7da545354e9c",
 			"name": "Form II: Makashi",
-			"description": "Form II: Makashi, called Contention, was developed specifically to fight other blade-wielders in one-on-one combat. Every precise strike opens a gap in your opponent's guard that your next strike will be all too happy to exploit — a lightsaber form built for duellists, not battlefields.",
+			"description": "Lightsaber Form II: Makashi, called Contention, was developed specifically to fight other blade-wielders in one-on-one combat. Every precise strike opens a gap in your opponent's guard that your next strike will be all too happy to exploit — a lightsaber form built for duellists, not battlefields.",
 			"type": "",
 			"armor": [],
 			"weapon": [
 				"Medium Weapon",
-				"Light Weapon"
+				"Light Weapon",
+				"Polearm"
 			],
 			"stamina": 6,
 			"speed": 1,
-			"stability": 2,
+			"stability": 1,
 			"meleeDamage": {
-				"tier1": 1,
+				"tier1": 2,
 				"tier2": 2,
 				"tier3": 2
 			},
@@ -78838,7 +78839,7 @@
 		{
 			"id": "88a3b843-c30d-49b1-a6c1-d36b30659c3f",
 			"name": "Form III: Soresu",
-			"description": "Form III: Soresu, called Resilience, was developed by the Jedi specifically to counter blaster fire. Planted, patient, and armoured, you weather everything thrown at you and make your foes pay for every shot that gets through — the lightsaber form of a defender who outlasts, rather than overwhelms.",
+			"description": "Lightsaber Form III: Soresu, called Resilience, was developed by the Jedi specifically to counter blaster fire. Planted, patient, and armoured, you weather everything thrown at you and make your foes pay for every shot that gets through — the lightsaber form of a defender who outlasts, rather than overwhelms.",
 			"type": "",
 			"armor": [
 				"Light Armor"
@@ -78925,7 +78926,7 @@
 		{
 			"id": "391cba57-3a2a-4a36-af3a-05c6107fadd1",
 			"name": "Form IV: Ataru",
-			"description": "Form IV: Ataru, called Aggression, turns you into a blur — leaping, darting, and never standing still long enough to be pinned down. Relentless acrobatic mobility keeps a single opponent constantly on the back foot, though this lightsaber form's same recklessness leaves you exposed to blaster fire and to being surrounded.",
+			"description": "Lightsaber Form IV: Ataru, called Aggression, turns you into a blur — leaping, darting, and never standing still long enough to be pinned down. Relentless acrobatic mobility keeps a single opponent constantly on the back foot, though this lightsaber form's same recklessness leaves you exposed to blaster fire and to being surrounded.",
 			"type": "",
 			"armor": [],
 			"weapon": [
@@ -79009,7 +79010,7 @@
 		{
 			"id": "195235b8-8327-414b-a019-5d9dc4deb119",
 			"name": "Form V: Shien",
-			"description": "Form V: Shien, called Perseverance, is built to protect a group under fire, deflecting and redirecting blaster bolts back toward their source. You're never more dangerous with this lightsaber form than when you're outnumbered or facing down a line of blasters — though it falters against a single skilled melee opponent.",
+			"description": "Lightsaber Form V: Shien, called Perseverance, is built to protect a group under fire. You turn a blaster bolt back on whoever fired it, and when it counts, you hurl the saber itself. Outnumbered and surrounded is where you are at your most dangerous — though the form falters against a single skilled melee opponent.",
 			"type": "",
 			"armor": [],
 			"weapon": [
@@ -79035,14 +79036,14 @@
 			"features": [
 				{
 					"id": "4691c863-6baa-4594-badb-f3148f692b37",
-					"name": "Redirected Strike",
-					"description": "A strike that turns aside an attack and sends it right back at its source.",
+					"name": "Saber Throw",
+					"description": "You hurl your saber in a sweeping line, turning aside attacks and sending them right back at their sources.",
 					"type": "Ability",
 					"data": {
 						"ability": {
 							"id": "4691c863-6baa-4594-badb-f3148f692b37",
-							"name": "Redirected Strike",
-							"description": "A strike that turns aside an attack and sends it right back at its source.",
+							"name": "Saber Throw",
+							"description": "You hurl your saber in a sweeping line, turning aside attacks and sending them right back at their sources.",
 							"type": {
 								"usage": "Main Action",
 								"free": false,
@@ -79052,30 +79053,21 @@
 								"freeStrike": false
 							},
 							"keywords": [
-								"Melee",
+								"Area",
 								"Ranged",
-								"Strike",
 								"Weapon"
 							],
 							"distance": [
 								{
-									"type": "Melee",
-									"value": 1,
-									"value2": 0,
-									"within": 0,
-									"special": "",
-									"qualifier": ""
-								},
-								{
-									"type": "Ranged",
+									"type": "Line",
 									"value": 5,
-									"value2": 0,
-									"within": 0,
+									"value2": 1,
+									"within": 5,
 									"special": "",
 									"qualifier": ""
 								}
 							],
-							"target": "One creature",
+							"target": "Each creature in the area",
 							"cost": "signature",
 							"repeatable": false,
 							"minLevel": 1,
@@ -79088,14 +79080,10 @@
 											"Agility"
 										],
 										"bonus": 0,
-										"tier1": "2 + M or A damage",
-										"tier2": "4 + M or A damage",
-										"tier3": "6 + M or A damage"
+										"tier1": "1 damage",
+										"tier2": "3 damage",
+										"tier3": "5 damage"
 									}
-								},
-								{
-									"type": "text",
-									"text": "The target is taunted until the end of their next turn."
 								}
 							]
 						}
@@ -79106,7 +79094,7 @@
 		{
 			"id": "a7696fc7-e887-47eb-9994-dfdd142c0c6b",
 			"name": "Form VI: Niman",
-			"description": "Form VI: Niman, called Moderation, blends swordplay with the Force, favouring no single trick over a smooth, adaptable combination of both. It helps to keep foes at a distance and off-balance while you do it — the lightsaber form of a generalist, strong everywhere and exceptional nowhere.",
+			"description": "Lightsaber Form VI: Niman, called Moderation, blends swordplay with the Force, favouring no single trick over a smooth, adaptable combination of both. It helps to keep foes at a distance and off-balance while you do it — the lightsaber form of a generalist, strong everywhere and exceptional nowhere.",
 			"type": "",
 			"armor": [],
 			"weapon": [
@@ -79129,13 +79117,13 @@
 				{
 					"id": "c6516503-da3f-4476-8361-5ad13c48652d",
 					"name": "Flowing Strike",
-					"description": "Your weapon and the Force move together, closing the distance and setting up what comes next.",
+					"description": "Your weapon and the Force move together, keeping the enemy off-balance and out of reach.",
 					"type": "Ability",
 					"data": {
 						"ability": {
 							"id": "c6516503-da3f-4476-8361-5ad13c48652d",
 							"name": "Flowing Strike",
-							"description": "Your weapon and the Force move together, closing the distance and setting up what comes next.",
+							"description": "Your weapon and the Force move together, keeping the enemy off-balance and out of reach.",
 							"type": {
 								"usage": "Main Action",
 								"free": false,
@@ -79193,12 +79181,13 @@
 		{
 			"id": "23758d70-e603-4704-8e82-bf4f6ef1470c",
 			"name": "Form VII: Juyo",
-			"description": "Form VII: Juyo, called Ferocity, is reckless, aggressive, and only gets stronger the more punishment you take. Wielding a lightsaber with total abandon, you trade your own defence for devastating retaliation — the most dangerous and unstable of the seven Lightsaber forms, prone to consuming those who lean on it too long.",
+			"description": "Lightsaber Form VII: Juyo, called Ferocity, is reckless, aggressive, and only gets stronger the more punishment you take. Wielding a lightsaber with total abandon, you trade your own defence for devastating retaliation — the most dangerous and unstable of the seven Lightsaber forms, prone to consuming those who lean on it too long.",
 			"type": "",
 			"armor": [],
 			"weapon": [
 				"Heavy Weapon",
-				"Medium Weapon"
+				"Medium Weapon",
+				"Polearm"
 			],
 			"stamina": 3,
 			"speed": 2,
@@ -79275,134 +79264,44 @@
 			]
 		},
 		{
-			"id": "ca9d6d36-5038-46c8-a35d-1920a679488c",
-			"name": "Psychic Slasher TODO",
-			"description": "Outfitted in medium armour and brimming with psionic energy, this kit allows you to swing your weapon with the power of your mind instead of the strength of your arm, giving your strikes a supernatural reach and force.",
+			"id": "194a0d26-9bc9-4e87-9653-72c569cbdfab",
+			"name": "Gunslinger",
+			"description": "You fight with a blade in one hand and a blaster in the other, weaving steel and blaster fire into a single deadly style. Gunslingers are fast, aggressive duelists who thrive in close quarters, darting in for a cut, a shot, or both before their enemy can recover. Some are privateers, raiders, and sellswords; others are smugglers, bounty hunters, or spaceport swashbucklers with a taste for flair.",
 			"type": "",
 			"armor": [
-				"Medium Armor"
+				"Light Armor"
 			],
 			"weapon": [
-				"Medium Weapon",
-				"Heavy Weapon"
+				"Light Weapon",
+				"Blaster"
 			],
-			"stamina": 6,
-			"speed": 0,
-			"stability": 1,
-			"meleeDamage": {
-				"tier1": 0,
-				"tier2": 0,
-				"tier3": 4
-			},
-			"rangedDamage": null,
-			"meleeDistance": 1,
-			"rangedDistance": 0,
-			"disengage": 0,
-			"features": [
-				{
-					"id": "1fccbb1b-c396-4fe8-b7c4-5745c5d21cc2",
-					"name": "",
-					"description": "",
-					"type": "Ability",
-					"data": {
-						"ability": {
-							"id": "1fccbb1b-c396-4fe8-b7c4-5745c5d21cc2",
-							"name": "Dancing Blade",
-							"description": "Your weapon dances through the air, buoyed by psionic skill.",
-							"type": {
-								"usage": "Main Action",
-								"free": false,
-								"trigger": "",
-								"time": "",
-								"qualifiers": [],
-								"freeStrike": false
-							},
-							"keywords": [
-								"Melee",
-								"Psionic",
-								"Strike",
-								"Weapon"
-							],
-							"distance": [
-								{
-									"type": "Melee",
-									"value": 2,
-									"value2": 0,
-									"within": 0,
-									"special": "",
-									"qualifier": ""
-								}
-							],
-							"target": "1 creature",
-							"cost": "signature",
-							"repeatable": false,
-							"minLevel": 1,
-							"sections": [
-								{
-									"type": "roll",
-									"roll": {
-										"characteristic": [
-											"Reason",
-											"Intuition"
-										],
-										"bonus": 0,
-										"tier1": "3 + R or I damage",
-										"tier2": "6 + R or I damage",
-										"tier3": "13 + R or I damage"
-									}
-								},
-								{
-									"type": "text",
-									"text": "One other creature within 3 squares of the target takes damage equal to the characteristic score you added to the power roll of this attack."
-								}
-							],
-							"preEffect": "",
-							"powerRoll": null,
-							"test": null,
-							"effect": "",
-							"strained": "",
-							"alternateEffects": [],
-							"spend": [],
-							"persistence": []
-						}
-					}
-				}
-			]
-		},
-		{
-			"id": "7a63bae3-3a6a-4c9a-8166-23baa21c98c7",
-			"name": "Sword Saint TODO",
-			"description": "To you, a weapon is not just a tool - it's an extension of your spirit, to be used as a painter wields a brush. Your training makes you both as swift and as forceful as a coursing river.",
-			"type": "",
-			"armor": [
-				"Medium Armor"
-			],
-			"weapon": [
-				"Medium Weapon"
-			],
-			"stamina": 6,
+			"stamina": 3,
 			"speed": 1,
 			"stability": 0,
 			"meleeDamage": {
-				"tier1": 2,
-				"tier2": 2,
-				"tier3": 2
+				"tier1": 1,
+				"tier2": 1,
+				"tier3": 1
 			},
-			"rangedDamage": null,
-			"meleeDistance": 0,
+			"rangedDamage": {
+				"tier1": 1,
+				"tier2": 1,
+				"tier3": 1
+			},
+			"meleeDistance": 1,
 			"rangedDistance": 0,
-			"disengage": 2,
+			"disengage": 1,
 			"features": [
 				{
-					"id": "04f91b27-3d15-4cba-bd66-29bad62a0d2e",
-					"name": "Sifting Strikes",
-					"description": "",
+					"id": "34e25791-a76c-4241-9c90-dafa8d83b9bc",
+					"name": "Point Blank Shot",
+					"description": "A slash, a step, and a blaster shot delivered at breath-stealing range.",
 					"type": "Ability",
 					"data": {
 						"ability": {
-							"id": "04f91b27-3d15-4cba-bd66-29bad62a0d2e",
-							"name": "Sifting Strikes",
-							"description": "Rivers shift and snake,\\nBarely sifting rock - but then\\nThey fall, splitting stone.",
+							"id": "34e25791-a76c-4241-9c90-dafa8d83b9bc",
+							"name": "Point Blank Shot",
+							"description": "A slash, a step, and a blaster shot delivered at breath-stealing range.",
 							"type": {
 								"usage": "Main Action",
 								"free": false,
@@ -79413,6 +79312,7 @@
 							},
 							"keywords": [
 								"Melee",
+								"Ranged",
 								"Strike",
 								"Weapon"
 							],
@@ -79424,9 +79324,17 @@
 									"within": 0,
 									"special": "",
 									"qualifier": ""
+								},
+								{
+									"type": "Ranged",
+									"value": 5,
+									"value2": 0,
+									"within": 0,
+									"special": "",
+									"qualifier": ""
 								}
 							],
-							"target": "1 creature",
+							"target": "One creature",
 							"cost": "signature",
 							"repeatable": false,
 							"minLevel": 1,
@@ -79439,24 +79347,511 @@
 											"Agility"
 										],
 										"bonus": 0,
-										"tier1": "5 + M or A damage",
-										"tier2": "7 + M or A damage",
-										"tier3": "10 + M or A damage"
+										"tier1": "2 + M or A damage",
+										"tier2": "5 + M or A damage; you can shift 1",
+										"tier3": "7 + M or A damage; you can shift 1; if the target is adjacent to you, push 2"
 									}
 								},
 								{
 									"type": "text",
-									"text": "You deal additional damage equal to the number of squares you have shifted this turn."
+									"text": "When using this ability, you ignore the penalty for making ranged attacks while adjacent to an enemy."
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"id": "c91ed9f3-3629-46e1-aa3b-62f6d018f8af",
+			"name": "Heavy Gunner",
+			"description": "You haul a brutal, oversized blaster built to chew through anything unlucky enough to stand in the open. Heavy gunners trade finesse for force, laying down punishing bursts, driving enemies back, and controlling the field through sheer volume of fire. Whether braced behind rubble, marching forward under recoil, or sweeping a street clear with sustained fire, you are the answer to massed resistance.",
+			"type": "",
+			"armor": [
+				"Medium Armor"
+			],
+			"weapon": [
+				"Blaster"
+			],
+			"stamina": 6,
+			"speed": 0,
+			"stability": 2,
+			"meleeDamage": null,
+			"rangedDamage": {
+				"tier1": 0,
+				"tier2": 0,
+				"tier3": 4
+			},
+			"meleeDistance": 0,
+			"rangedDistance": 5,
+			"disengage": 0,
+			"features": [
+				{
+					"id": "329c6ea4-50b4-4357-98ea-b5b28807c75c",
+					"name": "Strafe",
+					"description": "You sweep a lane of fire across the battlefield, driving enemies back under a storm of blaster fire.",
+					"type": "Ability",
+					"data": {
+						"ability": {
+							"id": "329c6ea4-50b4-4357-98ea-b5b28807c75c",
+							"name": "Strafe",
+							"description": "You sweep a lane of fire across the battlefield, driving enemies back under a storm of blaster fire.",
+							"type": {
+								"usage": "Main Action",
+								"free": false,
+								"trigger": "",
+								"time": "",
+								"qualifiers": [],
+								"freeStrike": false
+							},
+							"keywords": [
+								"Area",
+								"Ranged",
+								"Weapon"
+							],
+							"distance": [
+								{
+									"type": "Line",
+									"value": 5,
+									"value2": 1,
+									"within": 5,
+									"special": "",
+									"qualifier": ""
 								}
 							],
-							"preEffect": "",
-							"powerRoll": null,
-							"test": null,
-							"effect": "",
-							"strained": "",
-							"alternateEffects": [],
-							"spend": [],
-							"persistence": []
+							"target": "Each creature in the area",
+							"cost": "signature",
+							"repeatable": false,
+							"minLevel": 1,
+							"sections": [
+								{
+									"type": "roll",
+									"roll": {
+										"characteristic": [
+											"Might",
+											"Agility"
+										],
+										"bonus": 0,
+										"tier1": "2 damage",
+										"tier2": "4 damage; push 1",
+										"tier3": "6 damage; push 2"
+									}
+								},
+								{
+									"type": "text",
+									"text": "The targets are force moved one at a time, starting with the target nearest to you, and can be pushed into other targets in the same line."
+								},
+								{
+									"type": "text",
+									"text": "Before you use this ability, you can use your maneuver to brace; if you do so, you gain an edge on your power roll."
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"id": "5d42b95e-2364-46a7-9224-096c47cb0004",
+			"name": "Deadshot",
+			"description": "Carrying a long blaster rifle, you rely on discipline, timing, and a well-placed shot instead of theatrics. Deadshots are soldiers, hunters, and bounty trackers trained to make every bolt count, punishing exposed targets and dropping enemies before they can close the distance. You don’t need fancy tricks—just a steady hand, a clear line, and the patience to fire at exactly the right moment.",
+			"type": "",
+			"armor": [
+				"Light Armor"
+			],
+			"weapon": [
+				"Blaster"
+			],
+			"stamina": 3,
+			"speed": 0,
+			"stability": 1,
+			"meleeDamage": null,
+			"rangedDamage": {
+				"tier1": 2,
+				"tier2": 2,
+				"tier3": 2
+			},
+			"meleeDistance": 0,
+			"rangedDistance": 10,
+			"disengage": 0,
+			"features": [
+				{
+					"id": "ed1ea38c-2023-44a1-97c4-726cc07fbc80",
+					"name": "Deadeye",
+					"description": "You aim your shot where armor parts and cover fails.",
+					"type": "Ability",
+					"data": {
+						"ability": {
+							"id": "ed1ea38c-2023-44a1-97c4-726cc07fbc80",
+							"name": "Deadeye",
+							"description": "You aim your shot where armor parts and cover fails.",
+							"type": {
+								"usage": "Main Action",
+								"free": false,
+								"trigger": "",
+								"time": "",
+								"qualifiers": [],
+								"freeStrike": false
+							},
+							"keywords": [
+								"Ranged",
+								"Strike",
+								"Weapon"
+							],
+							"distance": [
+								{
+									"type": "Ranged",
+									"value": 5,
+									"value2": 0,
+									"within": 0,
+									"special": "",
+									"qualifier": ""
+								}
+							],
+							"target": "One creature",
+							"cost": "signature",
+							"repeatable": false,
+							"minLevel": 1,
+							"sections": [
+								{
+									"type": "roll",
+									"roll": {
+										"characteristic": [
+											"Agility",
+											"Intuition"
+										],
+										"bonus": 0,
+										"tier1": "3 + A or I damage",
+										"tier2": "6 + A or I damage",
+										"tier3": "9 + A or I damage"
+									}
+								},
+								{
+									"type": "text",
+									"text": "This strike ignores cover and concealment. If the target has no cover or concealment, this strike deals extra damage equal to your Agility score."
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"id": "f476ae9a-cb6d-4eab-8ffb-a139cc74e146",
+			"name": "Pistolier",
+			"description": "You fight with speed, nerve, and absolute confidence in the weapon at your hip. Pistoliers excel in close-to-mid-range exchanges, snapping off shots, repositioning, and turning a sidearm into the centerpiece of a duelist’s style. Some are officers and detectives, some are gamblers and hired guns, but all of them know that one quick shot at the right moment can decide the fight.",
+			"type": "",
+			"armor": [],
+			"weapon": [
+				"Blaster"
+			],
+			"stamina": 3,
+			"speed": 2,
+			"stability": 0,
+			"meleeDamage": null,
+			"rangedDamage": {
+				"tier1": 1,
+				"tier2": 1,
+				"tier3": 1
+			},
+			"meleeDistance": 0,
+			"rangedDistance": 7,
+			"disengage": 1,
+			"features": [
+				{
+					"id": "90319646-1158-453d-8074-60d8cce82572",
+					"name": "Quick Draw",
+					"description": "Your blaster fires a second shot before your foes even realize there’s been a first one.",
+					"type": "Ability",
+					"data": {
+						"ability": {
+							"id": "90319646-1158-453d-8074-60d8cce82572",
+							"name": "Quick Draw",
+							"description": "Your blaster fires a second shot before your foes even realize there’s been a first one.",
+							"type": {
+								"usage": "Main Action",
+								"free": false,
+								"trigger": "",
+								"time": "",
+								"qualifiers": [],
+								"freeStrike": false
+							},
+							"keywords": [
+								"Ranged",
+								"Strike",
+								"Weapon"
+							],
+							"distance": [
+								{
+									"type": "Ranged",
+									"value": 5,
+									"value2": 0,
+									"within": 0,
+									"special": "",
+									"qualifier": ""
+								}
+							],
+							"target": "Two creatures",
+							"cost": "signature",
+							"repeatable": false,
+							"minLevel": 1,
+							"sections": [
+								{
+									"type": "roll",
+									"roll": {
+										"characteristic": [
+											"Agility"
+										],
+										"bonus": 0,
+										"tier1": "2 + A damage; you can shift 1",
+										"tier2": "4 + A damage; you can shift 1",
+										"tier3": "6 + A damage; you can shift 1"
+									}
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"id": "c71c8598-da04-4a1d-bd42-25db18fff217",
+			"name": "Harrier",
+			"description": "You are a fast, mobile skirmisher who never stands still, sprinting across the battlefield and peppering your foes with blaster bolts until they have no choice but to chase you. Harriers are rebel scouts, smugglers, and speeder-bike raiders who fight at mid-range, staying just out of reach while keeping every enemy's attention fixed on them.",
+			"type": "",
+			"armor": [],
+			"weapon": [
+				"Blaster"
+			],
+			"stamina": 0,
+			"speed": 3,
+			"stability": 0,
+			"meleeDamage": null,
+			"rangedDamage": {
+				"tier1": 1,
+				"tier2": 1,
+				"tier3": 1
+			},
+			"meleeDistance": 0,
+			"rangedDistance": 7,
+			"disengage": 1,
+			"features": [
+				{
+					"id": "1282bb50-133e-429f-b6a0-2b1bfdfb8c72",
+					"name": "Harrying Fire",
+					"description": "Your well-placed projectiles drive your opponents mad.",
+					"type": "Ability",
+					"data": {
+						"ability": {
+							"id": "1282bb50-133e-429f-b6a0-2b1bfdfb8c72",
+							"name": "Harrying Fire",
+							"description": "You pepper your target with fire, drawing their full attention.",
+							"type": {
+								"usage": "Main Action",
+								"free": false,
+								"trigger": "",
+								"time": "",
+								"qualifiers": [],
+								"freeStrike": false
+							},
+							"keywords": [
+								"Ranged",
+								"Strike",
+								"Weapon"
+							],
+							"distance": [
+								{
+									"type": "Ranged",
+									"value": 5,
+									"value2": 0,
+									"within": 0,
+									"special": "",
+									"qualifier": ""
+								}
+							],
+							"target": "One creature or object",
+							"cost": "signature",
+							"repeatable": false,
+							"minLevel": 1,
+							"sections": [
+								{
+									"type": "roll",
+									"roll": {
+										"characteristic": [
+											"Might",
+											"Agility"
+										],
+										"bonus": 0,
+										"tier1": "2 + M or A damage",
+										"tier2": "4 + M or A damage",
+										"tier3": "6 + M or A damage"
+									}
+								},
+								{
+									"type": "text",
+									"text": "The target is taunted (EoT)."
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"id": "5743850b-1765-4336-ac91-864da9fba09f",
+			"name": "Marksman",
+			"description": "You are a sharp-eyed dead shot who fires from distances most fighters can't even see across. Marksmen are rebel sharpshooters, rooftop snipers, and hired guns who pick their target, hold their breath, and make the shot count, hitting their mark from the far side of the battlefield.",
+			"type": "",
+			"armor": [],
+			"weapon": [
+				"Blaster"
+			],
+			"stamina": 0,
+			"speed": 2,
+			"stability": 0,
+			"meleeDamage": null,
+			"rangedDamage": {
+				"tier1": 1,
+				"tier2": 1,
+				"tier3": 1
+			},
+			"meleeDistance": 0,
+			"rangedDistance": 10,
+			"disengage": 1,
+			"features": [
+				{
+					"id": "c459cbd5-a150-47e4-ac38-ecf53e5f0e75",
+					"name": "Long Shot",
+					"description": "You fire an unbelievably long range shot.",
+					"type": "Ability",
+					"data": {
+						"ability": {
+							"id": "c459cbd5-a150-47e4-ac38-ecf53e5f0e75",
+							"name": "Long Shot",
+							"description": "You fire a precise shot from an incredible distance.",
+							"type": {
+								"usage": "Main Action",
+								"free": false,
+								"trigger": "",
+								"time": "",
+								"qualifiers": [],
+								"freeStrike": false
+							},
+							"keywords": [
+								"Ranged",
+								"Strike",
+								"Weapon"
+							],
+							"distance": [
+								{
+									"type": "Ranged",
+									"value": 10,
+									"value2": 0,
+									"within": 0,
+									"special": "",
+									"qualifier": ""
+								}
+							],
+							"target": "One creature or object",
+							"cost": "signature",
+							"repeatable": false,
+							"minLevel": 1,
+							"sections": [
+								{
+									"type": "roll",
+									"roll": {
+										"characteristic": [
+											"Might",
+											"Agility"
+										],
+										"bonus": 0,
+										"tier1": "3 + M or A damage",
+										"tier2": "6 + M or A damage",
+										"tier3": "9 + M or A damage"
+									}
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"id": "085ded14-26ed-48c6-a381-2469a2c066c5",
+			"name": "Siege Trooper",
+			"description": "You carry the sturdiness of a front-line trooper and the firepower of a mobile gun emplacement. Siege Troopers wear heavy armor and haul heavy blasters, holding a position at mid-range and pouring fire into the enemy while shrugging off whatever comes back. Many are veterans of fortress assaults and trench campaigns who have learned that the best defence is a wall of blaster fire.",
+			"type": "",
+			"armor": [
+				"Heavy Armor"
+			],
+			"weapon": [
+				"Blaster"
+			],
+			"stamina": 12,
+			"speed": 0,
+			"stability": 1,
+			"meleeDamage": null,
+			"rangedDamage": {
+				"tier1": 1,
+				"tier2": 1,
+				"tier3": 1
+			},
+			"meleeDistance": 0,
+			"rangedDistance": 5,
+			"disengage": 0,
+			"features": [
+				{
+					"id": "ef227e13-b122-4ebc-bba3-37e135a53a6b",
+					"name": "Heavy Bolt",
+					"description": "You fire a heavy blaster bolt, knocking your enemy back.",
+					"type": "Ability",
+					"data": {
+						"ability": {
+							"id": "ef227e13-b122-4ebc-bba3-37e135a53a6b",
+							"name": "Heavy Bolt",
+							"description": "You fire a heavy blaster bolt, knocking your enemy back.",
+							"type": {
+								"usage": "Main Action",
+								"free": false,
+								"trigger": "",
+								"time": "",
+								"qualifiers": [],
+								"freeStrike": false
+							},
+							"keywords": [
+								"Ranged",
+								"Strike",
+								"Weapon"
+							],
+							"distance": [
+								{
+									"type": "Ranged",
+									"value": 5,
+									"value2": 0,
+									"within": 0,
+									"special": "",
+									"qualifier": ""
+								}
+							],
+							"target": "One creature or object",
+							"cost": "signature",
+							"repeatable": false,
+							"minLevel": 1,
+							"sections": [
+								{
+									"type": "roll",
+									"roll": {
+										"characteristic": [
+											"Might",
+											"Agility"
+										],
+										"bonus": 0,
+										"tier1": "2 + M or A damage; push 1",
+										"tier2": "5 + M or A damage; push 2",
+										"tier3": "7 + M or A damage; push 3"
+									}
+								}
+							]
 						}
 					}
 				}
@@ -80234,13 +80629,13 @@
 		{
 			"id": "6b1ad4de-2e16-4ecb-ac09-900565c3c0cd",
 			"name": "Awakened Force Sensitivity",
-			"description": "You reach out with a flicker of the Force and nudge the world, just slightly.\n\nYou've done the mental preparation needed to use a lightsaber the way it's meant to be used. This perk allows you to use lightsaber Treasures and gain their bonuses and benefits. Without this perk, you can still swing a lightsaber Treasure as an improvised weapon, but you don't get any of its bonuses or benefits.",
+			"description": "You reach out with a flicker of the Force and nudge the world, just slightly.",
 			"type": "Ability",
 			"data": {
 				"ability": {
 					"id": "6b1ad4de-2e16-4ecb-ac09-900565c3c0cd",
 					"name": "Awakened Force Sensitivity",
-					"description": "You reach out with a flicker of the Force and nudge the world, just slightly.\n\nYou've done the mental preparation needed to use a lightsaber the way it's meant to be used. This perk allows you to use lightsaber Treasures and gain their bonuses and benefits. Without this perk, you can still swing a lightsaber Treasure as an improvised weapon, but you don't get any of its bonuses or benefits.",
+					"description": "You reach out with a flicker of the Force and nudge the world, just slightly.",
 					"type": {
 						"usage": "Maneuver",
 						"free": false,
@@ -84139,8 +84534,8 @@
 			"list": "Lore"
 		},
 		{
-			"name": "Magic",
-			"description": "Knowing about magical places, spells, rituals, items, and phenomena",
+			"name": "Technology",
+			"description": "Knowing about technological places, devices, droids, cybernetics, and exotic phenomena",
 			"list": "Lore"
 		},
 		{
@@ -84154,8 +84549,8 @@
 			"list": "Lore"
 		},
 		{
-			"name": "Psionics",
-			"description": "Knowing about psionic places, spells, rituals, items, and phenomena",
+			"name": "Force",
+			"description": "Knowing about the Force: its places, traditions, rituals, artifacts, and phenomena",
 			"list": "Lore"
 		},
 		{
