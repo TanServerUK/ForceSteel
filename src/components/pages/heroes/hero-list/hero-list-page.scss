@@ -29,3 +29,26 @@
 		}
 	}
 }
+
+.hero-card {
+	display: grid;
+	border-radius: 10px;
+	touch-action: manipulation;
+
+	&.dragging {
+		opacity: 0.3;
+	}
+
+	&.drop-target {
+		outline: 2px solid var(--fs-accent-light);
+		outline-offset: 2px;
+	}
+}
+
+.hero-card-overlay {
+	display: grid;
+	height: 100%;
+	cursor: grabbing;
+	box-shadow: var(--fs-shadow-ambient);
+	border-radius: 10px;
+}

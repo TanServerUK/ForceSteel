@@ -5,6 +5,7 @@ import { AppHeader } from '@/components/panels/app-header/app-header';
 import { DashboardTile } from '@/components/panels/dashboard-tile/dashboard-tile';
 import { Empty } from '@/components/controls/empty/empty';
 import { ErrorBoundary } from '@/components/controls/error-boundary/error-boundary';
+import { HeroOrderLogic } from '@/logic/hero-order-logic';
 import { useNavigation } from '@/hooks/use-navigation';
 import { useTitle } from '@/hooks/use-title';
 
@@ -19,7 +20,8 @@ interface Props {
 export const DashboardPage = (props: Props) => {
 	const dataManager = useDataManager();
 	const navigation = useNavigation();
-	const heroes = useHeroes().filter(h => h.isActive);
+	// Same order as the hero list, folder by folder
+	const heroes = HeroOrderLogic.sort(useHeroes().filter(h => h.isActive));
 	useTitle('Dashboard');
 
 	// Keep a stable indirection to the latest closure so the mount-only effect

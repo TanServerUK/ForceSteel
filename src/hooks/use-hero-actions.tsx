@@ -73,6 +73,8 @@ export const useHeroActions = (props: Props) => {
 			hero.id = Utils.guid();
 		}
 		hero.folder = folder;
+		// The saved position belongs to wherever the hero came from; start it at the end of this list
+		delete hero.sortOrder;
 		HeroUpdateLogic.updateHero(hero, sourcebooks);
 
 		setDrawer(null);

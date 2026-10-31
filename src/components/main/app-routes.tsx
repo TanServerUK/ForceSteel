@@ -137,6 +137,7 @@ export const AppRoutes = (props: Props) => {
 									importHero={importHero}
 									showParty={onShowParty}
 									onActiveChanged={persistHero}
+									onOrderChanged={heroes => heroes.forEach(persistHero)}
 								/>
 							}
 						/>

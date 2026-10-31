@@ -38,6 +38,8 @@ export interface Hero {
 	state: HeroState;
 	abilityCustomizations: AbilityCustomization[];
 	isActive: boolean;
+	// Position in the hero list (and dashboard) the user dragged the hero to; unset means "after the rest"
+	sortOrder?: number;
 }
 
 export interface HeroOverview {
