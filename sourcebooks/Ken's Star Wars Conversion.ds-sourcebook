@@ -1,7 +1,7 @@
 {
 	"id": "8cc13b2e-6f37-4bd4-93fe-5bd15aae826c",
-	"name": "Ken's Star Wars Conversion (v1.0)",
-	"description": "A full Star Wars reskin of Draw Steel: smugglers, Jedi and Sith, bounty hunters, and rebels adventuring across a galaxy far, far away. All nine core Classes are reskinned, along with the Beastheart and the Legion-Master (Summoner). The book also covers Ancestries, Cultures, Careers, Complications, Skills, Perks, Titles (including the Jedi, Grey and Sith Force Sensitivity track), Domains, Kits (including seven lightsaber-form Kits and seven blaster Kits), Treasures (including four lightsaber Treasures), Imbuements, and a Languages family tree remapped to real Star Wars lore.\n\nVersion 1.0 (2026-10-30).",
+	"name": "Ken's Star Wars Conversion (v1.5)",
+	"description": "A full Star Wars reskin of Draw Steel: smugglers, Jedi and Sith, bounty hunters, and rebels adventuring across a galaxy far, far away. All nine core Classes are reskinned, along with the Beastheart and the Legion-Master (Summoner). The book also covers Ancestries, Cultures, Careers, Complications, Skills, Perks, Titles (including the Jedi, Grey and Sith Force Sensitivity track), Domains, Kits (including seven lightsaber-form Kits and seven blaster Kits), Treasures (including four lightsaber Treasures), Imbuements, and a Languages family tree remapped to real Star Wars lore.\n\nVersion 1.5 (2026-11-02).",
 	"type": "Homebrew",
 	"adventures": [],
 	"ancestries": [
@@ -80161,7 +80161,7 @@
 		{
 			"id": "c36ae0b3-50d6-4a42-8ac7-dba469c0058c",
 			"name": "Danger Sense",
-			"description": "Whenever you are in a natural environment (but not in a settlement in that environment), you gain an edge on tests made using the Alertness skill, and you can’t be surprised. Additionally, you have a Force attunement to the living world that warns you if any natural disaster is imminent within the next 72 hours, though you don’t know exactly what it will entail (an earthquake, a wildfire, and so forth).",
+			"description": "Whenever you are somewhere with few living beings nearby, where the Force is quiet enough to hear clearly (such as untamed wilderness, a sparsely crewed ship or station, or an abandoned ruin, but not a crowded city, spaceport, or packed vessel), you gain an edge on tests made using the Alertness skill, and you can’t be surprised. Additionally, you have a Force attunement to the living world that warns you if any natural disaster is imminent within the next 72 hours, though you don’t know exactly what it will entail (an earthquake, a wildfire, and so forth).",
 			"type": "Text",
 			"data": null,
 			"list": "Exploration"
@@ -81123,9 +81123,51 @@
 				{
 					"id": "22ef2e7d-983f-47a4-a985-bd16a06d6441",
 					"name": "Susurrus Codex",
-					"description": "You find a sinister book that whispers advice in a voice no one else can hear. As long as you follow the book’s advice, you gain an edge on Reason tests and take a bane on Presence tests. You can stop following the book’s advice at any time, but the book won’t speak to you for the rest of the day.",
-					"type": "Text",
-					"data": null
+					"description": "",
+					"type": "Multiple Features",
+					"data": {
+						"features": [
+							{
+								"id": "fdb32aed-8a3b-4ba2-a6be-188dd198ff6c",
+								"name": "Susurrus Codex",
+								"description": "You find a sinister book that whispers advice in a voice no one else can hear. As long as you follow the book’s advice, you gain an edge on Reason tests and take a bane on Presence tests. You can stop following the book’s advice at any time, but the book won’t speak to you for the rest of the day.",
+								"type": "Text",
+								"data": null
+							},
+							{
+								"id": "75862fd5-a7e1-403a-9475-2991b002670c",
+								"name": "Susurrus Codex",
+								"description": "",
+								"type": "Roll Modifier",
+								"data": {
+									"modifier": "Edge",
+									"rollType": "Test",
+									"skills": [],
+									"skillLists": [],
+									"characteristics": [
+										"Reason"
+									],
+									"condition": "You are following the book’s advice"
+								}
+							},
+							{
+								"id": "b01ca197-5b29-4d89-869d-1954101cde83",
+								"name": "Susurrus Codex",
+								"description": "",
+								"type": "Roll Modifier",
+								"data": {
+									"modifier": "Bane",
+									"rollType": "Test",
+									"skills": [],
+									"skillLists": [],
+									"characteristics": [
+										"Presence"
+									],
+									"condition": "You are following the book’s advice"
+								}
+							}
+						]
+					}
 				}
 			],
 			"selectedFeatureID": ""
@@ -81141,8 +81183,15 @@
 					"id": "d70c35b8-b6fc-4665-856c-b5918c90665a",
 					"name": "Angler",
 					"description": "You gain an edge on all Fishing project rolls.",
-					"type": "Text",
-					"data": null
+					"type": "Roll Modifier",
+					"data": {
+						"modifier": "Edge",
+						"rollType": "Project Roll",
+						"skills": [],
+						"skillLists": [],
+						"characteristics": [],
+						"condition": "Fishing rolls"
+					}
 				}
 			],
 			"selectedFeatureID": ""
@@ -81165,15 +81214,31 @@
 					"id": "76fb800d-15d8-4153-9c2a-30bc21e9915c",
 					"name": "Truce!",
 					"description": "You have a double edge on tests made to stop combat and start a negotiation.",
-					"type": "Text",
-					"data": null
+					"type": "Roll Modifier",
+					"data": {
+						"modifier": "Double Edge",
+						"rollType": "Test",
+						"skills": [],
+						"skillLists": [],
+						"characteristics": [],
+						"condition": "Stopping combat and starting a negotiation"
+					}
 				},
 				{
 					"id": "6d887fd7-efec-4a61-8392-fb744ba6eac6",
 					"name": "Warriors’ Understanding",
 					"description": "You gain an edge on Presence tests made to interact with creatures you have fought against in combat encounters.",
-					"type": "Text",
-					"data": null
+					"type": "Roll Modifier",
+					"data": {
+						"modifier": "Edge",
+						"rollType": "Test",
+						"skills": [],
+						"skillLists": [],
+						"characteristics": [
+							"Presence"
+						],
+						"condition": "Interacting with creatures you have fought against in combat encounters"
+					}
 				}
 			],
 			"selectedFeatureID": ""
@@ -81245,8 +81310,15 @@
 					"id": "b2416e4b-8782-450e-8f61-230b72a000d6",
 					"name": "If I Wanted You Dead, You’d Be Dead",
 					"description": "Whenever you defeat foes without killing any of them (including the foes you defeat to meet the prerequisite for this title), you gain an edge on tests during negotiations with those foes.",
-					"type": "Text",
-					"data": null
+					"type": "Roll Modifier",
+					"data": {
+						"modifier": "Edge",
+						"rollType": "Test",
+						"skills": [],
+						"skillLists": [],
+						"characteristics": [],
+						"condition": "Negotiating with foes you defeated without killing any of them"
+					}
 				}
 			],
 			"selectedFeatureID": ""
@@ -81269,8 +81341,18 @@
 					"id": "41b43464-55a3-4a32-8b59-84196ee8fe7a",
 					"name": "One with the Crowd",
 					"description": "While you’re using one or more creatures as cover, you gain an edge on tests made to hide and sneak.",
-					"type": "Text",
-					"data": null
+					"type": "Roll Modifier",
+					"data": {
+						"modifier": "Edge",
+						"rollType": "Test",
+						"skills": [
+							"Hide",
+							"Sneak"
+						],
+						"skillLists": [],
+						"characteristics": [],
+						"condition": "You are using one or more creatures as cover"
+					}
 				},
 				{
 					"id": "f69d9d74-211b-4cae-acbe-5c37882b9d5a",
@@ -81310,8 +81392,27 @@
 					"id": "9035a533-da9b-4b06-a8fb-1c411d60d9ee",
 					"name": "Close Formation",
 					"description": "While adjacent to two or more allies, you gain a +2 bonus to stability.",
-					"type": "Text",
-					"data": null
+					"type": "Toggle",
+					"data": {
+						"condition": "You are adjacent to two or more allies",
+						"featureChecked": {
+							"id": "3a43cfd2-018e-4474-bd94-b1d44d2c91a4",
+							"name": "Close Formation",
+							"description": "",
+							"type": "Bonus",
+							"data": {
+								"field": "Stability",
+								"value": 2,
+								"valueFromController": null,
+								"valueCharacteristics": [],
+								"valueCharacteristicMultiplier": 1,
+								"valuePerLevel": 0,
+								"valuePerEchelon": 0
+							}
+						},
+						"featureUnchecked": null,
+						"checked": false
+					}
 				},
 				{
 					"id": "ade99e95-533d-4f1a-bd0a-771b637bee74",
@@ -81471,8 +81572,18 @@
 					"id": "885aec2f-b752-42ca-bc4f-6f354e40d2b8",
 					"name": "Easy Marks",
 					"description": "You gain an edge on tests made using skills from the interpersonal and intrigue skill groups when influencing members of a community that you have saved.",
-					"type": "Text",
-					"data": null
+					"type": "Roll Modifier",
+					"data": {
+						"modifier": "Edge",
+						"rollType": "Test",
+						"skills": [],
+						"skillLists": [
+							"Interpersonal",
+							"Intrigue"
+						],
+						"characteristics": [],
+						"condition": "When influencing members of a community that you have saved"
+					}
 				},
 				{
 					"id": "5f3818a8-9ae8-4645-9d68-c75e1275f804",
@@ -81677,8 +81788,17 @@
 					"id": "0914f72d-1754-4f67-ba0b-158acce39094",
 					"name": "Trained Tracker",
 					"description": "You gain an edge on tests made to track criminals.",
-					"type": "Text",
-					"data": null
+					"type": "Roll Modifier",
+					"data": {
+						"modifier": "Edge",
+						"rollType": "Test",
+						"skills": [
+							"Track"
+						],
+						"skillLists": [],
+						"characteristics": [],
+						"condition": "Tracking criminals"
+					}
 				}
 			],
 			"selectedFeatureID": ""
@@ -81718,15 +81838,31 @@
 					"id": "25c61538-c929-4374-a464-ae7849d5815d",
 					"name": "Monster Soother",
 					"description": "You gain an edge on tests made to calm or tame nonsapient creatures.",
-					"type": "Text",
-					"data": null
+					"type": "Roll Modifier",
+					"data": {
+						"modifier": "Edge",
+						"rollType": "Test",
+						"skills": [],
+						"skillLists": [],
+						"characteristics": [],
+						"condition": "Calming or taming nonsapient creatures"
+					}
 				},
 				{
 					"id": "93430ce2-c2cc-4048-b64a-988f1b36a904",
 					"name": "Monster Trophy",
 					"description": "You decorate your equipment with a trophy from a creature you defeated. While the trophy is visible, you gain an edge on tests made to intimidate sapient creatures.",
-					"type": "Text",
-					"data": null
+					"type": "Roll Modifier",
+					"data": {
+						"modifier": "Edge",
+						"rollType": "Test",
+						"skills": [
+							"Intimidate"
+						],
+						"skillLists": [],
+						"characteristics": [],
+						"condition": "When a trophy from a creature you defeated is visible, and the target is sapient"
+					}
 				}
 			],
 			"selectedFeatureID": ""
@@ -81881,31 +82017,88 @@
 			"features": [
 				{
 					"id": "61e2f2f6-2d34-4f03-ad4b-74ab301694d7",
-					"name": "Deep Space Spacer",
-					"description": "You can automatically swim at full speed while moving.",
-					"type": "Text",
-					"data": null
+					"name": "Navigator’s Eye",
+					"description": "",
+					"type": "Multiple Features",
+					"data": {
+						"features": [
+							{
+								"id": "ecdde77e-444f-40b2-99a1-f2ce54145e4a",
+								"name": "Navigator’s Eye",
+								"description": "You gain an edge on tests made to navigate by the stars or plot a hyperspace route.",
+								"type": "Text",
+								"data": null
+							},
+							{
+								"id": "5d514514-2340-4488-8413-9f2f0d7a2d9b",
+								"name": "Navigator’s Eye",
+								"description": "",
+								"type": "Roll Modifier",
+								"data": {
+									"modifier": "Edge",
+									"rollType": "Test",
+									"skills": [],
+									"skillLists": [],
+									"characteristics": [],
+									"condition": "When navigating by the stars or plotting a hyperspace route"
+								}
+							}
+						]
+					}
 				},
 				{
 					"id": "5efed00e-fedc-4faf-a7bf-f6f9191873be",
 					"name": "Ship Speaker",
-					"description": "Through the Force, you know the location of any ship controlled by your party even while you aren’t aboard. You can telepathically communicate with anyone on board one of your ships who understands a language, and they can respond, no matter your distance from the ship.",
+					"description": "Through the Force or a dedicated comlink to the ship, you know the location of any ship controlled by your party even while you aren’t aboard. You can also communicate with anyone on board one of your ships who understands a language (telepathically through the Force, or over the comlink), and they can respond, no matter your distance from the ship.",
 					"type": "Text",
 					"data": null
 				},
 				{
 					"id": "285fabb0-33e0-4b41-9d7c-fcd5e0415f60",
 					"name": "Comm Hails",
-					"description": "While aboard a ship, you can communicate with and conduct negotiations with another ship up to 5 miles away, as long as you and creatures on the other ship have line of effect to each other. You gain an edge on Presence tests made while negotiating in this way.",
-					"type": "Text",
-					"data": null
+					"description": "",
+					"type": "Multiple Features",
+					"data": {
+						"features": [
+							{
+								"id": "75ed5d33-e3d1-4721-9f2e-a1b273ef2dd5",
+								"name": "Comm Hails",
+								"description": "While aboard a ship, you can communicate with and conduct negotiations with another ship up to 5 miles away, as long as you and creatures on the other ship have line of effect to each other. You gain an edge on Presence tests made while negotiating in this way.",
+								"type": "Text",
+								"data": null
+							},
+							{
+								"id": "0e174059-fda7-4887-9370-60dd6c8dd94b",
+								"name": "Comm Hails",
+								"description": "",
+								"type": "Roll Modifier",
+								"data": {
+									"modifier": "Edge",
+									"rollType": "Test",
+									"skills": [],
+									"skillLists": [],
+									"characteristics": [
+										"Presence"
+									],
+									"condition": "When negotiating with another ship by comms"
+								}
+							}
+						]
+					}
 				},
 				{
 					"id": "c96459c3-67ce-4cab-88d6-d6551e258f6f",
 					"name": "Trained Crewmember",
 					"description": "You gain an edge on tests made to handle starships and atmospheric craft.",
-					"type": "Text",
-					"data": null
+					"type": "Roll Modifier",
+					"data": {
+						"modifier": "Edge",
+						"rollType": "Test",
+						"skills": [],
+						"skillLists": [],
+						"characteristics": [],
+						"condition": "Handling starships and atmospheric craft"
+					}
 				}
 			],
 			"selectedFeatureID": ""
@@ -81970,15 +82163,36 @@
 					"id": "dcb08663-7919-4f7f-8ffc-c9f115598aa3",
 					"name": "Supporting Player",
 					"description": "You gain an edge on group tests using Presence and on tests made to assist another creature with a Presence test.",
-					"type": "Text",
-					"data": null
+					"type": "Roll Modifier",
+					"data": {
+						"modifier": "Edge",
+						"rollType": "Test",
+						"skills": [],
+						"skillLists": [],
+						"characteristics": [
+							"Presence"
+						],
+						"condition": "Group tests, and tests made to assist another creature"
+					}
 				},
 				{
 					"id": "544eebe4-c10e-4cc9-ba49-77228d391411",
 					"name": "Work the Crowd",
 					"description": "While any of your allies is playing music or performing, you gain an edge on tests made to conceal objects, hide, pick pockets, or sneak.",
-					"type": "Text",
-					"data": null
+					"type": "Roll Modifier",
+					"data": {
+						"modifier": "Edge",
+						"rollType": "Test",
+						"skills": [
+							"Conceal Object",
+							"Hide",
+							"Pick Pocket",
+							"Sneak"
+						],
+						"skillLists": [],
+						"characteristics": [],
+						"condition": "An ally is playing music or performing"
+					}
 				}
 			],
 			"selectedFeatureID": ""
@@ -82007,9 +82221,33 @@
 				{
 					"id": "569ec59d-4250-4e7f-81af-c7f2bbb21251",
 					"name": "No, You’re Under Arrest!",
-					"description": "You gain an edge on the Escape Grab maneuver. Additionally, when you succeed on a test to escape bonds or manacles, as part of the same maneuver, you can transfer the bonds or manacles to an adjacent creature of the same size without them immediately noticing.",
-					"type": "Text",
-					"data": null
+					"description": "",
+					"type": "Multiple Features",
+					"data": {
+						"features": [
+							{
+								"id": "e3eec287-f30d-4d5b-9bf2-76a8bc0a59fd",
+								"name": "No, You’re Under Arrest!",
+								"description": "",
+								"type": "Roll Modifier",
+								"data": {
+									"modifier": "Edge",
+									"rollType": "Escape Grab",
+									"skills": [],
+									"skillLists": [],
+									"characteristics": [],
+									"condition": ""
+								}
+							},
+							{
+								"id": "fb9eda39-a9c3-4e60-a31a-9fa714f466e6",
+								"name": "No, You’re Under Arrest!",
+								"description": "You gain an edge on the Escape Grab maneuver. Additionally, when you succeed on a test to escape bonds or manacles, as part of the same maneuver, you can transfer the bonds or manacles to an adjacent creature of the same size without them immediately noticing.",
+								"type": "Text",
+								"data": null
+							}
+						]
+					}
 				}
 			],
 			"selectedFeatureID": ""
@@ -82458,9 +82696,38 @@
 				{
 					"id": "702c257c-70cf-45d1-a4c9-ad08b74cc6d0",
 					"name": "Scoundrel Tactics",
-					"description": "While aboard a ship, you can use the following skills to make a test to influence another ship up to 5 miles away whose crewmembers have line of effect to you, and you gain an edge when you do so. You can use Disguise to hide your ship’s identity or general type, Intimidate to convince another ship’s crew to flee or surrender, or Hide or Sneak to let your ship avoid notice.",
-					"type": "Text",
-					"data": null
+					"description": "",
+					"type": "Multiple Features",
+					"data": {
+						"features": [
+							{
+								"id": "7c5fcbb2-8894-423c-8664-8cd23923ae8b",
+								"name": "Scoundrel Tactics",
+								"description": "While aboard a ship, you can use the following skills to make a test to influence another ship up to 5 miles away whose crewmembers have line of effect to you, and you gain an edge when you do so. You can use Disguise to hide your ship’s identity or general type, Intimidate to convince another ship’s crew to flee or surrender, or Hide or Sneak to let your ship avoid notice.",
+								"type": "Text",
+								"data": null
+							},
+							{
+								"id": "147fa560-89a8-4391-9388-ceccbf328035",
+								"name": "Scoundrel Tactics",
+								"description": "",
+								"type": "Roll Modifier",
+								"data": {
+									"modifier": "Edge",
+									"rollType": "Test",
+									"skills": [
+										"Disguise",
+										"Intimidate",
+										"Hide",
+										"Sneak"
+									],
+									"skillLists": [],
+									"characteristics": [],
+									"condition": "When influencing another ship while aboard a ship"
+								}
+							}
+						]
+					}
 				}
 			],
 			"selectedFeatureID": ""
@@ -82482,9 +82749,33 @@
 				{
 					"id": "9df15fad-b300-4825-a8fa-046a05c17693",
 					"name": "You're the Boss",
-					"description": "Lower-ranking members of your faction follow your routine orders. In nonroutine matters, you gain an edge on tests made to influence those characters’ behavior.",
-					"type": "Text",
-					"data": null
+					"description": "",
+					"type": "Multiple Features",
+					"data": {
+						"features": [
+							{
+								"id": "bb9a71c0-d0a1-4ebe-83e2-3ad97f46b155",
+								"name": "You're the Boss",
+								"description": "Lower-ranking members of your faction follow your routine orders. In nonroutine matters, you gain an edge on tests made to influence those characters’ behavior.",
+								"type": "Text",
+								"data": null
+							},
+							{
+								"id": "5f379e41-ef1c-44b3-a438-b8b206bafa15",
+								"name": "You're the Boss",
+								"description": "",
+								"type": "Roll Modifier",
+								"data": {
+									"modifier": "Edge",
+									"rollType": "Test",
+									"skills": [],
+									"skillLists": [],
+									"characteristics": [],
+									"condition": "When influencing the behaviour of lower-ranking members of your faction in nonroutine matters"
+								}
+							}
+						]
+					}
 				}
 			],
 			"selectedFeatureID": ""
@@ -82527,8 +82818,16 @@
 								"id": "2d6de1f8-36cc-47f7-9380-94416d1b5814",
 								"name": "Gift of Charm",
 								"description": "You have a skill of your choice from the interpersonal skill group.",
-								"type": "Text",
-								"data": null
+								"type": "Skill Choice",
+								"data": {
+									"options": [],
+									"listOptions": [
+										"Interpersonal"
+									],
+									"count": 1,
+									"selectAt": "build",
+									"selected": []
+								}
 							}
 						]
 					}
@@ -82564,8 +82863,13 @@
 								"id": "4c5ad47b-e389-4219-b86e-d191fa29416d",
 								"name": "Gift of Foresight",
 								"description": "When resisting potencies, your Intuition score is considered to be 1 higher than usual.",
-								"type": "Text",
-								"data": null
+								"type": "Potency Resistance",
+								"data": {
+									"characteristics": [
+										"Intuition"
+									],
+									"value": 1
+								}
 							}
 						]
 					}
@@ -82601,8 +82905,17 @@
 								"id": "2269a435-3691-452c-815f-5c30b281b6ca",
 								"name": "Gift of Knowledge",
 								"description": "You gain an edge on tests you make that use any skill from the lore skill group.",
-								"type": "Text",
-								"data": null
+								"type": "Roll Modifier",
+								"data": {
+									"modifier": "Edge",
+									"rollType": "Test",
+									"skills": [],
+									"skillLists": [
+										"Lore"
+									],
+									"characteristics": [],
+									"condition": ""
+								}
 							}
 						]
 					}
@@ -83073,8 +83386,16 @@
 					"id": "1f45f397-af24-4802-b7cc-407523a26676",
 					"name": "Picked Up a Few Things",
 					"description": "You know a skill from the lore skill group.",
-					"type": "Text",
-					"data": null
+					"type": "Skill Choice",
+					"data": {
+						"options": [],
+						"listOptions": [
+							"Lore"
+						],
+						"count": 1,
+						"selectAt": "build",
+						"selected": []
+					}
 				},
 				{
 					"id": "00a81490-863b-484c-81cc-0c27559aa677",
@@ -83181,8 +83502,16 @@
 					"id": "0a107c5d-a329-4ae7-85b6-810abf73f1a9",
 					"name": "Particular Set of Skills",
 					"description": "You know a skill from the intrigue skill group.",
-					"type": "Text",
-					"data": null
+					"type": "Skill Choice",
+					"data": {
+						"options": [],
+						"listOptions": [
+							"Intrigue"
+						],
+						"count": 1,
+						"selectAt": "build",
+						"selected": []
+					}
 				},
 				{
 					"id": "1317888e-8e1a-4a0e-833c-2d28713bc1b7",
@@ -83300,9 +83629,28 @@
 				{
 					"id": "ca5f22cf-4587-4f09-9b2f-87a05e58e626",
 					"name": "Dark Lore",
-					"description": "You know Sith (Old Tongue). Additionally, when you deal damage using a magic ability, you can change the ability’s damage type to ion.",
-					"type": "Text",
-					"data": null
+					"description": "",
+					"type": "Multiple Features",
+					"data": {
+						"features": [
+							{
+								"id": "b9b870cc-a207-47d7-9086-26fd49894174",
+								"name": "Dark Lore",
+								"description": "",
+								"type": "Language",
+								"data": {
+									"language": "Sith (Old Tongue)"
+								}
+							},
+							{
+								"id": "32dd5ea7-c594-4c16-9f9d-88989639c48d",
+								"name": "Dark Lore",
+								"description": "You know Sith (Old Tongue). Additionally, when you deal damage using a magic ability, you can change the ability’s damage type to ion.",
+								"type": "Text",
+								"data": null
+							}
+						]
+					}
 				},
 				{
 					"id": "d3d30618-ae57-44d1-b8cb-d8f14d8dcf6b",
@@ -83345,9 +83693,28 @@
 				{
 					"id": "b03544d8-2236-4c07-a08b-00f8019a125a",
 					"name": "Dark Lore",
-					"description": "You know Sith (Old Tongue), and your understanding of the dark side helps you create irresistible effects. The potencies of your magic or psionic abilities that target Reason, Intuition, or Presence increase by 1.",
-					"type": "Text",
-					"data": null
+					"description": "",
+					"type": "Multiple Features",
+					"data": {
+						"features": [
+							{
+								"id": "75a23eb7-c216-4169-8744-6cc5bcdaa6c0",
+								"name": "Dark Lore",
+								"description": "",
+								"type": "Language",
+								"data": {
+									"language": "Sith (Old Tongue)"
+								}
+							},
+							{
+								"id": "b0c55292-06e6-469c-a389-9e3271063fa3",
+								"name": "Dark Lore",
+								"description": "You know Sith (Old Tongue), and your understanding of the dark side helps you create irresistible effects. The potencies of your magic or psionic abilities that target Reason, Intuition, or Presence increase by 1.",
+								"type": "Text",
+								"data": null
+							}
+						]
+					}
 				},
 				{
 					"id": "d6159847-8629-4f94-9810-8d6697c425f0",
@@ -83414,16 +83781,43 @@
 				{
 					"id": "9fdf35e4-0358-40fa-afe9-2fe26290939f",
 					"name": "Swashbuckler",
-					"description": "You can automatically climb at full speed while moving.",
-					"type": "Text",
-					"data": null
+					"description": "",
+					"type": "Multiple Features",
+					"data": {
+						"features": [
+							{
+								"id": "70c54a1a-104c-47ed-b81d-6fac8c71c7e8",
+								"name": "Swashbuckler",
+								"description": "You can automatically climb at full speed while moving.",
+								"type": "Text",
+								"data": null
+							},
+							{
+								"id": "fff42589-d5cc-4f5c-9840-743bd8874a85",
+								"name": "Swashbuckler",
+								"description": "",
+								"type": "Movement Mode",
+								"data": {
+									"mode": "Climb"
+								}
+							}
+						]
+					}
 				},
 				{
 					"id": "e1ef256c-bf9a-4b8c-bdd6-1b5e792e1f06",
 					"name": "Treasure Keeper",
 					"description": "You earn 1 Wealth.",
-					"type": "Text",
-					"data": null
+					"type": "Bonus",
+					"data": {
+						"field": "Wealth",
+						"value": 1,
+						"valueFromController": null,
+						"valueCharacteristics": [],
+						"valueCharacteristicMultiplier": 1,
+						"valuePerLevel": 0,
+						"valuePerEchelon": 0
+					}
 				},
 				{
 					"id": "46391024-212f-45ac-8235-a75670358bf9",
@@ -83484,15 +83878,57 @@
 					"id": "49901313-008b-4dd2-9886-110ac7daefb7",
 					"name": "I Know How to Talk to These People",
 					"description": "You gain an edge on Presence tests made to interact with royals, nobles, and their sworn followers, provided they are aware of your noble rank.",
-					"type": "Text",
-					"data": null
+					"type": "Roll Modifier",
+					"data": {
+						"modifier": "Edge",
+						"rollType": "Test",
+						"skills": [],
+						"skillLists": [],
+						"characteristics": [
+							"Presence"
+						],
+						"condition": "Interacting with royals, nobles, and their sworn followers who are aware of your noble rank"
+					}
 				},
 				{
 					"id": "9413d524-2090-4eb8-b760-cdff5a522a00",
 					"name": "Noble Splendor",
 					"description": "You earn 1 Renown and 1 Wealth.",
-					"type": "Text",
-					"data": null
+					"type": "Multiple Features",
+					"data": {
+						"features": [
+							{
+								"id": "adda1495-57fd-4a1c-b353-32b1433cb8f8",
+								"name": "Noble Splendor",
+								"description": "",
+								"type": "Bonus",
+								"data": {
+									"field": "Renown",
+									"value": 1,
+									"valueFromController": null,
+									"valueCharacteristics": [],
+									"valueCharacteristicMultiplier": 1,
+									"valuePerLevel": 0,
+									"valuePerEchelon": 0
+								}
+							},
+							{
+								"id": "944ddcf8-4e94-4885-8630-42a80fcdf4b7",
+								"name": "Noble Splendor",
+								"description": "",
+								"type": "Bonus",
+								"data": {
+									"field": "Wealth",
+									"value": 1,
+									"valueFromController": null,
+									"valueCharacteristics": [],
+									"valueCharacteristicMultiplier": 1,
+									"valuePerLevel": 0,
+									"valuePerEchelon": 0
+								}
+							}
+						]
+					}
 				},
 				{
 					"id": "84a0d87b-ee01-4016-8e57-0137d89f1253",
@@ -83552,9 +83988,34 @@
 				{
 					"id": "444e0a61-d705-4611-9931-af5e17d0d72d",
 					"name": "Effect",
-					"description": "You gain a visible scar in a location of your choice. Additionally, your Stamina maximum increases by 20, and the creature who scarred you takes a bane on abilities against you.",
-					"type": "Text",
-					"data": null
+					"description": "",
+					"type": "Multiple Features",
+					"data": {
+						"features": [
+							{
+								"id": "804849dd-42e1-4dfd-a34d-5b4b1cbd5a26",
+								"name": "Effect",
+								"description": "You gain a visible scar in a location of your choice. Additionally, your Stamina maximum increases by 20, and the creature who scarred you takes a bane on abilities against you.",
+								"type": "Text",
+								"data": null
+							},
+							{
+								"id": "5375df3c-c48e-4378-b3e9-cad3ed2df174",
+								"name": "Effect",
+								"description": "",
+								"type": "Bonus",
+								"data": {
+									"field": "Stamina",
+									"value": 20,
+									"valueFromController": null,
+									"valueCharacteristics": [],
+									"valueCharacteristicMultiplier": 1,
+									"valuePerLevel": 0,
+									"valuePerEchelon": 0
+								}
+							}
+						]
+					}
 				},
 				{
 					"id": "97df82ac-fbcc-440d-9715-607cc7cebbb7",
@@ -83584,8 +84045,27 @@
 					"id": "eb8e86a6-852d-48e3-b1bc-17cf35b41d37",
 					"name": "Hold the Line",
 					"description": "While you’re within 5 squares of an ally, you and each ally within 5 squares of you gains a +3 bonus to stability.",
-					"type": "Text",
-					"data": null
+					"type": "Toggle",
+					"data": {
+						"condition": "You are within 5 squares of an ally",
+						"featureChecked": {
+							"id": "26e3a46d-39ef-4e91-89ca-86a123a2e4e2",
+							"name": "Hold the Line",
+							"description": "",
+							"type": "Bonus",
+							"data": {
+								"field": "Stability",
+								"value": 3,
+								"valueFromController": null,
+								"valueCharacteristics": [],
+								"valueCharacteristicMultiplier": 1,
+								"valuePerLevel": 0,
+								"valuePerEchelon": 0
+							}
+						},
+						"featureUnchecked": null,
+						"checked": false
+					}
 				},
 				{
 					"id": "00063bc8-6a8e-4497-9f3c-88bba503677b",
@@ -83631,9 +84111,49 @@
 				{
 					"id": "99a33afc-4073-48ec-8ccb-35c0999fd75a",
 					"name": "Glory and Riches",
-					"description": "A characteristic used during the competition increases by 1 (to a maximum of 6). You earn 2 Renown and 1 Wealth.",
-					"type": "Text",
-					"data": null
+					"description": "",
+					"type": "Multiple Features",
+					"data": {
+						"features": [
+							{
+								"id": "8c1c6a32-8543-4347-9639-ee62c4561bd3",
+								"name": "Glory and Riches",
+								"description": "A characteristic used during the competition increases by 1 (to a maximum of 6). You earn 2 Renown and 1 Wealth.",
+								"type": "Text",
+								"data": null
+							},
+							{
+								"id": "337461af-5d55-40b4-a6a2-3ef3cbe52def",
+								"name": "Glory and Riches",
+								"description": "",
+								"type": "Bonus",
+								"data": {
+									"field": "Renown",
+									"value": 2,
+									"valueFromController": null,
+									"valueCharacteristics": [],
+									"valueCharacteristicMultiplier": 1,
+									"valuePerLevel": 0,
+									"valuePerEchelon": 0
+								}
+							},
+							{
+								"id": "c9163b98-2f98-49d0-8efe-f51ba410ffd7",
+								"name": "Glory and Riches",
+								"description": "",
+								"type": "Bonus",
+								"data": {
+									"field": "Wealth",
+									"value": 1,
+									"valueFromController": null,
+									"valueCharacteristics": [],
+									"valueCharacteristicMultiplier": 1,
+									"valuePerLevel": 0,
+									"valuePerEchelon": 0
+								}
+							}
+						]
+					}
 				},
 				{
 					"id": "388a606e-f670-400a-8fbd-a5668a533844",
@@ -83712,8 +84232,16 @@
 												"id": "31feaa32-a701-4c9e-8402-8ef37321dd59",
 												"name": "Renown",
 												"description": "You earn 2 Renown.",
-												"type": "Text",
-												"data": null
+												"type": "Bonus",
+												"data": {
+													"field": "Renown",
+													"value": 2,
+													"valueFromController": null,
+													"valueCharacteristics": [],
+													"valueCharacteristicMultiplier": 1,
+													"valuePerLevel": 0,
+													"valuePerEchelon": 0
+												}
 											},
 											"value": 1
 										}
@@ -83808,9 +84336,34 @@
 				{
 					"id": "6b6a7373-9ce2-4337-bd25-0af29ecbd074",
 					"name": "Royal Fame",
-					"description": "Inhabitants of your domain must obey your lawful orders or suffer the consequences. Your choice of your Might or Presence increases by 1 (to a maximum of 6). You earn 2 Renown.",
-					"type": "Text",
-					"data": null
+					"description": "",
+					"type": "Multiple Features",
+					"data": {
+						"features": [
+							{
+								"id": "276940c2-329d-436d-82b1-26fa290a7364",
+								"name": "Royal Fame",
+								"description": "Inhabitants of your domain must obey your lawful orders or suffer the consequences. Your choice of your Might or Presence increases by 1 (to a maximum of 6). You earn 2 Renown.",
+								"type": "Text",
+								"data": null
+							},
+							{
+								"id": "d2cd78f6-d4f4-4861-8cbb-d69ca6d0b104",
+								"name": "Royal Fame",
+								"description": "",
+								"type": "Bonus",
+								"data": {
+									"field": "Renown",
+									"value": 2,
+									"valueFromController": null,
+									"valueCharacteristics": [],
+									"valueCharacteristicMultiplier": 1,
+									"valuePerLevel": 0,
+									"valuePerEchelon": 0
+								}
+							}
+						]
+					}
 				},
 				{
 					"id": "357c3a4d-27b0-449f-8624-077d0d03b232",
@@ -83822,9 +84375,34 @@
 				{
 					"id": "9c4613ff-4b44-486c-889b-91853910f7cd",
 					"name": "Royal Wealth",
-					"description": "Inhabitants of your domain must obey your lawful orders or suffer the consequences. Your choice of your Might or Presence increases by 1 (to a maximum of 6). You earn 2 Wealth.",
-					"type": "Text",
-					"data": null
+					"description": "",
+					"type": "Multiple Features",
+					"data": {
+						"features": [
+							{
+								"id": "c1620ec8-ecec-4175-b5cf-a3f12b82e290",
+								"name": "Royal Wealth",
+								"description": "Inhabitants of your domain must obey your lawful orders or suffer the consequences. Your choice of your Might or Presence increases by 1 (to a maximum of 6). You earn 2 Wealth.",
+								"type": "Text",
+								"data": null
+							},
+							{
+								"id": "f36f05b1-94ab-4689-b778-dfc016415232",
+								"name": "Royal Wealth",
+								"description": "",
+								"type": "Bonus",
+								"data": {
+									"field": "Wealth",
+									"value": 2,
+									"valueFromController": null,
+									"valueCharacteristics": [],
+									"valueCharacteristicMultiplier": 1,
+									"valuePerLevel": 0,
+									"valuePerEchelon": 0
+								}
+							}
+						]
+					}
 				}
 			],
 			"selectedFeatureID": ""
@@ -84032,7 +84610,7 @@
 			"name": "Jedi Padawan",
 			"description": "“Patience, young one. Let the Force guide your hand, and it will not fail you.”",
 			"echelon": 1,
-			"prerequisites": "You have the Awakened Force Sensitivity perk, and a Force-sensitive mentor takes you on as their apprentice.",
+			"prerequisites": "You show aptitude for wielding the Force, such as via the Awakened Force Sensitivity perk, and a Jedi (or similarly light-side) mentor takes you on as their apprentice.",
 			"features": [
 				{
 					"id": "df528602-56ca-462c-952a-006450c6fb5b",
@@ -84139,15 +84717,29 @@
 					"id": "fc043374-93eb-4657-b5ef-b5be103bd5be",
 					"name": "Calming Presence",
 					"description": "The Force flows through you as a calming presence. You gain an edge on tests made to calm or tame nonsapient creatures.",
-					"type": "Text",
-					"data": null
+					"type": "Roll Modifier",
+					"data": {
+						"modifier": "Edge",
+						"rollType": "Test",
+						"skills": [],
+						"skillLists": [],
+						"characteristics": [],
+						"condition": "Calming or taming nonsapient creatures"
+					}
 				},
 				{
 					"id": "7d2221eb-3fad-4c77-91cb-de9c09d3ae69",
 					"name": "Peacekeeper",
 					"description": "You have a double edge on tests made to stop combat and start a negotiation.",
-					"type": "Text",
-					"data": null
+					"type": "Roll Modifier",
+					"data": {
+						"modifier": "Double Edge",
+						"rollType": "Test",
+						"skills": [],
+						"skillLists": [],
+						"characteristics": [],
+						"condition": "Stopping combat and starting a negotiation"
+					}
 				}
 			],
 			"selectedFeatureID": ""
@@ -84300,9 +84892,39 @@
 				{
 					"id": "262c7b4f-1ce5-4406-8af9-4437fd0fd996",
 					"name": "Perfect Balance",
-					"description": "You have found the still point between light and dark, and neither can pull you off centre. You have psychic immunity 10, creatures can’t use magic or psionic abilities or other effects to determine your location or read your thoughts unless you allow them to, and you gain a +3 bonus to stability against magic or psionic abilities.",
-					"type": "Text",
-					"data": null
+					"description": "",
+					"type": "Multiple Features",
+					"data": {
+						"features": [
+							{
+								"id": "07441ac2-d13c-4935-9934-d8469ea31125",
+								"name": "Perfect Balance",
+								"description": "You have found the still point between light and dark, and neither can pull you off centre. You have psychic immunity 10, creatures can’t use magic or psionic abilities or other effects to determine your location or read your thoughts unless you allow them to, and you gain a +3 bonus to stability against magic or psionic abilities.",
+								"type": "Text",
+								"data": null
+							},
+							{
+								"id": "903a8557-3f77-438e-94bb-94f2db4e5ad5",
+								"name": "Perfect Balance",
+								"description": "",
+								"type": "Damage Modifier",
+								"data": {
+									"modifiers": [
+										{
+											"damageType": "Psychic",
+											"type": "Immunity",
+											"value": 10,
+											"valueFromController": null,
+											"valueCharacteristics": [],
+											"valueCharacteristicMultiplier": 1,
+											"valuePerLevel": 0,
+											"valuePerEchelon": 0
+										}
+									]
+								}
+							}
+						]
+					}
 				},
 				{
 					"id": "b3a0aebe-a56b-4916-af3a-90724772f763",
@@ -84331,16 +84953,65 @@
 				{
 					"id": "4827b51f-5f97-4773-a4eb-8bc5dd5a53fb",
 					"name": "Unshakable Calm",
-					"description": "Decades of discipline have made your mind a still pool that nothing can disturb. You have psychic immunity 10, creatures can’t use magic or psionic abilities or other effects to determine your location or read your thoughts unless you allow them to, and you gain a +3 bonus to stability against magic or psionic abilities.",
-					"type": "Text",
-					"data": null
+					"description": "",
+					"type": "Multiple Features",
+					"data": {
+						"features": [
+							{
+								"id": "109ec9b3-f668-481b-b2d9-a4e35f0f57d0",
+								"name": "Unshakable Calm",
+								"description": "Decades of discipline have made your mind a still pool that nothing can disturb. You have psychic immunity 10, creatures can’t use magic or psionic abilities or other effects to determine your location or read your thoughts unless you allow them to, and you gain a +3 bonus to stability against magic or psionic abilities.",
+								"type": "Text",
+								"data": null
+							},
+							{
+								"id": "a9c5b39e-bec6-421a-a053-4f8809fb27d8",
+								"name": "Unshakable Calm",
+								"description": "",
+								"type": "Damage Modifier",
+								"data": {
+									"modifiers": [
+										{
+											"damageType": "Psychic",
+											"type": "Immunity",
+											"value": 10,
+											"valueFromController": null,
+											"valueCharacteristics": [],
+											"valueCharacteristicMultiplier": 1,
+											"valuePerLevel": 0,
+											"valuePerEchelon": 0
+										}
+									]
+								}
+							}
+						]
+					}
 				},
 				{
 					"id": "805b17b3-7e58-4920-b63b-27d4d6112e29",
 					"name": "Hold the Line",
 					"description": "While you’re within 5 squares of an ally, you and each ally within 5 squares of you gains a +3 bonus to stability.",
-					"type": "Text",
-					"data": null
+					"type": "Toggle",
+					"data": {
+						"condition": "You are within 5 squares of an ally",
+						"featureChecked": {
+							"id": "06dae8ad-d059-4477-9278-ec1e8e624eb1",
+							"name": "Hold the Line",
+							"description": "",
+							"type": "Bonus",
+							"data": {
+								"field": "Stability",
+								"value": 3,
+								"valueFromController": null,
+								"valueCharacteristics": [],
+								"valueCharacteristicMultiplier": 1,
+								"valuePerLevel": 0,
+								"valuePerEchelon": 0
+							}
+						},
+						"featureUnchecked": null,
+						"checked": false
+					}
 				}
 			],
 			"selectedFeatureID": ""
@@ -84350,7 +85021,7 @@
 			"name": "Sith Acolyte",
 			"description": "“Embrace what you fear, and it will make you strong. Now — begin.”",
 			"echelon": 1,
-			"prerequisites": "You have the Awakened Force Sensitivity perk, and a Sith (or similarly dark-side) master takes you on as their student — willingly or not.",
+			"prerequisites": "You show aptitude for wielding the Force, such as via the Awakened Force Sensitivity perk, and a Sith (or similarly dark-side) master takes you on as their student — willingly or not.",
 			"features": [
 				{
 					"id": "bbae9344-46c4-49c3-ad8f-e6be413ef01e",
@@ -84492,16 +85163,65 @@
 				{
 					"id": "4256ce2a-6ca3-400b-9eaa-2885cb7eeb09",
 					"name": "Ultimate Power",
-					"description": "The dark side has swollen within you until no other mind can find a way in. You have psychic immunity 10, creatures can’t use magic or psionic abilities or other effects to determine your location or read your thoughts unless you allow them to, and you gain a +3 bonus to stability against magic or psionic abilities.",
-					"type": "Text",
-					"data": null
+					"description": "",
+					"type": "Multiple Features",
+					"data": {
+						"features": [
+							{
+								"id": "ee39a09c-5fe0-4ebf-a9bf-3786c3cb52de",
+								"name": "Ultimate Power",
+								"description": "The dark side has swollen within you until no other mind can find a way in. You have psychic immunity 10, creatures can’t use magic or psionic abilities or other effects to determine your location or read your thoughts unless you allow them to, and you gain a +3 bonus to stability against magic or psionic abilities.",
+								"type": "Text",
+								"data": null
+							},
+							{
+								"id": "1934ec4e-6a1b-4d1e-8efe-9fc9229487cb",
+								"name": "Ultimate Power",
+								"description": "",
+								"type": "Damage Modifier",
+								"data": {
+									"modifiers": [
+										{
+											"damageType": "Psychic",
+											"type": "Immunity",
+											"value": 10,
+											"valueFromController": null,
+											"valueCharacteristics": [],
+											"valueCharacteristicMultiplier": 1,
+											"valuePerLevel": 0,
+											"valuePerEchelon": 0
+										}
+									]
+								}
+							}
+						]
+					}
 				},
 				{
 					"id": "315bd918-448a-4d8a-8756-e028462e0b13",
 					"name": "Dark Lore",
-					"description": "You know Sith (Old Tongue), and your understanding of the dark side helps you create irresistible effects. The potencies of your magic or psionic abilities that target Reason, Intuition, or Presence increase by 1.",
-					"type": "Text",
-					"data": null
+					"description": "",
+					"type": "Multiple Features",
+					"data": {
+						"features": [
+							{
+								"id": "36fc7556-c75f-480e-9bab-d436c42e4801",
+								"name": "Dark Lore",
+								"description": "",
+								"type": "Language",
+								"data": {
+									"language": "Sith (Old Tongue)"
+								}
+							},
+							{
+								"id": "734c62d4-8e43-4004-8e3f-aa40a38f5dd3",
+								"name": "Dark Lore",
+								"description": "You know Sith (Old Tongue), and your understanding of the dark side helps you create irresistible effects. The potencies of your magic or psionic abilities that target Reason, Intuition, or Presence increase by 1.",
+								"type": "Text",
+								"data": null
+							}
+						]
+					}
 				},
 				{
 					"id": "fe4c4331-9b4d-49b5-aebb-bd375f390ff5",
@@ -84509,6 +85229,259 @@
 					"description": "While you are winded, your strikes gain a +5 damage bonus.",
 					"type": "Text",
 					"data": null
+				}
+			],
+			"selectedFeatureID": ""
+		},
+		{
+			"id": "41bb89b5-d6b4-432a-896d-f0d45c1de5ea",
+			"name": "Safeguarded",
+			"description": "“They bleed for me because I bleed for them. This fight belongs to all of us!”",
+			"echelon": 1,
+			"prerequisites": "You earn a noble rank, or earn the favor of a knightly order or warrior clan.",
+			"features": [
+				{
+					"id": "92fe8ec1-54db-45a7-b2a8-0456045bc712",
+					"name": "Effect",
+					"description": "You start combat encounters with a squad of three minions from the specific monster band or people you earned this title from. The squad takes their turn as a part of your turn. On the squad’s turn, they can take a move action and either a main action or a maneuver.\n\n**Special:** If two or more heroes in the party have this title from the same source, the party starts combat encounters with a squad of six minions instead. At the start of each round of combat, the heroes decide who controls the squad as a part of their turn.",
+					"type": "Text",
+					"data": null
+				}
+			],
+			"selectedFeatureID": ""
+		},
+		{
+			"id": "152c7001-25a9-4766-9913-74a42697fbc5",
+			"name": "Gatewright",
+			"description": "“Let’s find out who’s on the other side of the gate.”",
+			"echelon": 2,
+			"prerequisites": "You complete a ritual to summon a non-minion entity using a summoning sigil or beacon you set yourself.",
+			"features": [
+				{
+					"id": "2e272785-7528-4689-aab9-820533d6c195",
+					"name": "Quick Gate",
+					"description": "As a maneuver, you can etch a command sigil or plant a beacon in an adjacent square on the ground. Until the end of the encounter, you can use magic abilities and treat your Command Range as if you were in that space. Each time you set a new sigil or beacon, your last one goes dark and becomes inactive.",
+					"type": "Text",
+					"data": null
+				},
+				{
+					"id": "91668c73-e447-4bf4-a6bc-b97f674f4709",
+					"name": "Ritual Sigil",
+					"description": "As a respite activity, you can draw a minor summoning sigil to temporarily call forth a creature you’ve contacted previously, regardless of galaxy. If the creature is willing and able to answer your call, they appear to you for the remainder of the respite. You can ask the creature for information or a service in exchange for ending the respite with two fewer Recoveries or a demand of their choosing. If the creature doesn’t appear, you can choose to take a different respite activity.",
+					"type": "Text",
+					"data": null
+				},
+				{
+					"id": "31e10b62-bde3-4fae-8cc3-2d8a2d14b067",
+					"name": "Sigil Eye",
+					"description": "You have an edge on tests made to identify summoning sigils and beacons and who or where they’re connected to. You also have an edge on strikes made against creatures not native to the galaxy in which you’re currently located.",
+					"type": "Multiple Features",
+					"data": {
+						"features": [
+							{
+								"id": "072da216-e3b7-40cb-bbeb-26715dca3b8e",
+								"name": "Sigil Eye",
+								"description": "",
+								"type": "Roll Modifier",
+								"data": {
+									"modifier": "Edge",
+									"rollType": "Test",
+									"skills": [],
+									"skillLists": [],
+									"characteristics": [],
+									"condition": "Identifying summoning sigils and beacons and who or where they’re connected to"
+								}
+							},
+							{
+								"id": "a12b2f89-0944-4612-b160-962b8af79544",
+								"name": "Sigil Eye",
+								"description": "",
+								"type": "Roll Modifier",
+								"data": {
+									"modifier": "Edge",
+									"rollType": "Strike",
+									"skills": [],
+									"skillLists": [],
+									"characteristics": [],
+									"condition": "Against creatures not native to the galaxy in which you’re currently located"
+								}
+							}
+						]
+					}
+				}
+			],
+			"selectedFeatureID": ""
+		},
+		{
+			"id": "36a7a82c-67ce-44ac-8843-ecc6b9e76ddd",
+			"name": "Legion Successor",
+			"description": "“When their commander fell, they started taking my orders. I never asked why.”",
+			"echelon": 2,
+			"prerequisites": "You can’t use the Call Forth ability, and you defeat a leader or solo creature with a Summon or Call Forth ability, such as a droid fleet commander.",
+			"features": [
+				{
+					"id": "4e148b05-8af4-425e-a9ac-a5ab0ee1f2b2",
+					"name": "Effect",
+					"description": "Choose a signature minion from a Legion-Master’s portfolio that shares a keyword with one of the creatures the Legion-Master could summon. You can summon three of that minion into a single squad (up to a maximum of four creatures) at the start of each of your turns in combat. The distance you can command them is equal to your ranged free strike distance. You also gain the Strike For Me triggered action, which now has the Psionic keyword and loses the Magic keyword.\n\nAdditionally, you can summon up to two of your signature minion while outside of combat to do simple tasks.",
+					"type": "Text",
+					"data": null
+				}
+			],
+			"selectedFeatureID": ""
+		},
+		{
+			"id": "f6b136ca-d8e7-48f2-9126-7b959d853953",
+			"name": "Ringleader",
+			"description": "“Don’t worry. I know a guy.”",
+			"echelon": 3,
+			"prerequisites": "You complete three downtime projects during the same respite with the help of followers or minions.",
+			"features": [
+				{
+					"id": "8a2d8829-9916-4080-80c4-2b5eba4e0a79",
+					"name": "Ringleader",
+					"description": "Effect, Option",
+					"type": "Multiple Features",
+					"data": {
+						"features": [
+							{
+								"id": "4cc76636-7d50-4160-b3de-1f6ae8808b19",
+								"name": "Effect",
+								"description": "You no longer need line of effect to give commands to any minions you can summon. Additionally, choose one of the following benefits:",
+								"type": "Text",
+								"data": null
+							},
+							{
+								"id": "5bdffa83-9a26-48cc-b335-6d5a56a842bc",
+								"name": "Option",
+								"description": "",
+								"type": "Choice",
+								"data": {
+									"options": [
+										{
+											"feature": {
+												"id": "0afc9ad9-0e8e-4b69-98f9-5658d9ceb91f",
+												"name": "For the Boss",
+												"description": "Your followers gain a +3 bonus to project rolls that they make.",
+												"type": "Text",
+												"data": null
+											},
+											"value": 1
+										},
+										{
+											"feature": {
+												"id": "0bfc11e3-6b51-4060-89e9-33cbef41ec4b",
+												"name": "Networker",
+												"description": "Your maximum follower count increases by 1.",
+												"type": "Text",
+												"data": null
+											},
+											"value": 1
+										},
+										{
+											"feature": {
+												"id": "c81aefef-6f68-450b-8c0e-f9fde18636fd",
+												"name": "Stringpuller",
+												"description": "While occupying a settled area (such as a settlement, spaceport, district, or city), you always have access to a follower native to the location. If the area is otherwise hostile to you, this follower is a spy in hiding who has any project points they earn halved.",
+												"type": "Text",
+												"data": null
+											},
+											"value": 1
+										}
+									],
+									"count": 1,
+									"selectAt": "build",
+									"selected": []
+								}
+							}
+						]
+					}
+				}
+			],
+			"selectedFeatureID": ""
+		},
+		{
+			"id": "419e2979-55ea-4642-a613-c653cd5dbab3",
+			"name": "Delegator",
+			"description": "“They’re all yours, buddy.”",
+			"echelon": 4,
+			"prerequisites": "You are a Legion-Master, and you strike a deal with your portfolio’s champion.",
+			"features": [
+				{
+					"id": "03097f94-31bf-44d7-8f62-a136a2c22c73",
+					"name": "Effect",
+					"description": "At the start of a combat encounter, you can choose to translate yourself to your legion’s point of origin while your champion fights and summons minions in your place. The champion uses your Stamina, Recoveries, abilities, and features (except for your Command Strike and Legion Kit). You can dismiss the champion and summon yourself back into the place you left at the end of an encounter.\n\nIf your champion would die while taking your place, you lose access to your Return to the Source feature and can only summon signature minions until you revive your champion as a respite activity.",
+					"type": "Text",
+					"data": null
+				}
+			],
+			"selectedFeatureID": ""
+		},
+		{
+			"id": "93587f5b-19cb-4885-9309-2033e6c76194",
+			"name": "High Legion-Master",
+			"description": "“As I was taught, so I pass on to you.”",
+			"echelon": 4,
+			"prerequisites": "You are a Legion-Master, and you teach someone how to call forth two or more minions from your portfolio.",
+			"features": [
+				{
+					"id": "481e2290-b16c-49b1-b7e8-c3d71dbd6f18",
+					"name": "High Legion-Master",
+					"description": "Effect, Option",
+					"type": "Multiple Features",
+					"data": {
+						"features": [
+							{
+								"id": "6a821163-844d-4fa7-a0e3-a264147f46bf",
+								"name": "Effect",
+								"description": "You are considered a master that can be learned from using the Learn from a Master downtime project. Anyone that makes a project roll using you as the source gains a bonus to their roll equal to your Reason. Additionally, choose one of the following benefits:",
+								"type": "Text",
+								"data": null
+							},
+							{
+								"id": "631a0aa9-f6e3-42e8-a420-6d7a86bf0898",
+								"name": "Option",
+								"description": "",
+								"type": "Choice",
+								"data": {
+									"options": [
+										{
+											"feature": {
+												"id": "94c63145-00ca-464d-8626-3286e0be1345",
+												"name": "Essence Mastery",
+												"description": "Your minions cost one fewer essence to summon (minimum cost of 1 essence).",
+												"type": "Text",
+												"data": null
+											},
+											"value": 1
+										},
+										{
+											"feature": {
+												"id": "9cb16889-53d9-4244-8b47-ad41320ccdae",
+												"name": "Expanded Domain",
+												"description": "Your Command Range increases by 5. You can use your minions’ senses as your own as long as they’re in the same galaxy as you.",
+												"type": "Text",
+												"data": null
+											},
+											"value": 1
+										},
+										{
+											"feature": {
+												"id": "655b1a5f-974d-4396-8891-479a84e39d2d",
+												"name": "Signature Muster",
+												"description": "Select a 3-Essence minion you can Call Forth. At the start of each of your turns in combat, you summon the set number of minions listed on the stat block in place of your signature minions at no cost.",
+												"type": "Text",
+												"data": null
+											},
+											"value": 1
+										}
+									],
+									"count": 1,
+									"selectAt": "build",
+									"selected": []
+								}
+							}
+						]
+					}
 				}
 			],
 			"selectedFeatureID": ""
